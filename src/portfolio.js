@@ -11,7 +11,7 @@ const seo = {
   description:
     "Environmental researcher and computational specialist with a PhD in Environmental Sciences, specializing in advanced Python, 3D data processing, and machine learning applied to natural hazards.",
   og: {
-    title: "Thomas Bernard Portfolio",
+    title: "Thomas Bernard's Portfolio",
     type: "website",
     url: "https://thomasgbernard.github.io/",
   },
@@ -21,7 +21,7 @@ const seo = {
 const greeting = {
   title: "Thomas Bernard",
   logo_name: "ThomasBernard",
-  nickname: "",
+  nickname: "tomas",
   subTitle:
     "Environmental researcher and computational specialist with a PhD in Environmental Sciences, specializing in advanced Python, 3D data processing, and machine learning applied to natural hazards.",
   resumeLink:

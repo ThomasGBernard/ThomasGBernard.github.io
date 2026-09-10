@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.089d7466.chunk.css",
-    "main.js": "/static/js/main.796fa940.chunk.js",
-    "main.js.map": "/static/js/main.796fa940.chunk.js.map",
+    "main.css": "/static/css/main.21a707b1.chunk.css",
+    "main.js": "/static/js/main.a11bc6f3.chunk.js",
+    "main.js.map": "/static/js/main.a11bc6f3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2781e2dc.js",
     "runtime-main.js.map": "/static/js/runtime-main.2781e2dc.js.map",
-    "static/js/2.ecc63c0e.chunk.js": "/static/js/2.ecc63c0e.chunk.js",
-    "static/js/2.ecc63c0e.chunk.js.map": "/static/js/2.ecc63c0e.chunk.js.map",
+    "static/js/2.d56deaa3.chunk.js": "/static/js/2.d56deaa3.chunk.js",
+    "static/js/2.d56deaa3.chunk.js.map": "/static/js/2.d56deaa3.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.79a1697e1419de7784858d6b151c4aa7.js": "/precache-manifest.79a1697e1419de7784858d6b151c4aa7.js",
+    "precache-manifest.78141a756944507bd0bb77ca86ba97b3.js": "/precache-manifest.78141a756944507bd0bb77ca86ba97b3.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.089d7466.chunk.css.map": "/static/css/main.089d7466.chunk.css.map",
+    "static/css/main.21a707b1.chunk.css.map": "/static/css/main.21a707b1.chunk.css.map",
+    "static/media/3d_geoacademy_logo.png": "/static/media/3d_geoacademy_logo.fc5756cf.png",
     "static/media/index.css": "/static/media/Montserrat-Regular.ee653992.ttf",
-    "static/media/Ashutosh_Hathidara_Resume_ML.pdf": "/static/media/Ashutosh_Hathidara_Resume_ML.bad37978.pdf",
+    "static/media/Curriculum_Thomas_Bernard.pdf": "/static/media/Curriculum_Thomas_Bernard.30fba240.pdf",
+    "static/media/Logo_Rennes_transp.png": "/static/media/Logo_Rennes_transp.cf3533e6.png",
+    "static/media/Logo_Trento.png": "/static/media/Logo_Trento.edccc0a4.png",
+    "static/media/Logo_Trento_transp.png": "/static/media/Logo_Trento_transp.72ea8cd8.png",
     "static/media/address_image.svg": "/static/media/address_image.16559172.svg",
     "static/media/animated_ashutosh.png": "/static/media/animated_ashutosh.eaf02c2d.png",
     "static/media/animated_logo.svg": "/static/media/animated_logo.dcd6dee2.svg",
@@ -39,10 +43,12 @@
     "static/media/iu_logo.png": "/static/media/iu_logo.60ed0bd3.png",
     "static/media/jsFramework.svg": "/static/media/jsFramework.5b4a6449.svg",
     "static/media/legato_logo.png": "/static/media/legato_logo.c597fbde.png",
+    "static/media/logo_GEOSCIENCES_rennes.jpg": "/static/media/logo_GEOSCIENCES_rennes.28f3d676.jpg",
     "static/media/manOnTable.svg": "/static/media/manOnTable.83ac24fb.svg",
     "static/media/muffito_logo.png": "/static/media/muffito_logo.069938a8.png",
     "static/media/nptel_logo.png": "/static/media/nptel_logo.95a12a2b.png",
     "static/media/portfolio.gif": "/static/media/portfolio.414dfbd9.gif",
+    "static/media/profil_1.jpg": "/static/media/profil_1.8aa63b87.jpg",
     "static/media/programmer.svg": "/static/media/programmer.5faf790b.svg",
     "static/media/projects_image.svg": "/static/media/projects_image.b8ba9487.svg",
     "static/media/pwa.png": "/static/media/pwa.71408db7.png",
@@ -50,12 +56,13 @@
     "static/media/talksCardBack.svg": "/static/media/talksCardBack.6ac91b16.svg",
     "static/media/talksCardBackAlt.svg": "/static/media/talksCardBackAlt.3fa54242.svg",
     "static/media/tiktok_logo.png": "/static/media/tiktok_logo.0993e324.png",
-    "static/media/ui_ux_design.svg": "/static/media/ui_ux_design.d6363089.svg"
+    "static/media/ui_ux_design.svg": "/static/media/ui_ux_design.d6363089.svg",
+    "static/media/vesta_energy.jpg": "/static/media/vesta_energy.90214a4e.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.2781e2dc.js",
-    "static/js/2.ecc63c0e.chunk.js",
-    "static/css/main.089d7466.chunk.css",
-    "static/js/main.796fa940.chunk.js"
+    "static/js/2.d56deaa3.chunk.js",
+    "static/css/main.21a707b1.chunk.css",
+    "static/js/main.a11bc6f3.chunk.js"
   ]
 }

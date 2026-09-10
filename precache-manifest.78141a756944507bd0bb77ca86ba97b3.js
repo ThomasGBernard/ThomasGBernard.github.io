@@ -1,31 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9025e3cf12b6f9954546a49e855b9bec",
+    "revision": "882c60c7fa809606ebc265fbc1d9d711",
     "url": "/index.html"
   },
   {
-    "revision": "d138de7ecb95785c0093",
-    "url": "/static/css/main.089d7466.chunk.css"
+    "revision": "1bd565883a3c9cfeaa4a",
+    "url": "/static/css/main.21a707b1.chunk.css"
   },
   {
-    "revision": "1ad8116af1df160b4ceb",
-    "url": "/static/js/2.ecc63c0e.chunk.js"
+    "revision": "579218cdb4cb3d26334c",
+    "url": "/static/js/2.d56deaa3.chunk.js"
   },
   {
-    "revision": "d138de7ecb95785c0093",
-    "url": "/static/js/main.796fa940.chunk.js"
+    "revision": "1bd565883a3c9cfeaa4a",
+    "url": "/static/js/main.a11bc6f3.chunk.js"
   },
   {
     "revision": "f4163cc1361175add5e6",
     "url": "/static/js/runtime-main.2781e2dc.js"
   },
   {
+    "revision": "fc5756cf28f4147f1672a98648d1c258",
+    "url": "/static/media/3d_geoacademy_logo.fc5756cf.png"
+  },
+  {
     "revision": "21f233e19402cc4a66866a7f31191f0d",
     "url": "/static/media/Agustina.21f233e1.woff"
   },
   {
-    "revision": "bad3797865a0fde6fe985fd2b44b8554",
-    "url": "/static/media/Ashutosh_Hathidara_Resume_ML.bad37978.pdf"
+    "revision": "30fba2405a990135f511dbf2498a0034",
+    "url": "/static/media/Curriculum_Thomas_Bernard.30fba240.pdf"
   },
   {
     "revision": "4457817ac2b9993c65e81aa05828fe9c",
@@ -50,6 +54,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b5c77a6aed75cdad9489effd0d5ea411",
     "url": "/static/media/GoogleSans-Regular.b5c77a6a.ttf"
+  },
+  {
+    "revision": "cf3533e66b9dee1b91cd21baaf6af46a",
+    "url": "/static/media/Logo_Rennes_transp.cf3533e6.png"
+  },
+  {
+    "revision": "edccc0a49dd4ed3e07db22cd0d80bf19",
+    "url": "/static/media/Logo_Trento.edccc0a4.png"
+  },
+  {
+    "revision": "72ea8cd804d83a6475a3f840ec435bfe",
+    "url": "/static/media/Logo_Trento_transp.72ea8cd8.png"
   },
   {
     "revision": "ee6539921d713482b8ccd4d0d23961bb",
@@ -216,6 +232,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/legato_logo.c597fbde.png"
   },
   {
+    "revision": "28f3d6761c70c07f28cb80c92186fdda",
+    "url": "/static/media/logo_GEOSCIENCES_rennes.28f3d676.jpg"
+  },
+  {
     "revision": "83ac24fb968a474c6a63f7a4e9a8f62c",
     "url": "/static/media/manOnTable.83ac24fb.svg"
   },
@@ -230,6 +250,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "414dfbd98516b39255a3e22ed90b3f7d",
     "url": "/static/media/portfolio.414dfbd9.gif"
+  },
+  {
+    "revision": "8aa63b872cc0957c3ff418f10aa784f7",
+    "url": "/static/media/profil_1.8aa63b87.jpg"
   },
   {
     "revision": "5faf790badc18fa9030f94836ece1df1",
@@ -262,5 +286,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "d63630893eb8cb64af65f395d393c481",
     "url": "/static/media/ui_ux_design.d6363089.svg"
+  },
+  {
+    "revision": "90214a4ef3689a47f1dc1a80df75bed5",
+    "url": "/static/media/vesta_energy.90214a4e.jpg"
   }
 ]);

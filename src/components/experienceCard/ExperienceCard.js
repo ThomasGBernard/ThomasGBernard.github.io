@@ -103,10 +103,43 @@ class ExperienceCard extends Component {
                   display: "flex",
                   justifyContent: "flex-start",
                   marginTop: 20,
+                  flexDirection: "column",
+                  alignItems: "flex-start",
                 }}
               >
                 <div className="repo-description" />
-                {experience["description"]}
+
+                {/* 1. Cas du tableau 'descriptions' (Méthode 2) */}
+                {Array.isArray(experience["descriptions"]) ? (
+                  <ul style={{ paddingLeft: 20, margin: 0, textAlign: "left" }}>
+                    {experience["descriptions"].map((sentence, i) => (
+                      <li
+                        key={i}
+                        style={{
+                          color: theme.text,
+                          marginTop: 6,
+                          marginBottom: 6,
+                          display: "list-item", // Force l'affichage en ligne de puce verticale
+                          listStyleType: "disc",
+                        }}
+                      >
+                        {sentence}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  /* 2. Cas du texte simple avec sauts de ligne \n */
+                  <p
+                    style={{
+                      color: theme.text,
+                      whiteSpace: "pre-line", // Lit le caractère \n pour sauter à la ligne
+                      margin: 0,
+                      textAlign: "left",
+                    }}
+                  >
+                    {experience["description"]}
+                  </p>
+                )}
               </div>
             </div>
           </div>

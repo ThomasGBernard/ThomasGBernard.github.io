@@ -2,7 +2,7 @@
 
 // Website related settings
 const settings = {
-  isSplash: true, // Change this to false if you don't want Splash screen.
+  isSplash: false, // Change this to false if you don't want Splash screen.
 };
 
 //SEO Related settings
@@ -21,7 +21,7 @@ const seo = {
 const greeting = {
   title: "Thomas Bernard",
   logo_name: "ThomasBernard",
-  nickname: "tomas",
+  nickname: "3D AI Architect | Environmental Engineer",
   subTitle:
     "Environmental researcher and computational specialist with a PhD in Environmental Sciences, specializing in advanced Python, 3D data processing, and machine learning applied to natural hazards.",
   resumeLink:
@@ -55,7 +55,7 @@ const socialMediaLinks = [
   },
   {
     name: "Gmail",
-    link: "thomas.bernard.consulting@gmail.com",
+    link: "mailto:thomas.bernard.consulting@gmail.com",
     fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands
     backgroundColor: "#D14836", // Reference https://simpleicons.org/?q=gmail
   },
@@ -357,30 +357,30 @@ const competitiveSites = {
 const degrees = {
   degrees: [
     {
-      title: "Indian Institute of Information Technology Kurnool",
-      subtitle: "B.Tech. in Computer Engineering",
-      logo_path: "iiitk_logo.png",
-      alt_name: "IIITDM Kurnool",
-      duration: "2016 - 2020",
+      title: "PhD in Environmental Sciences",
+      subtitle: "University of Rennes (Géosciences Rennes) - France ",
+      logo_path: "Logo_Rennes_transp.png",
+      alt_name: "UniRennes",
+      duration: "2018 - 2022",
       descriptions: [
         "⚡ I have studied basic software engineering subjects like DS, Algorithms, DBMS, OS, CA, AI etc.",
         "⚡ Apart from this, I have done courses on Deep Learning, Data Science, Cloud Computing and Full Stack Development.",
         "⚡ I was selected for Merit cum Means Scholarship which is given to top 10% of students in college. I have received award from respected director for consistently best performance in academics.",
       ],
-      website_link: "http://iiitk.ac.in",
+      website_link: "https://geosciences.univ-rennes.fr/en",
     },
     {
-      title: "Indiana University Bloomington",
-      subtitle: "M.S. in Computer Science",
-      logo_path: "iu_logo.png",
-      alt_name: "Indiana University Bloomington",
-      duration: "2021 - 2023",
+      title: "M.S. in Earth and Environmental Sciences",
+      subtitle: "University of Rennes - France",
+      logo_path: "Logo_Rennes_transp.png",
+      alt_name: "UniRennes",
+      duration: "2016 - 2018",
       descriptions: [
         "⚡ I have taken varity of courses related to Artificial Intelligence which correspond to Explainable AI, Graph Machine Learning, Computer Vision etc.",
         "⚡ Apart from this, I have also done research assistantship. As part of it, I have worked on creating new algorithms in Graph ML and Network Science.",
         "⚡ During my time at university, I was also associated with multimedia department. As part of it, I have worked on some documentry films and interviews.",
       ],
-      website_link: "https://www.indiana.edu/",
+      website_link: "https://www.univ-rennes.fr/en",
     },
   ],
 };
@@ -388,112 +388,12 @@ const degrees = {
 const certifications = {
   certifications: [
     {
-      title: "Machine Learning",
-      subtitle: "- Andrew Ng",
-      logo_path: "stanford_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/22MTSSC5WDTM",
-      alt_name: "Stanford University",
+      title: "3D data processing with Machine & Deep Learning",
+      subtitle: "- Dr. Florent Poux",
+      logo_path: "3d_geoacademy_logo.png",
+      certificate_link: "https://learngeodata.eu/",
+      alt_name: "Dr. Florent Poux",
       color_code: "#8C151599",
-    },
-    {
-      title: "Deep Learning",
-      subtitle: "- Andrew Ng",
-      logo_path: "deeplearning_ai_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/specialization/H8CPSFXAJD2G",
-      alt_name: "deeplearning.ai",
-      color_code: "#00000099",
-    },
-    {
-      title: "ML on GCP",
-      subtitle: "- GCP Training",
-      logo_path: "google_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/specialization/EB4VJARK8647",
-      alt_name: "Google",
-      color_code: "#0C9D5899",
-    },
-    {
-      title: "Data Science",
-      subtitle: "- Alex Aklson",
-      logo_path: "ibm_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/specialization/PLEAPCSJBZT5",
-      alt_name: "IBM",
-      color_code: "#1F70C199",
-    },
-    {
-      title: "Big Data",
-      subtitle: "- Kim Akers",
-      logo_path: "microsoft_logo.png",
-      certificate_link:
-        "https://drive.google.com/file/d/164zKCFOsI4vGqokc-Qj-e_D00kLDHIrG/view",
-      alt_name: "Microsoft",
-      color_code: "#D83B0199",
-    },
-    {
-      title: "Advanced Data Science",
-      subtitle: "- Romeo Kienzler",
-      logo_path: "ibm_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/BH2T9BRU87BH",
-      alt_name: "IBM",
-      color_code: "#1F70C199",
-    },
-    {
-      title: "Advanced ML on GCP",
-      subtitle: "- GCP Training",
-      logo_path: "google_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/5JZZM7TNQ2AV",
-      alt_name: "Google",
-      color_code: "#0C9D5899",
-    },
-    {
-      title: "DL on Tensorflow",
-      subtitle: "- Laurence Moroney",
-      logo_path: "deeplearning_ai_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/6T4DCUGNK8J8",
-      alt_name: "deeplearning.ai",
-      color_code: "#00000099",
-    },
-    {
-      title: "Fullstack Development",
-      subtitle: "- Jogesh Muppala",
-      logo_path: "coursera_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/certificate/NRANJA66Y2YA",
-      alt_name: "Coursera",
-      color_code: "#2A73CC",
-    },
-    {
-      title: "Kuberenetes on GCP",
-      subtitle: "- Qwiklabs",
-      logo_path: "gcp_logo.png",
-      certificate_link:
-        "https://google.qwiklabs.com/public_profiles/e4d5a92b-faf6-4679-a70b-a9047c0cd750",
-      alt_name: "GCP",
-      color_code: "#4285F499",
-    },
-    {
-      title: "Cryptography",
-      subtitle: "- Saurabh Mukhopadhyay",
-      logo_path: "nptel_logo.png",
-      certificate_link:
-        "https://drive.google.com/open?id=1z5ExD_QJVdU0slLkp8CBqSF3-C3g-ro_",
-      alt_name: "NPTEL",
-      color_code: "#FFBB0099",
-    },
-    {
-      title: "Cloud Architecture",
-      subtitle: "- Qwiklabs",
-      logo_path: "gcp_logo.png",
-      certificate_link:
-        "https://google.qwiklabs.com/public_profiles/5fab4b2d-be6f-408c-8dcb-6d3b58ecb4a2",
-      alt_name: "GCP",
-      color_code: "#4285F499",
     },
   ],
 };
@@ -503,7 +403,7 @@ const experience = {
   title: "Experience",
   subtitle: "Work, Internship and Volunteership",
   description:
-    "I have worked with many evolving startups as ML and DL Developer, Designer and Software Architect. I have also worked with some well established companies mostly as AI Developer. I love organising events and that is why I am also involved with many opensource communities as a representative.",
+    "I began my career in academia as a geospatial engineer and researcher at the University of Rennes, where I earned my PhD in Environmental Sciences. I then expanded my international experience as a postdoctoral researcher in hydromorphology at the University of Trento, before transitioning to the private sector as a hydraulic engineering consultant for Vesta Energy. Today, I work as a 3D AI Architect, combining my foundational expertise in natural hazards with advanced machine and deep learning techniques applied to complex 3D datasets.",
   header_image_path: "experience.svg",
   sections: [
     {
@@ -511,47 +411,65 @@ const experience = {
       work: true,
       experiences: [
         {
-          title: "Machine Learning Engineer",
-          company: "TikTok Inc.",
+          title: "Hydraulic Modeling Engineer",
+          company: "Vesta Energy srl",
           company_url: "https://www.tiktok.com/en/",
-          logo_path: "tiktok_logo.png",
-          duration: "June 2023 - Present",
-          location: "San Jose, CA, USA",
-          description:
-            "Improving ads ranking models on the core TikTok product. Experience working on modeling two-tower architectures like DeepFM, Wide & deep learning, etc. Working on Large Language Models (LLM) pretraining and Large Multi-modal Model (LMM) finetuning strategies.",
+          logo_path: "vesta_energy.jpg",
+          duration: "Jun 2026 - Jul 2026",
+          location: "Trento, TN, Italy",
+          description: [
+            "Project: Hydraulic Compatibility Assessment (VCI) for a 23.6 MWp agrivoltaic park.\n",
+            "Description: Engineering assignment aimed at designing and certifying the safety of a solar park covering nearly 25 hectares with respect to flood risk, in strict compliance with the regulations of the Flood Risk Management Plan (PGRA).\n",
+            "Key Deliverables:\n",
+            " ⚡  Hydrodynamic Modeling: Two-dimensional simulation (using HEC-RAS) of 100-year flood events (TR 100 scenario) to map water levels and flow velocities.\n",
+            " ⚡  Compliance and safety: Determination of the hydraulic safety elevation for the equipment.\n",
+            " ⚡  Technical documentation: Preparation of engineering reports (hydrological and hydraulic reports) to demonstrate hydraulic invariance and the absence of any increase in hydraulic hazard for neighboring areas.",
+          ],
           color: "#000000",
         },
         {
-          title: "Associate AI Engineer",
-          company: "Legato Health Technology",
-          company_url: "https://legatohealthtech.com/",
-          logo_path: "legato_logo.png",
-          duration: "June 2020 - Aug 2021",
-          location: "Hyderabad, Telangana",
-          description:
-            "I am working on automating healthcare products. The projects involve automation for process improvements and for significantly enhancing the profits. I am currently working on Cancer Survival and Reoccurence Prediction. Our goal is to make AI system which scales and removes doctor dependency as much as possible.",
+          title: "Post-doc researcher in Hydromorphology",
+          company: "University of Trento",
+          company_url: "https://www.dicam.unitn.it/",
+          logo_path: "Logo_Trento_transp.png",
+          duration: "Nov 2023 - Apr 2026",
+          location: "Trento, Italy",
+          description: [
+            "⚡ Management of an applied research project in river morphodynamics\n",
+            "⚡ 1D/2D hydraulic and sediment transport modelling(numerical and physical)\n",
+            "⚡ Preparation of technical reports and coordination with international partners\n",
+            "⚡ Organization of a technical workshop on the management of Alpine rivers (planning, funding, coordination)",
+          ],
           color: "#0879bf",
         },
         {
-          title: "Android and ML Developer",
-          company: "Muffito Incorporation",
-          company_url: "https://www.linkedin.com/company/muffito-inc/about/",
-          logo_path: "muffito_logo.png",
-          duration: "May 2018 - Oct 2018",
-          location: "Pune, Maharashtra",
-          description:
-            "I have created complete Android Application for locating Pub, Bar and beverage shops around you. I have also worked on implementation of algorithms for Face Detection, Text extraction from Image. I was involved in a team for creating complete software architecure of mobile and web application as well as admin panel for company.",
+          title: "Geospatial & LiDAR Data Engineer ",
+          company: "Géosciences Rennes",
+          company_url: "https://geosciences.univ-rennes.fr/en",
+          logo_path: "logo_GEOSCIENCES_rennes.jpg",
+          duration: "Apr 2022 - Jan 2023",
+          location: "Rennes, France",
+          description: [
+            "⚡Processing and classification of topo-bathymetric LiDAR data using machine learning\n",
+            "⚡Reconstruction of river bathymetry using 2D hydraulic simulations\n",
+            "⚡Production of high-resolution digital terrain models (DTMs)\n",
+          ],
           color: "#9b1578",
         },
         {
-          title: "Android Developer",
-          company: "FreeCopy Pvt. Ltd.",
-          company_url: "https://www.linkedin.com/company/freecopy/about/",
-          logo_path: "freecopy_logo.png",
-          duration: "Nov 2017 - Dec 2017",
-          location: "Ahmedabad, Gujarat",
-          description:
-            "FreeCopy is the Start up from Indian Institute of Management, Ahmedabad. I have changed the integration of the whole app from Google to Firebase. I learnt the efﬁcient ways of Data communications like Retroﬁt, Eventbus etc. I experienced the real time start up. I learnt the Design thinking of UI on perspective of People.",
+          title: "Junior researcher in Natural-hazards and Remote sensing",
+          company: "University of Rennes",
+          company_url: "https://www.univ-rennes.fr/",
+          logo_path: "Logo_Rennes_transp.png",
+          duration: "Oct 2018 - Mar 2022",
+          location: "Rennes, France",
+          description: [
+            "⚡ 2D hydraulic simulations for floodplain mapping and risk analysis\n",
+            "⚡ Development of workflows for detecting topographic changes and landslides\n",
+            "⚡LiDAR data processing and classification\n",
+            "⚡Production of technical reports | international communication\n",
+            "⚡Teaching activity > 100hours",
+          ],
           color: "#fc1f20",
         },
       ],

@@ -1,0 +1,102 @@
+/* Structure globale de la page */
+.publications-main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: visible;
+}
+
+/* Force le premier enfant (le Header) à prendre toute la largeur de l'écran */
+.publications-main > div:first-child,
+.publications-main .header {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.publications-body-div {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Grille ou liste des publications */
+.publications-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Style des cartes de publication */
+.publication-card {
+  padding: 24px;
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Effet au survol des cartes */
+.publication-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Typographie et éléments de la carte */
+.publication-year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.publication-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.publication-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.publication-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.publication-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Adaptation pour les écrans mobiles */
+@media (max-width: 768px) {
+  .publications-body-div {
+    padding: 20px 15px;
+  }
+
+  .publication-card {
+    padding: 16px;
+  }
+
+  .publication-title {
+    font-size: 1.1rem;
+  }
+}

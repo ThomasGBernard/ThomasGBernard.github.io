@@ -195,4 +195,58 @@ export const materialTealTheme = {
   splashBg: "#05505E",
 };
 
-export const chosenTheme = materialTealTheme;
+export const lidarDarkTheme = {
+  body: "#09090b",
+  text: "#f4f4f5",
+  expTxtColor: "#ffffff",
+  highlight: "#2dd4bf",
+  dark: "#000000",
+  secondaryText: "#a1a1aa",
+  imageHighlight: "#f43f5e",
+  compImgHighlight: "#27272a",
+  jacketColor: "#27272a",
+  headerColor: "#27272a",
+  splashBg: "#09090b",
+};
+
+export const geoForestTheme = {
+  body: "#F3F4F6", // Gris très clair pour le fond global
+  text: "#064E3B", // Vert forêt profond pour le texte principal (lisibilité)
+  expTxtColor: "#111827",
+  highlight: "#34D399", // Vert vif "émeraude" (accentuation lidar/végétation)
+  dark: "#022C22", // Vert très sombre (pour les fonds contrastés)
+  secondaryText: "#374151",
+  imageHighlight: "#059669", // Vert franc (environnement/topographie)
+  compImgHighlight: "#E5E7EB",
+  jacketColor: "#E5E7EB",
+  headerColor: "#E5E7EB",
+  splashBg: "#064E3B", // Fond vert forêt pour l'écran de chargement
+};
+
+export const darkGeoAiTheme = {
+  body: "#0F172A", // Un bleu-gris "ardoise" très sombre et élégant pour le fond principal
+  text: "#F8FAFC", // Un blanc très légèrement bleuté pour une lecture confortable sans éblouir
+  expTxtColor: "#FFFFFF", // Blanc pur pour faire ressortir les textes importants
+  highlight: "#38BDF8", // Un bleu ciel lumineux et technologique pour les liens et accents
+  dark: "#020617", // Un ton presque noir pour créer de la profondeur sur certains éléments
+  secondaryText: "#94A3B8", // Un gris clair pour adoucir les sous-titres et descriptions
+  imageHighlight: "#2DD4BF", // Une touche de cyan/teal (rappelant l'affichage LiDAR/3D)
+  compImgHighlight: "#1E293B", // Gris ardoise un peu plus clair pour les cartes de compétences
+  jacketColor: "#1E293B",
+  headerColor: "#1E293B", // Fond des éléments de navigation
+  splashBg: "#0F172A", // Écran de chargement unifié avec le fond
+};
+
+export const AlpineTheme = {
+  body: "#090D16" /* Noir charbon épuré */,
+  text: "#F1F5F9" /* Blanc givre très lisible */,
+  secondaryText: "#94A3B8" /* Gris brume neutre */,
+  highlight: "#10B981" /* Vert laser émeraude pour les boutons et accents */,
+  dark: "#059669" /* Vert plus sombre pour les états actifs/survol */,
+  imageHighlight:
+    "#06B6D4" /* Cyan pour accentuer les éléments 3D/graphiques */,
+  compImgHighlight: "#151C28" /* Fond des cartes avec contraste très clean */,
+  jacketColor: "#10B981",
+  headerColor: "#07462e",
+};
+export const chosenTheme = AlpineTheme;

@@ -49,7 +49,15 @@ export default function Greeting(props) {
               <img
                 alt="photo_profil"
                 src={require("../../assets/images/profil_1.jpg")}
-                style={{ width: "70%", height: "auto" }}
+                style={{
+                  width: "70%",
+                  height: "70%",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  marginLeft: "100px",
+                  border: "1px solid white",
+                  boxShadow: "10px 4px 15px rgba(255, 255, 255, 1)",
+                }}
               ></img>
             }
           </div>

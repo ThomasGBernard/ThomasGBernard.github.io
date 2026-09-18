@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "882c60c7fa809606ebc265fbc1d9d711",
+    "revision": "dc0f474735808ad10eab793457561ac9",
     "url": "/index.html"
   },
   {
-    "revision": "1bd565883a3c9cfeaa4a",
-    "url": "/static/css/main.21a707b1.chunk.css"
+    "revision": "34f914c6bc379ab0b645",
+    "url": "/static/css/main.fb12b29d.chunk.css"
   },
   {
-    "revision": "579218cdb4cb3d26334c",
-    "url": "/static/js/2.d56deaa3.chunk.js"
+    "revision": "17363a72a98dee344b71",
+    "url": "/static/js/2.74c88231.chunk.js"
   },
   {
-    "revision": "1bd565883a3c9cfeaa4a",
-    "url": "/static/js/main.a11bc6f3.chunk.js"
+    "revision": "34f914c6bc379ab0b645",
+    "url": "/static/js/main.9727c1d1.chunk.js"
   },
   {
     "revision": "f4163cc1361175add5e6",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "30fba2405a990135f511dbf2498a0034",
     "url": "/static/media/Curriculum_Thomas_Bernard.30fba240.pdf"
+  },
+  {
+    "revision": "fc5e994c3e14c5f4209cde8e0888499c",
+    "url": "/static/media/Djoune_logo.fc5e994c.png"
   },
   {
     "revision": "4457817ac2b9993c65e81aa05828fe9c",
@@ -56,6 +60,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/GoogleSans-Regular.b5c77a6a.ttf"
   },
   {
+    "revision": "e4d20da3178e93eff5be98e794952963",
+    "url": "/static/media/Logo_Rennes.e4d20da3.png"
+  },
+  {
     "revision": "cf3533e66b9dee1b91cd21baaf6af46a",
     "url": "/static/media/Logo_Rennes_transp.cf3533e6.png"
   },
@@ -68,8 +76,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Logo_Trento_transp.72ea8cd8.png"
   },
   {
+    "revision": "323354f86d841a688031cc259f169c57",
+    "url": "/static/media/Logo_UniTours.323354f8.png"
+  },
+  {
+    "revision": "29346b4fc8aae053bca3c0c167b79280",
+    "url": "/static/media/Loire.29346b4f.JPG"
+  },
+  {
     "revision": "ee6539921d713482b8ccd4d0d23961bb",
     "url": "/static/media/Montserrat-Regular.ee653992.ttf"
+  },
+  {
+    "revision": "daa6ab30508b2b62e46e1b8a2ba64371",
+    "url": "/static/media/Trento_ptcloud.daa6ab30.png"
   },
   {
     "revision": "16559172ca1d4d552390b48f19e102ba",
@@ -86,6 +106,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "058eca4cbdc03a1dad9a6bb943ac7831",
     "url": "/static/media/blogs_image.058eca4c.svg"
+  },
+  {
+    "revision": "7a5f741367d54ca7952c22a7acededb0",
+    "url": "/static/media/case1.7a5f7413.png"
+  },
+  {
+    "revision": "d00136eb6952b7ea9bf2f630e9815454",
+    "url": "/static/media/case2.d00136eb.png"
+  },
+  {
+    "revision": "68927fc616247c27d85f13dfbc3c086d",
+    "url": "/static/media/case3.68927fc6.png"
   },
   {
     "revision": "cacbc42b661f39344af81c631d8d36a9",
@@ -122,6 +154,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "a00ede3f70759480e81f14f203edaa51",
     "url": "/static/media/experience.a00ede3f.svg"
+  },
+  {
+    "revision": "360c4f6844f27745c2e0dda2324f66ae",
+    "url": "/static/media/experience_mountain.360c4f68.jpg"
   },
   {
     "revision": "0017cc6de3f72f67753efa37bb796fbd",
@@ -220,6 +256,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/intel_logo.29152cf7.jpg"
   },
   {
+    "revision": "a442c76a70aac7e510d2fa8f7a91d65a",
+    "url": "/static/media/intro.a442c76a.jpeg"
+  },
+  {
     "revision": "60ed0bd3f8b99ac1d29e74575f804aaa",
     "url": "/static/media/iu_logo.60ed0bd3.png"
   },
@@ -228,12 +268,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/jsFramework.5b4a6449.svg"
   },
   {
+    "revision": "b89dacb9df2b5d9b1bb2b8f3508466d3",
+    "url": "/static/media/landslide_detection.b89dacb9.png"
+  },
+  {
+    "revision": "9acc6470391785c841e690c323917580",
+    "url": "/static/media/landslide_detection_cropped.9acc6470.png"
+  },
+  {
+    "revision": "a5bca6f76bc46a8af3020771621ea3fb",
+    "url": "/static/media/landslide_detection_cropped_V2.a5bca6f7.png"
+  },
+  {
     "revision": "c597fbded5de799dfb9abc3fc4f1c26f",
     "url": "/static/media/legato_logo.c597fbde.png"
   },
   {
-    "revision": "28f3d6761c70c07f28cb80c92186fdda",
-    "url": "/static/media/logo_GEOSCIENCES_rennes.28f3d676.jpg"
+    "revision": "31997a32875ed77de5e46bdaa47faf19",
+    "url": "/static/media/logo_GEOSCIENCES_rennes.31997a32.jpg"
   },
   {
     "revision": "83ac24fb968a474c6a63f7a4e9a8f62c",

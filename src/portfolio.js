@@ -540,6 +540,147 @@ const comicProject = {
   ],
 };
 
+// Services Page
+const servicesHeader = {
+  title: "Services",
+  description:
+    "I turn repeat lidar surveys and terrain data into quantified, uncertainty-aware answers: how much ground moved, where sediment went, and what the terrain means for water. Every project runs on a tested, reproducible processing toolbox, so results can be checked, repeated and updated with the next survey.",
+  ctaTitle: "Have a site, a river reach or a dataset in mind?",
+  ctaText:
+    "Send me a short description and what data you have. I will reply within two working days with a first assessment.",
+  ctaButton: "Discuss your project",
+};
+
+const services = [
+  {
+    id: "change-detection",
+    icon: "fas fa-layer-group",
+    title: "Lidar Change Detection & Sediment Budget",
+    tagline:
+      "Erosion, deposition and landslide volumes from repeat surveys, with their uncertainty.",
+    status: { label: "Available now", available: true },
+    problem:
+      "You have two or more lidar, UAV or photogrammetric surveys of the same area and need to know what changed, where, and by how much. I co-register the surveys, separate real change from survey error, and deliver volumes you can defend in a report or a monitoring plan.",
+    deliverables: [
+      "Co-registered DTMs on a common grid (Cloud-Optimized GeoTIFF)",
+      "Elevation-change maps (DoD and/or M3C2) with a level of detection",
+      "Erosion, deposition and net volumes per zone or river segment, with uncertainty (CSV + GeoPackage)",
+      "Map figures and a technical report describing methods, accuracy and limits",
+      "Metadata for every output, so the analysis can be repeated with the next survey",
+    ],
+    inputs: [
+      "Point clouds (LAS/LAZ) or DTMs for each survey date",
+      "Survey reports or control-point accuracy, if available",
+      "Zones of interest (polygons) or the river reach to analyse",
+    ],
+    clients:
+      "Engineering and geology firms, river basin authorities, public works and forestry services, hydropower and infrastructure operators, research projects.",
+    methods:
+      "Stable-area ICP co-registration, DEM of Difference, M3C2 / M3C2-EP, spatially variable error and level of detection, 4D change analysis for time series (Python, PDAL, py4dgeo, CloudCompare, QGIS).",
+  },
+  {
+    id: "lidar-qa",
+    icon: "fas fa-clipboard-check",
+    title: "Lidar Data Quality Check & Terrain Models",
+    tagline:
+      "Check a lidar delivery before you accept it, and get terrain models ready for analysis.",
+    status: { label: "Available now", available: true },
+    problem:
+      "A lidar or UAV delivery has arrived and you need to know whether it meets the specification, or you need clean terrain models from raw point clouds. I audit the data independently and produce analysis-ready surfaces.",
+    deliverables: [
+      "Acceptance report: point density and coverage, classification, flight-line consistency, gaps",
+      "Ground classification and noise filtering where needed",
+      "DTM, DSM and canopy height model at the resolution you need",
+      "Tiled, reprojected, cloud-optimized outputs for GIS use",
+    ],
+    inputs: [
+      "Point clouds (LAS/LAZ) and the survey specification or contract requirements",
+      "Target coordinate system and resolution",
+    ],
+    clients:
+      "Contracting authorities receiving lidar surveys, surveying companies, engineering firms, GIS teams.",
+    methods:
+      "Automated QA/QC pipeline, cloth-simulation ground filtering, PDAL / LAStools processing, standard ASPRS classes.",
+  },
+  {
+    id: "hydraulic-support",
+    icon: "fas fa-water",
+    title: "2D Hydraulic Modelling Support",
+    tagline:
+      "Hydraulic-grade terrain and 2D flood simulations for engineers and planners.",
+    status: { label: "On request", available: false },
+    problem:
+      "A 2D hydraulic model is only as good as its terrain. I prepare the topography (including merging dry lidar with bathymetry or cross-sections), build and run the 2D model, and turn results into clear depth, velocity and hazard maps, working alongside the engineer responsible for the study.",
+    deliverables: [
+      "Hydraulic-grade DTM with channel bathymetry and a data-source/quality mask",
+      "2D model set-up in HEC-RAS 2D or BASEMENT, ready for review",
+      "Flood extent, depth, velocity and hazard maps for the scenarios requested",
+      "Technical note on terrain, boundary conditions and sensitivity",
+    ],
+    inputs: [
+      "Lidar or DTM of the area, and any bathymetric surveys or cross-sections",
+      "Design discharges or hydrographs and the scenarios to simulate",
+    ],
+    clients:
+      "Engineering firms and registered professionals preparing hydraulic studies, river restoration projects, public authorities.",
+    methods:
+      "Terrain conditioning and wet/dry fusion, HEC-RAS 2D, BASEMENT, GraphFlood for rapid screening, WhiteboxTools.",
+  },
+  {
+    id: "river-monitoring",
+    icon: "fas fa-satellite",
+    title: "River Restoration Outcome Monitoring",
+    tagline:
+      "Measure whether a restoration or management action changed the river.",
+    status: { label: "From 2027", available: false },
+    problem:
+      "Restoration projects need evidence that the river responded. I compare a baseline with repeat surveys and satellite time series to quantify changes in channel form, active width, inundation and riparian vegetation.",
+    deliverables: [
+      "Baseline and repeat indicators: channel width, planform migration, morphological change",
+      "Riparian canopy height and vegetation trends",
+      "Multi-year satellite time series of the active channel",
+      "Monitoring report with indicators ready for funding or regulatory reporting",
+    ],
+    inputs: [
+      "Project area and dates of the intervention",
+      "Available lidar, UAV or orthophoto surveys",
+    ],
+    clients:
+      "River basin authorities, environmental agencies, NGOs and restoration project consortia (e.g. LIFE projects).",
+    methods:
+      "Multi-temporal lidar, Sentinel-2 time series from open data sources, channel-centreline indicators.",
+  },
+];
+
+const servicesProcess = {
+  title: "How I work",
+  steps: [
+    {
+      title: "Free scoping call",
+      text:
+        "We discuss the question you need answered and the data available. I tell you honestly whether the data can answer it.",
+    },
+    {
+      title: "Fixed-scope proposal",
+      text:
+        "You receive a written proposal with deliverables, timeline and price before any work starts.",
+    },
+    {
+      title: "Processing & review",
+      text:
+        "I run the analysis with a tested, documented workflow and share intermediate results for feedback.",
+    },
+    {
+      title: "Delivery & handover",
+      text:
+        "GIS-ready files, figures and a technical report, with metadata so the analysis can be repeated on future surveys.",
+    },
+  ],
+};
+
+const servicesScopeNote =
+  "I provide technical data processing, modelling and analysis. Studies that must be signed by a registered professional (e.g. hydraulic compatibility studies for permits) are delivered in support of the engineer or geologist who signs them.";
+
 // Contact Page
 const contactPageData = {
   contactSection: {
@@ -588,5 +729,9 @@ export {
   outreach,
   outreachHeader,
   comicProject,
+  servicesHeader,
+  services,
+  servicesProcess,
+  servicesScopeNote,
   contactPageData,
 };

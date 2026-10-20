@@ -7,11 +7,11 @@ const settings = {
 
 //SEO Related settings
 const seo = {
-  title: "Thomas's Portfolio",
+  title: "Thomas Bernard | Geospatial Analysis for Natural Hazards & Water",
   description:
-    "Environmental researcher and computational specialist with a PhD in Environmental Sciences, specializing in advanced Python, 3D data processing, and machine learning applied to natural hazards.",
+    "Geospatial analysis for natural hazards and water: lidar processing, 3D change detection, sediment budgets and 2D hydraulic modelling for landslides, floods, rivers and infrastructure. Based in Trento, Italy.",
   og: {
-    title: "Thomas Bernard's Portfolio",
+    title: "Thomas Bernard | Geospatial Analysis for Natural Hazards & Water",
     type: "website",
     url: "https://thomasgbernard.github.io/",
   },
@@ -21,9 +21,9 @@ const seo = {
 const greeting = {
   title: "Thomas Bernard",
   logo_name: "ThomasBernard",
-  nickname: "3D AI Architect | Environmental Engineer",
+  nickname: "Geospatial Analysis for Natural Hazards & Water",
   subTitle:
-    "Environmental researcher and computational specialist with a PhD in Environmental Sciences, specializing in advanced Python, 3D data processing, and machine learning applied to natural hazards.",
+    "Lidar and 3D terrain analysis, change detection and 2D hydraulic modelling for landslides, floods and rivers. PhD in geomorphology and remote sensing, turning survey data into quantified, decision-ready results.",
   resumeLink:
     "https://drive.google.com/drive/folders/1UGMvF2XMNS60v0s2OQcvftEFLICimIQv?usp=drive_link",
   portfolio_repository:

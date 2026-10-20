@@ -249,4 +249,18 @@ export const AlpineTheme = {
   jacketColor: "#10B981",
   headerColor: "#07462e",
 };
-export const chosenTheme = AlpineTheme;
+
+export const riverLightTheme = {
+  body: "#F7F9FB", // near-white background
+  text: "#0F2A3D", // deep navy text
+  expTxtColor: "#0F2A3D",
+  highlight: "#B9DEE6", // light teal: menu hover, card borders
+  dark: "#0B1F2E",
+  secondaryText: "#4A5B6A", // darker grey than the template, easier to read
+  imageHighlight: "#1E7A8C", // river teal: scrollbar, graphics
+  compImgHighlight: "#EAF0F4", // card background
+  jacketColor: "#1E7A8C",
+  headerColor: "#EAF0F4",
+  splashBg: "#0F2A3D",
+};
+export const chosenTheme = riverLightTheme;

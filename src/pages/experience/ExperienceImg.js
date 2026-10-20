@@ -4,8 +4,8 @@ export default class ExperienceImg extends Component {
   render() {
     return (
       <img
-        src={require("../../assets/images/experience_mountain.jpg")} // Nom de votre image dans src/assets/images/
-        alt="Experience Header"
+        src={require("../../assets/images/experience_mountain_web.jpg")} // Nom de votre image dans src/assets/images/
+        alt="Alpine mountain landscape"
         style={{
           width: "100%",
           height: "auto",

@@ -32,7 +32,22 @@ class SkillSection extends Component {
                     alt="Ashutosh is Analysing Data"
                     src={require(`../../assets/images/${skill.imagePath}`)}
                   ></img> */}
-                  <GetSkillSvg fileName={skill.fileName} theme={theme} />
+                  {skill.imagePath ? (
+                    <figure className="skills-figure">
+                      <img
+                        alt={skill.imageAlt || skill.title}
+                        src={require(`../../assets/images/${skill.imagePath}`)}
+                        className="skills-photo"
+                      />
+                      {skill.imageCaption && (
+                        <figcaption style={{ color: theme.secondaryText }}>
+                          {skill.imageCaption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  ) : (
+                    <GetSkillSvg fileName={skill.fileName} theme={theme} />
+                  )}
                 </div>
               </Fade>
 

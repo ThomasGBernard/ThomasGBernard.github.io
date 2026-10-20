@@ -1,68 +1,62 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import Button from "../../components/button/Button";
 import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
-import FeelingProud from "./FeelingProud";
+
+const heroBackground = require("../../assets/images/home/hero_background_river.jpg");
 
 export default function Greeting(props) {
   const theme = props.theme;
   return (
-    <Fade bottom duration={2000} distance="40px">
-      <div className="greet-main" id="greeting">
-        <div className="greeting-main">
+    <div className="greet-main" id="greeting">
+      <div
+        className="greeting-hero"
+        role="img"
+        aria-label={greeting.heroBackgroundAlt}
+        style={{ "--hero-bg": `url(${heroBackground})` }}
+      >
+        <Fade bottom duration={1000} distance="20px">
           <div className="greeting-text-div">
-            <div>
-              <h1 className="greeting-text" style={{ color: theme.text }}>
-                {greeting.title}
-              </h1>
-              {greeting.nickname && (
-                <h2 className="greeting-nickname" style={{ color: theme.text }}>
-                  {greeting.nickname}
-                </h2>
-              )}
-              <p
-                className="greeting-text-p subTitle"
-                style={{ color: theme.secondaryText }}
-              >
-                {greeting.subTitle}
-              </p>
-              <SocialMedia theme={theme} />
-              <div className="portfolio-repo-btn-div">
-                <Button
-                  text="⭐ Star Me On Github"
-                  newTab={true}
-                  href={greeting.portfolio_repository}
-                  theme={theme}
-                  className="portfolio-repo-btn"
-                />
-              </div>
-              {/* <div className="button-greeting-div">
-              <Button text="Contact me" href="#contact" />
-              <Button text="See my resume" newTab={true} href={greeting.resumeLink} />
-            </div> */}
-            </div>
-          </div>
-          <div className="greeting-image-div">
-            {
-              <img
-                alt="photo_profil"
-                src={require("../../assets/images/profil_1.jpg")}
+            <h1 className="greeting-text">{greeting.title}</h1>
+            {greeting.nickname && (
+              <h2 className="greeting-nickname">{greeting.nickname}</h2>
+            )}
+            <p className="greeting-text-p">{greeting.subTitle}</p>
+            <div className="button-greeting-div">
+              <Link
+                to="/services"
+                className="main-button greeting-button"
                 style={{
-                  width: "70%",
-                  height: "70%",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  marginLeft: "100px",
-                  border: "1px solid white",
-                  boxShadow: "10px 4px 15px rgba(255, 255, 255, 1)",
+                  color: theme.text,
+                  backgroundColor: "#ffffff",
+                  border: "solid 1px #ffffff",
                 }}
-              ></img>
-            }
+              >
+                See my services
+              </Link>
+              <Link
+                to="/contact"
+                className="main-button greeting-button"
+                style={{
+                  color: "#ffffff",
+                  backgroundColor: "transparent",
+                  border: "solid 1px #ffffff",
+                }}
+              >
+                Get in touch
+              </Link>
+            </div>
+            <SocialMedia theme={theme} />
           </div>
-        </div>
+        </Fade>
+        {greeting.heroBackgroundCaption && (
+          <span className="greeting-hero-credit">
+            {greeting.heroBackgroundCaption}
+          </span>
+        )}
       </div>
-    </Fade>
+    </div>
   );
 }

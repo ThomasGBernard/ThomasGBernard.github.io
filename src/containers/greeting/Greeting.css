@@ -4,92 +4,139 @@
   margin: 0px auto;
   margin-top: 4rem;
 }
+
 .greet-main {
   width: 90%;
-  padding: 20px 10px;
+  max-width: 1300px;
   margin: 0px auto;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
-.gretting-main {
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-}
-
-.greeting-main {
+/* Full-width banner with the background photo */
+.greeting-hero {
+  position: relative;
+  min-height: 540px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-image: linear-gradient(
+      90deg,
+      rgba(11, 31, 46, 0.88) 0%,
+      rgba(11, 31, 46, 0.7) 45%,
+      rgba(11, 31, 46, 0.2) 100%
+    ),
+    var(--hero-bg);
+  background-size: cover;
+  background-position: center 60%;
   display: flex;
+  align-items: center;
+  padding: 60px 64px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(15, 42, 61, 0.18);
 }
 
-.greeting-main > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-.button-greeting-div {
-  display: flex;
-  margin-top: 20px;
+.greeting-text-div {
+  max-width: 640px;
 }
 
 .greeting-text {
-  margin-top: 80px;
-  font-size: 70px;
+  margin: 0 0 10px 0;
+  font-size: 60px;
   line-height: 1.1;
   font-family: "Google Sans Bold";
+  color: #ffffff;
 }
 
 .greeting-nickname {
-  font-size: 30px;
-  line-height: 0px;
-  font-family: "Google Sans Bold ";
+  font-size: 28px;
+  line-height: 1.25;
+  margin: 0 0 18px 0;
+  font-family: "Google Sans Medium";
+  font-weight: 500;
+  color: #ffffff;
 }
 
 .greeting-text-p {
-  font-size: 20px;
-  line-height: 30px;
-  margin-right: 30px;
-  font-family: "Google Sans Medium";
+  font-size: 19px;
+  line-height: 1.6;
+  margin: 0;
+  font-family: "Google Sans Regular";
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.greeting-image-div > * {
-  max-width: 100%;
-  height: auto;
+.button-greeting-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.greeting-button {
+  margin-top: 0;
+  letter-spacing: 0.5px;
+  font-size: 17px;
+}
+
+.greeting-hero-credit {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* Media Query */
 @media (max-width: 1380px) {
   .greeting-text {
-    font-size: 50px;
+    font-size: 48px;
   }
-  .greeting-text-p {
-    font-size: 20px;
+  .greeting-nickname {
+    font-size: 24px;
   }
 }
+
 @media (max-width: 768px) {
-  .button-greeting-div {
-    justify-content: space-around;
+  .greet-main {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    margin-top: 0;
+  }
+  .greeting-hero {
+    min-height: 0;
+    padding: 40px 22px 48px 22px;
+    border-radius: 10px;
+    background-position: 65% center;
+    /* even darkening so text stays readable on small screens */
+    background-image: linear-gradient(
+        rgba(11, 31, 46, 0.78),
+        rgba(11, 31, 46, 0.78)
+      ),
+      var(--hero-bg);
   }
   .greeting-text {
-    font-size: 30px;
-    margin-top: 0px;
+    font-size: 34px;
     text-align: center;
   }
   .greeting-nickname {
-    font-size: 25px;
+    font-size: 21px;
     text-align: center;
   }
   .greeting-text-p {
     font-size: 16px;
-    margin-right: 0px;
-    line-height: normal;
     text-align: center;
   }
-  .greeting-main {
-    display: block;
+  .button-greeting-div {
+    justify-content: center;
   }
-
-  .portfolio-repo-btn-div {
-    width: 100%;
+  .greeting-text-div .social-media-div {
     display: flex;
     justify-content: center;
+  }
+  .greeting-hero-credit {
+    left: 0;
+    right: 0;
+    text-align: center;
   }
 }

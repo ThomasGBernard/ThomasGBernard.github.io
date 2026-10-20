@@ -4,14 +4,16 @@
 }
 
 .skills-header {
-  font-size: 60px;
+  font-size: 40px;
+  margin-top: 40px;
   line-height: normal;
   font-family: "Google Sans Regular";
   text-align: center;
 }
 
 .skills-text {
-  font-size: 20px;
+  font-size: 17px;
+  line-height: 1.55;
 }
 
 .skills-text-div {
@@ -31,7 +33,7 @@
 }
 
 .skills-heading {
-  font-size: 56px;
+  font-size: 34px;
   font-weight: 400;
   font-family: "Google Sans Regular";
   line-height: normal;
@@ -40,10 +42,10 @@
 /* Media Query */
 @media (max-width: 1380px) {
   .skills-heading {
-    font-size: 40px;
+    font-size: 30px;
   }
   .skills-header {
-    font-size: 50px;
+    font-size: 36px;
   }
   /* .skills-image-div > img {
     margin-top: 0px;
@@ -81,5 +83,31 @@
   }
   .skills-image-div > * {
     margin-top: 0px;
+  }
+}
+
+/* Real project figures (replace the template illustrations) */
+.skills-image-div > .skills-figure {
+  margin: 60px 0 0 0;
+}
+
+.skills-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 6px 20px rgba(15, 42, 61, 0.12);
+}
+
+.skills-figure figcaption {
+  font-size: 14px;
+  line-height: 1.45;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .skills-image-div > .skills-figure {
+    margin: 0 20px;
   }
 }

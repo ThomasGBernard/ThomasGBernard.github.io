@@ -29,6 +29,9 @@ const greeting = {
   portfolio_repository:
     "https://github.com/ThomasGBernard/ThomasGBernard.github.io",
   githubProfile: "https://github.com/ThomasGBernard",
+  heroBackgroundAlt:
+    "Aerial drone view of a braided sandy river with vegetated islands",
+  heroBackgroundCaption: "Loire River, France (drone survey)",
 };
 
 const socialMediaLinks = [
@@ -71,12 +74,15 @@ const socialMediaLinks = [
 const skills = {
   data: [
     {
-      title: "Geospatial AI & 3D Processing Tools",
+      title: "Lidar & 3D Data Processing",
       fileName: "DataScienceImg",
+      imagePath: "home/expertise_pointcloud.jpg",
+      imageAlt: "Classified lidar point cloud of an urban area in Trento",
+      imageCaption: "Classified airborne lidar point cloud, Trento.",
       skills: [
-        "⚡ Processing and classification of topo-bathymetric LiDAR data using machine and deep learning.",
-        "⚡ 3D data processing, photogrammetry, and generation of high-resolution Digital Terrain/Surface Models (DTM/DSM)",
-        "⚡ Developing automated Python pipelines for geospatial data manipulation and spatial analysis",
+        "Quality control and classification of airborne, UAV and topo-bathymetric lidar, including machine-learning classification.",
+        "High-resolution terrain and surface models (DTM, DSM, canopy height) and photogrammetric point clouds.",
+        "Automated, documented Python pipelines, so every analysis can be checked and repeated on new surveys.",
       ],
       softwareSkills: [
         {
@@ -120,17 +126,22 @@ const skills = {
         {
           skillName: "GitHub",
           fontAwesomeClassname: "simple-icons:github",
-          style: { color: "#fffefe" },
+          style: { color: "#181717" },
         },
       ],
     },
     {
       title: "Hydraulic & Sediment Transport Modelling",
       fileName: "CloudInfraImg",
+      imagePath: "home/expertise_hydraulics.jpg",
+      imageAlt:
+        "Map of a river catchment classified into hillslopes, channels and floodplains",
+      imageCaption:
+        "Catchment-scale mapping of hillslopes, channels and floodplains from lidar topography.",
       skills: [
-        "⚡ 1D and 2D hydraulic and sediment transport modelling for fluvial morphodynamics",
-        "⚡ Simulating extreme events (e.g., 100-year floods) for floodplain mapping and infrastructure vulnerability assessment",
-        "⚡ Conducting Hydraulic Compatibility Assessment Studies in compliance with environmental and technical standards",
+        "1D and 2D hydraulic and sediment transport modelling of rivers and their morphological evolution.",
+        "Flood scenarios (e.g. 100-year events): inundation extent, depth, velocity and hazard maps for floodplains and infrastructure.",
+        "Technical support to engineers and geologists preparing hydraulic compatibility studies: terrain preparation, 2D modelling and mapping.",
       ],
       softwareSkills: [
         {
@@ -160,10 +171,15 @@ const skills = {
     {
       title: "Natural Hazards & Topographic Change Detection",
       fileName: "DesignImg",
+      imagePath: "home/hero_landslide_change.jpg",
+      imageAlt:
+        "Map of erosion and deposition from earthquake-triggered landslides, detected by comparing repeat airborne lidar surveys",
+      imageCaption:
+        "Erosion (blue) and deposition (red) from earthquake-triggered landslides, measured by 3D change detection between repeat airborne lidar surveys (PhD research).",
       skills: [
-        "⚡ Developing custom workflows for detecting topographic changes and monitoring landslides from multitemporal LiDAR data",
-        "⚡ Building synoptic 3D landslide inventories and extracting geomorphic metrics for high-resolution landscape analysis",
-        "⚡ Assessing natural risks in Alpine and fluvial environments through advanced geospatial mapping",
+        "Change detection between repeat lidar surveys (DoD, M3C2) to measure landslides, erosion and deposition, with their uncertainty.",
+        "3D landslide inventories and geomorphic metrics for high-resolution landscape and hazard analysis.",
+        "Monitoring of Alpine and river environments: sediment budgets, channel change and slope instability.",
       ],
       softwareSkills: [
         {
@@ -174,7 +190,7 @@ const skills = {
         {
           skillName: "GitHub",
           fontAwesomeClassname: "simple-icons:github",
-          style: { color: "#fffefe" },
+          style: { color: "#181717" },
         },
         {
           skillName: "Geospatial Analysis",
@@ -652,6 +668,12 @@ const services = [
   },
 ];
 
+const serviceHighlightsHeader = {
+  title: "How I can help",
+  description:
+    "From raw survey data to quantified answers: what changed, how much, and what it means for hazards and water.",
+};
+
 const servicesProcess = {
   title: "How I work",
   steps: [
@@ -731,6 +753,7 @@ export {
   comicProject,
   servicesHeader,
   services,
+  serviceHighlightsHeader,
   servicesProcess,
   servicesScopeNote,
   contactPageData,

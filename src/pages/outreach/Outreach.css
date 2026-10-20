@@ -16,11 +16,9 @@
   max-width: 100% !important;
 }
 
-/* Le contenu du corps reste contraint à 1100px pour la lisibilité */
+/* Section shown inside the Publications & Outreach page */
 .outreach-body-div {
   width: 100%;
-  max-width: 1100px;
-  padding: 30px;
   box-sizing: border-box;
 }
 

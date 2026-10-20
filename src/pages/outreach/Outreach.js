@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import "./Outreach.css";
 import { outreachHeader, outreach, comicProject } from "../../portfolio";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import TopButton from "../../components/topButton/TopButton";
 import { Fade } from "react-reveal";
 
-function Outreach(props) {
+export function OutreachContent(props) {
   const theme = props.theme;
 
   // Gestion de l'index de l'image actuellement ouverte (null si aucune image n'est affichée)
@@ -31,23 +28,18 @@ function Outreach(props) {
   };
 
   return (
-    <div className="outreach-main">
-      <Header theme={theme} />
-
-      <div
-        className="outreach-body-div"
-        style={{ padding: "30px", maxWidth: "1100px", margin: "0 auto" }}
-      >
+    <div className="outreach-content" id="outreach">
+      <div className="outreach-body-div">
         <Fade bottom duration={1000} distance="20px">
-          <h1
+          <h2
+            className="pub-section-title"
             style={{
               color: theme.text,
-              textAlign: "center",
-              marginBottom: "10px",
+              borderTop: `2px solid ${theme.highlight}`,
             }}
           >
             {outreachHeader.title}
-          </h1>
+          </h2>
           <p
             style={{
               color: theme.secondaryText,
@@ -75,7 +67,7 @@ function Outreach(props) {
                 >
                   <span
                     style={{
-                      color: theme.highlight,
+                      color: theme.imageHighlight || theme.text,
                       fontWeight: "bold",
                       fontSize: "0.9rem",
                     }}
@@ -121,18 +113,15 @@ function Outreach(props) {
         {comicProject && (
           <div style={{ marginTop: "60px", marginBottom: "60px" }}>
             <Fade bottom duration={1000} distance="20px">
-              <h1
+              <h2
+                className="pub-section-title"
                 style={{
                   color: theme.text,
-                  marginBottom: "40px",
                   borderTop: `2px solid ${theme.highlight}`,
-                  paddingTop: "80px",
-                  paddingBottom: "40px",
-                  textAlign: "center",
                 }}
               >
                 Science Communication through Arts
-              </h1>
+              </h2>
             </Fade>
 
             <Fade bottom duration={1000} distance="20px">
@@ -244,7 +233,7 @@ function Outreach(props) {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "8px",
-                      color: theme.highlight,
+                      color: theme.imageHighlight || theme.text,
                       fontWeight: "bold",
                       textDecoration: "none",
                       fontSize: "0.95rem",
@@ -348,11 +337,8 @@ function Outreach(props) {
           </button>
         </div>
       )}
-
-      <Footer theme={theme} />
-      <TopButton theme={theme} />
     </div>
   );
 }
 
-export default Outreach;
+export default OutreachContent;

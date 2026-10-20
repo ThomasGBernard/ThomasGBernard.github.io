@@ -5,6 +5,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
 import { Fade } from "react-reveal";
+import { OutreachContent } from "../outreach/Outreach";
 
 function Publications(props) {
   const theme = props.theme;
@@ -26,7 +27,7 @@ function Publications(props) {
               marginBottom: "10px",
             }}
           >
-            Scientific Publications
+            {publicationsHeader.title}
           </h1>
           <p
             style={{
@@ -35,9 +36,7 @@ function Publications(props) {
               marginBottom: "40px",
             }}
           >
-            Peer-reviewed articles, doctoral research, and scientific
-            contributions in fluvial morphodynamics, 3D LiDAR processing, and
-            natural hazards.
+            {publicationsHeader.description}
           </p>
           {publicationsHeader.scholarLink && (
             <div style={{ textAlign: "center", marginBottom: "30px" }}>
@@ -46,8 +45,8 @@ function Publications(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  backgroundColor: theme.highlight,
-                  color: "#fff",
+                  backgroundColor: theme.text,
+                  color: theme.body,
                   padding: "10px 20px",
                   borderRadius: "5px",
                   textDecoration: "none",
@@ -64,6 +63,12 @@ function Publications(props) {
           )}
         </Fade>
 
+        <h2
+          className="pub-section-title"
+          style={{ color: theme.text, marginTop: "20px", paddingTop: 0 }}
+        >
+          Peer-reviewed publications
+        </h2>
         <div className="publications-list">
           {publications.data.map((pub) => {
             return (
@@ -79,7 +84,7 @@ function Publications(props) {
                 >
                   <span
                     style={{
-                      color: theme.highlight,
+                      color: theme.imageHighlight || theme.text,
                       fontWeight: "bold",
                       fontSize: "0.9rem",
                     }}
@@ -110,7 +115,7 @@ function Publications(props) {
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        color: theme.highlight,
+                        color: theme.imageHighlight || theme.text,
                         textDecoration: "none",
                         fontWeight: "bold",
                       }}
@@ -123,6 +128,8 @@ function Publications(props) {
             );
           })}
         </div>
+
+        <OutreachContent theme={theme} />
       </div>
 
       <Footer theme={theme} />

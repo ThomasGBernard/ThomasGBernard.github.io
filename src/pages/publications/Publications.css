@@ -100,3 +100,21 @@
     font-size: 1.1rem;
   }
 }
+
+/* Section headings shared by publications, conferences and outreach */
+.pub-section-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Google Sans Medium";
+  margin: 60px 0 30px 0;
+  padding-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .pub-section-title {
+    font-size: 24px;
+    margin: 40px 0 20px 0;
+    padding-top: 30px;
+  }
+}

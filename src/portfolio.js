@@ -19,7 +19,7 @@ const seo = {
 
 //Home Page
 const greeting = {
-  title: "Thomas Bernard",
+  title: "Dr. Thomas Bernard",
   logo_name: "ThomasBernard",
   nickname: "Geospatial Analysis for Natural Hazards & Water",
   subTitle:
@@ -483,9 +483,9 @@ const publications = {
 };
 
 const publicationsHeader = {
-  title: "Publications",
+  title: "Publications & Outreach",
   description:
-    "Peer-reviewed articles, doctoral research, and scientific contributions.",
+    "Peer-reviewed articles, conference presentations and science communication in fluvial morphodynamics, 3D lidar processing and natural hazards.",
   avatar_image_path: "projects_image.svg",
   scholarLink:
     "https://scholar.google.com/citations?user=wTgB0K0AAAAJ&hl=fr&oi=ao",
@@ -533,7 +533,7 @@ const outreach = {
 };
 
 const outreachHeader = {
-  title: "Scientific Communications in international conferences",
+  title: "International conferences",
   description: "Vienna (Austria), San Francisco (California), Lyon (France)",
 };
 
@@ -703,7 +703,7 @@ const servicesScopeNote =
 // Contact Page
 const contactPageData = {
   contactSection: {
-    title: "Contact Me",
+    title: "Contact",
     profile_image_path: "profil_1.jpg",
     description:
       "Tell me about your site, river reach or dataset and what you need to find out. I reply within two working days. Email: thomas.bernard.consulting@gmail.com",

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import Home from "../pages/home/HomeComponent";
 import Splash from "../pages/splash/Splash";
 import Education from "../pages/education/EducationComponent";
 import Experience from "../pages/experience/Experience";
 import Publications from "../pages/publications/Publications";
-import Outreach from "../pages/outreach/Outreach";
 import Contact from "../pages/contact/ContactComponent";
 import Projects from "../pages/projects/Projects";
 import Services from "../pages/services/Services";
@@ -81,10 +80,8 @@ export default class Main extends Component {
               <Opensource {...props} theme={this.props.theme} />
             )}
           />*/}
-          <Route
-            path="/outreach"
-            render={(props) => <Outreach {...props} theme={this.props.theme} />}
-          />
+          {/* Outreach is now part of the Publications & Outreach page */}
+          <Redirect from="/outreach" to="/publications" />
           <Route
             path="/contact"
             render={(props) => <Contact {...props} theme={this.props.theme} />}

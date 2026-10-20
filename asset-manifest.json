@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.e5ee1fe5.chunk.css",
-    "main.js": "/static/js/main.b9960346.chunk.js",
-    "main.js.map": "/static/js/main.b9960346.chunk.js.map",
+    "main.css": "/static/css/main.a14a2ebc.chunk.css",
+    "main.js": "/static/js/main.ebc3ff4d.chunk.js",
+    "main.js.map": "/static/js/main.ebc3ff4d.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2781e2dc.js",
     "runtime-main.js.map": "/static/js/runtime-main.2781e2dc.js.map",
-    "static/js/2.159210b1.chunk.js": "/static/js/2.159210b1.chunk.js",
-    "static/js/2.159210b1.chunk.js.map": "/static/js/2.159210b1.chunk.js.map",
+    "static/js/2.32f21610.chunk.js": "/static/js/2.32f21610.chunk.js",
+    "static/js/2.32f21610.chunk.js.map": "/static/js/2.32f21610.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.9c9c2bf44248675e62fa4c510c5bc3bc.js": "/precache-manifest.9c9c2bf44248675e62fa4c510c5bc3bc.js",
+    "precache-manifest.2eed4204d2ea68a2d2afdc40b7a3a817.js": "/precache-manifest.2eed4204d2ea68a2d2afdc40b7a3a817.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.e5ee1fe5.chunk.css.map": "/static/css/main.e5ee1fe5.chunk.css.map",
+    "static/css/main.a14a2ebc.chunk.css.map": "/static/css/main.a14a2ebc.chunk.css.map",
     "static/media/3d_geoacademy_logo.png": "/static/media/3d_geoacademy_logo.fc5756cf.png",
     "static/media/index.css": "/static/media/Montserrat-Regular.ee653992.ttf",
     "static/media/Curriculum_Thomas_Bernard.pdf": "/static/media/Curriculum_Thomas_Bernard.30fba240.pdf",
@@ -39,6 +39,9 @@
     "static/media/education.svg": "/static/media/education.3bab7a9d.svg",
     "static/media/experience.svg": "/static/media/experience.a00ede3f.svg",
     "static/media/experience_mountain.jpg": "/static/media/experience_mountain.360c4f68.jpg",
+    "static/media/expertise_hydraulics.jpg": "/static/media/expertise_hydraulics.e88ab26c.jpg",
+    "static/media/expertise_lidar_hazards.jpg": "/static/media/expertise_lidar_hazards.d4433303.jpg",
+    "static/media/expertise_pointcloud.jpg": "/static/media/expertise_pointcloud.278bb167.jpg",
     "static/media/all.css": "/static/media/fa-solid-900.8e4a6dcc.eot",
     "static/media/feelingProud.svg": "/static/media/feelingProud.2936ce95.svg",
     "static/media/fullstack.svg": "/static/media/fullstack.fce60807.svg",
@@ -46,6 +49,8 @@
     "static/media/github_logo.png": "/static/media/github_logo.6eeb2e81.png",
     "static/media/googleAssistant.jpg": "/static/media/googleAssistant.0c8a4c11.jpg",
     "static/media/googleAssistant.svg": "/static/media/googleAssistant.a6addc3f.svg",
+    "static/media/hero_background_river.jpg": "/static/media/hero_background_river.d51421e5.jpg",
+    "static/media/hero_landslide_change.jpg": "/static/media/hero_landslide_change.959d9a0d.jpg",
     "static/media/ibm_logo.png": "/static/media/ibm_logo.d3fccbe1.png",
     "static/media/iiitk_logo.png": "/static/media/iiitk_logo.571a8584.png",
     "static/media/intel_logo.jpg": "/static/media/intel_logo.29152cf7.jpg",
@@ -74,8 +79,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2781e2dc.js",
-    "static/js/2.159210b1.chunk.js",
-    "static/css/main.e5ee1fe5.chunk.css",
-    "static/js/main.b9960346.chunk.js"
+    "static/js/2.32f21610.chunk.js",
+    "static/css/main.a14a2ebc.chunk.css",
+    "static/js/main.ebc3ff4d.chunk.js"
   ]
 }

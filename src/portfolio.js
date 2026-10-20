@@ -24,8 +24,8 @@ const greeting = {
   nickname: "Geospatial Analysis for Natural Hazards & Water",
   subTitle:
     "Lidar and 3D terrain analysis, change detection and 2D hydraulic modelling for landslides, floods and rivers. PhD in geomorphology and remote sensing, turning survey data into quantified, decision-ready results.",
-  resumeLink:
-    "https://drive.google.com/drive/folders/1UGMvF2XMNS60v0s2OQcvftEFLICimIQv?usp=drive_link",
+  // PDF stored in public/ so it is served at the root of the site
+  resumeLink: "/Thomas_Bernard_Resume.pdf",
   portfolio_repository:
     "https://github.com/ThomasGBernard/ThomasGBernard.github.io",
   githubProfile: "https://github.com/ThomasGBernard",

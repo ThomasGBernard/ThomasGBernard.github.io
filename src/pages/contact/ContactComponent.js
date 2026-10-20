@@ -8,7 +8,7 @@ import BlogsImg from "./BlogsImg";
 import AddressImg from "./AddressImg";
 import { Fade } from "react-reveal";
 import "./ContactComponent.css";
-import { contactPageData } from "../../portfolio.js";
+import { contactPageData, greeting } from "../../portfolio.js";
 
 const ContactData = contactPageData.contactSection;
 const blogSection = contactPageData.blogSection;
@@ -54,7 +54,12 @@ class Contact extends Component {
                 </p>
                 <SocialMedia theme={theme} />
                 <div className="resume-btn-div">
-                  <Button text="See My Resume" href="/resume" theme={theme} />
+                  <Button
+                    text="Download my resume (PDF)"
+                    href={greeting.resumeLink}
+                    newTab={true}
+                    theme={theme}
+                  />
                 </div>
               </div>
             </div>

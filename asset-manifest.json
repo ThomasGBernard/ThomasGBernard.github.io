@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.a14a2ebc.chunk.css",
-    "main.js": "/static/js/main.eab1277e.chunk.js",
-    "main.js.map": "/static/js/main.eab1277e.chunk.js.map",
+    "main.js": "/static/js/main.703dd205.chunk.js",
+    "main.js.map": "/static/js/main.703dd205.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2781e2dc.js",
     "runtime-main.js.map": "/static/js/runtime-main.2781e2dc.js.map",
-    "static/js/2.32f21610.chunk.js": "/static/js/2.32f21610.chunk.js",
-    "static/js/2.32f21610.chunk.js.map": "/static/js/2.32f21610.chunk.js.map",
+    "static/js/2.4bb13ef5.chunk.js": "/static/js/2.4bb13ef5.chunk.js",
+    "static/js/2.4bb13ef5.chunk.js.map": "/static/js/2.4bb13ef5.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.af167bfe196d17912603d13496da610b.js": "/precache-manifest.af167bfe196d17912603d13496da610b.js",
+    "precache-manifest.19eda906457bd090528cc10bf5ec92e9.js": "/precache-manifest.19eda906457bd090528cc10bf5ec92e9.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.a14a2ebc.chunk.css.map": "/static/css/main.a14a2ebc.chunk.css.map",
     "static/media/3d_geoacademy_logo.png": "/static/media/3d_geoacademy_logo.fc5756cf.png",
@@ -27,8 +27,11 @@
     "static/media/animated_logo.svg": "/static/media/animated_logo.dcd6dee2.svg",
     "static/media/blogs_image.svg": "/static/media/blogs_image.058eca4c.svg",
     "static/media/case1.png": "/static/media/case1.7a5f7413.png",
+    "static/media/case1.jpg": "/static/media/case1.bf8e9e2a.jpg",
+    "static/media/case2.jpg": "/static/media/case2.2e285d95.jpg",
     "static/media/case2.png": "/static/media/case2.d00136eb.png",
     "static/media/case3.png": "/static/media/case3.68927fc6.png",
+    "static/media/case3.jpg": "/static/media/case3.f4008097.jpg",
     "static/media/cloud_infrastructure.svg": "/static/media/cloud_infrastructure.cacbc42b.svg",
     "static/media/codeInLogo.png": "/static/media/codeInLogo.fee92c18.png",
     "static/media/contactMail.png": "/static/media/contactMail.5f915405.png",
@@ -39,6 +42,7 @@
     "static/media/education.svg": "/static/media/education.3bab7a9d.svg",
     "static/media/experience.svg": "/static/media/experience.a00ede3f.svg",
     "static/media/experience_mountain.jpg": "/static/media/experience_mountain.360c4f68.jpg",
+    "static/media/experience_mountain_web.jpg": "/static/media/experience_mountain_web.f0df7054.jpg",
     "static/media/expertise_hydraulics.jpg": "/static/media/expertise_hydraulics.e88ab26c.jpg",
     "static/media/expertise_lidar_hazards.jpg": "/static/media/expertise_lidar_hazards.d4433303.jpg",
     "static/media/expertise_pointcloud.jpg": "/static/media/expertise_pointcloud.278bb167.jpg",
@@ -79,8 +83,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2781e2dc.js",
-    "static/js/2.32f21610.chunk.js",
+    "static/js/2.4bb13ef5.chunk.js",
     "static/css/main.a14a2ebc.chunk.css",
-    "static/js/main.eab1277e.chunk.js"
+    "static/js/main.703dd205.chunk.js"
   ]
 }

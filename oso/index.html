@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oso landslide: lidar change detection | Thomas Bernard</title>
+<meta name="description" content="Interactive case study: lidar change detection and sediment budget of the 2014 Oso (SR530) landslide, Washington, from the 2013 and 2014 airborne lidar surveys.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@87.5,400;87.5,500;87.5,600;87.5,700;100,400;100,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --conifer: #17211D;
+  --conifer-2: #22302A;
+  --silt: #EEF0ED;
+  --paper: #F7F8F6;
+  --ink: #1D2421;
+  --ink-2: #4A5550;
+  --rule: #CBD1CC;
+  --erosion: #B4532A;
+  --deposition: #2F6690;
+  --interp: #C8963A;
+  --sans: "Archivo", system-ui, sans-serif;
+  --serif: "Source Serif 4", Georgia, serif;
+  --measure: 34rem;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--silt); color: var(--ink); font-family: var(--serif); font-size: 1.0625rem; line-height: 1.62; }
+a { color: var(--deposition); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, input:focus-visible, label:focus-within { outline: 2px solid var(--interp); outline-offset: 2px; }
+h1, h2, h3, .sans { font-family: var(--sans); font-stretch: 87.5%; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); line-height: 1.12; font-weight: 600; margin: 0 0 .9rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 .35rem; line-height: 1.25; }
+p { margin: 0 0 1rem; }
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+.prose { max-width: var(--measure); }
+.small { font-size: .9rem; color: var(--ink-2); }
+.num { font-family: var(--sans); font-variant-numeric: tabular-nums; }
+
+/* ---------- minimal Leaflet 1.9 core styles (inlined) ---------- */
+.leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0}
+.leaflet-container{overflow:hidden;-webkit-tap-highlight-color:transparent;touch-action:none}
+.leaflet-marker-icon,.leaflet-image-layer,.leaflet-pane>svg{user-select:none;-webkit-user-drag:none}
+.leaflet-container img.leaflet-image-layer,.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important;width:auto;padding:0}
+.leaflet-pane{z-index:400}.leaflet-overlay-pane{z-index:400}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}
+.leaflet-map-pane svg{z-index:200}.leaflet-map-pane canvas{z-index:100}
+.leaflet-pane>svg path{pointer-events:none}.leaflet-pane>svg path.leaflet-interactive{pointer-events:auto}
+.leaflet-control{position:relative;z-index:800;pointer-events:auto;float:left;clear:both}
+.leaflet-top,.leaflet-bottom{position:absolute;z-index:1000;pointer-events:none}
+.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}
+.leaflet-left .leaflet-control{margin-left:10px}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}
+.leaflet-zoom-animated{transform-origin:0 0}
+.leaflet-zoom-anim .leaflet-zoom-animated{transition:transform .25s cubic-bezier(0,0,.25,1)}
+.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}
+.leaflet-grab{cursor:grab}.leaflet-dragging .leaflet-grab{cursor:grabbing}
+.leaflet-bar{border:1px solid var(--rule);border-radius:3px;background:#fff}
+.leaflet-bar a{display:block;width:32px;height:32px;line-height:30px;text-align:center;text-decoration:none;color:var(--ink);font:500 20px var(--sans);background:#fff}
+.leaflet-bar a+a{border-top:1px solid var(--rule)}
+.leaflet-bar a:hover{background:var(--silt)}
+.leaflet-bar a.leaflet-disabled{color:#AAB2AD;cursor:default}
+.leaflet-tooltip{position:absolute;padding:4px 7px;background:#fff;border-radius:3px;color:var(--ink);white-space:nowrap;user-select:none;pointer-events:none}
+.leaflet-div-icon{background:#fff;border:1px solid #666}
+
+/* ---------- top bar ---------- */
+.topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 14px clamp(16px, 4vw, 40px); font-family: var(--sans); font-size: .9rem; }
+.topbar a { color: #DDE5E0; text-decoration: none; }
+.topbar a:hover { text-decoration: underline; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; height: min(92vh, 860px); min-height: 560px; background: var(--conifer); color: #E9EFEB; overflow: hidden; }
+#terrain { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+.hero-text { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 clamp(16px, 4vw, 40px) 28px; pointer-events: none; background: linear-gradient(to top, rgba(23,33,29,.92) 0%, rgba(23,33,29,.6) 55%, rgba(23,33,29,0) 100%); }
+.hero-inner { max-width: 72rem; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 24px 40px; align-items: end; }
+.hero h1 { font-size: clamp(2.6rem, 7.4vw, 6.2rem); line-height: .92; margin: 0 0 .7rem; font-weight: 700; letter-spacing: -0.025em; font-stretch: 87.5%; }
+.hero .lede { font-size: clamp(1rem, 1.6vw, 1.15rem); max-width: 31rem; color: #C9D4CE; margin: 0; }
+.timeline { pointer-events: auto; width: min(380px, 100%); font-family: var(--sans); }
+.timeline-row { display: flex; justify-content: space-between; font-size: .85rem; color: #B7C4BD; margin-bottom: 6px; }
+.timeline-row strong { color: #fff; font-weight: 600; }
+.timeline-ctl { display: flex; gap: 12px; align-items: center; }
+.play { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #6E8077; background: transparent; color: #fff; cursor: pointer; display: grid; place-items: center; }
+.play:hover { background: rgba(255,255,255,.08); }
+.play svg { width: 14px; height: 14px; fill: currentColor; }
+input[type=range].epoch { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; cursor: pointer; }
+input[type=range].epoch::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: linear-gradient(90deg, #8FA198, var(--erosion) 50%, var(--deposition)); }
+input[type=range].epoch::-moz-range-track { height: 4px; border-radius: 2px; background: linear-gradient(90deg, #8FA198, var(--erosion) 50%, var(--deposition)); }
+input[type=range].epoch::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: -7px; border-radius: 50%; background: #fff; border: 3px solid var(--conifer); box-shadow: 0 0 0 1px #fff; }
+input[type=range].epoch::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--conifer); }
+.hint { font-size: .8rem; color: #8FA198; margin-top: 6px; }
+.webgl-fallback { position: absolute; inset: 0; background: center/cover no-repeat url(data/tex2014.jpg); display: none; }
+
+/* ---------- intro ---------- */
+.intro { padding: clamp(48px, 7vw, 88px) 0 clamp(40px, 6vw, 72px); }
+.intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.sheet { font-family: var(--sans); font-size: .92rem; border-top: 2px solid var(--ink); }
+.sheet div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+.sheet dt { color: var(--ink-2); }
+.sheet dd { margin: 0; }
+
+/* ---------- explorer ---------- */
+.explore { background: var(--paper); padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.explore-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; margin-bottom: 20px; }
+.map-shell { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; border: 1px solid var(--rule); background: #fff; }
+#map { height: min(76vh, 720px); min-height: 440px; background: #E2E5E1; position: relative; }
+.leaflet-container { font-family: var(--sans); }
+.swipe { position: absolute; top: 0; bottom: 0; width: 0; z-index: 650; pointer-events: none; }
+.swipe::before { content: ""; position: absolute; top: 0; bottom: 0; left: -1px; width: 2px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.25); }
+.swipe-handle { position: absolute; top: 50%; left: -20px; width: 40px; height: 40px; margin-top: -20px; border-radius: 50%; background: #fff; border: 1px solid #9AA59F; pointer-events: auto; cursor: ew-resize; display: grid; place-items: center; touch-action: none; }
+.swipe-handle svg { width: 22px; height: 22px; stroke: var(--ink); fill: none; stroke-width: 2; }
+.swipe-tag { position: absolute; top: 12px; z-index: 640; font-family: var(--sans); font-size: .82rem; background: rgba(255,255,255,.92); padding: 3px 9px; border-radius: 3px; pointer-events: none; }
+.swipe-tag.l { left: 12px; } .swipe-tag.r { right: 12px; }
+.panel { padding: 18px; font-family: var(--sans); font-size: .9rem; border-left: 1px solid var(--rule); display: flex; flex-direction: column; gap: 18px; }
+.panel h3 { font-size: .95rem; }
+.toggle { display: flex; gap: 10px; align-items: center; padding: 5px 0; cursor: pointer; }
+.toggle input { width: 16px; height: 16px; accent-color: var(--ink); }
+.readout { border-top: 2px solid var(--ink); padding-top: 10px; }
+.readout dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; }
+.readout dt { color: var(--ink-2); }
+.readout dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.readout .big { font-size: 1.6rem; font-weight: 600; line-height: 1.1; margin: 4px 0 8px; font-variant-numeric: tabular-nums; }
+.readout .note { color: var(--ink-2); font-size: .82rem; margin-top: 8px; min-height: 2.4em; }
+#legend { width: 100%; height: 14px; display: block; border-radius: 2px; }
+.legend-ticks { position: relative; height: 18px; font-size: .75rem; color: var(--ink-2); }
+.legend-ticks span { position: absolute; transform: translateX(-50%); top: 2px; white-space: nowrap; }
+.legend-cap { display: flex; justify-content: space-between; font-size: .8rem; margin-top: 2px; }
+.legend-cap .e { color: var(--erosion); } .legend-cap .d { color: var(--deposition); }
+
+.ab-icon { background: #fff; border: 2px solid var(--ink); border-radius: 50%; font: 600 12px/20px var(--sans); text-align: center; color: var(--ink); }
+.leaflet-tooltip.zone-tip { background: rgba(255,255,255,.88); border: 0; box-shadow: none; font: 500 12px var(--sans); color: var(--ink); padding: 2px 6px; }
+.leaflet-tooltip.zone-tip::before { display: none; }
+
+/* ---------- cross-section ---------- */
+.xsec { margin-top: 36px; display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+#xsec { width: 100%; height: auto; display: block; overflow: visible; }
+#xsec text { font-family: var(--sans); font-size: 12px; fill: var(--ink-2); }
+
+/* ---------- workflow scrolly ---------- */
+.workflow { padding: clamp(56px, 8vw, 104px) 0 40px; }
+.scrolly { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 27rem); gap: clamp(28px, 5vw, 64px); margin-top: 36px; }
+.figure-sticky { position: sticky; top: 4vh; height: 92vh; display: flex; flex-direction: column; justify-content: center; }
+.frames { position: relative; width: 100%; aspect-ratio: 1150 / 1100; max-height: 80vh; background: #DDE1DC; border: 1px solid var(--rule); overflow: hidden; }
+.frames img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .6s ease; }
+.frames img.on { opacity: 1; }
+.frame-cap { font-family: var(--sans); font-size: .85rem; color: var(--ink-2); margin-top: 10px; min-height: 2.6em; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.step { min-height: 72vh; padding: 18vh 0 0; counter-increment: step; opacity: .38; transition: opacity .3s; }
+.step:first-child { padding-top: 10vh; }
+.step:last-child { min-height: 60vh; }
+.step.on { opacity: 1; }
+.step h3 { display: flex; gap: 12px; align-items: baseline; font-size: 1.3rem; }
+.step h3::before { content: counter(step); font-weight: 500; font-size: .95rem; color: var(--ink-2); border: 1px solid var(--rule); border-radius: 50%; min-width: 30px; height: 30px; display: inline-grid; place-items: center; transform: translateY(-3px); }
+.step .tools { font-family: var(--sans); font-size: .82rem; color: var(--ink-2); margin-top: -.3rem; }
+.facts { font-family: var(--sans); font-size: .9rem; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.facts li { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; border-bottom: 1px solid var(--rule); }
+.facts li span:last-child { font-variant-numeric: tabular-nums; text-align: right; }
+.key { display: inline-block; width: .8em; height: .8em; border-radius: 2px; vertical-align: -1px; margin-right: 4px; }
+
+/* ---------- results ---------- */
+.results { background: var(--conifer); color: #E2EAE5; padding: clamp(56px, 8vw, 104px) 0; }
+.results h2 { color: #fff; }
+.results .small { color: #A9B8B0; }
+.results a { color: #9CC3E2; }
+.res-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(28px, 5vw, 72px); align-items: start; margin-top: 12px; }
+#budget { width: 100%; height: auto; display: block; overflow: visible; }
+#budget text { font-family: var(--sans); fill: #C9D4CE; font-size: 13px; }
+.budget-legend { font-family: var(--sans); font-size: .85rem; display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 14px; color: #C9D4CE; }
+.budget-legend i { display: inline-block; vertical-align: middle; margin-right: 6px; }
+
+/* ---------- notes ---------- */
+.notes { padding: clamp(48px, 7vw, 88px) 0; }
+.notes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 28px clamp(24px, 4vw, 48px); margin-top: 12px; }
+.notes-grid p { font-size: .98rem; }
+.refs { font-size: .9rem; color: var(--ink-2); padding-left: 1.1rem; }
+.refs li { margin-bottom: .5rem; }
+footer { border-top: 1px solid var(--rule); padding: 28px 0 40px; font-family: var(--sans); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .intro-grid, .res-grid, .xsec { grid-template-columns: 1fr; }
+  .map-shell { grid-template-columns: 1fr; }
+  .panel { border-left: 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr; }
+  .panel > .legend-block { grid-column: 1 / -1; }
+  .explore-head { grid-template-columns: 1fr; }
+  .scrolly { grid-template-columns: 1fr; }
+  .figure-sticky { top: 0; height: auto; z-index: 2; background: var(--silt); padding: 8px 0 4px; }
+  .frames { max-height: 36vh; }
+  .frame-cap { display: none; }
+  .step { min-height: 0; padding: 36px 0 12px; opacity: 1; }
+  .step:first-child { padding-top: 20px; }
+  .step:last-child { min-height: 0; }
+}
+@media (max-width: 620px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .panel { grid-template-columns: 1fr; }
+  #map { height: 62vh; min-height: 380px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .frames img, .step { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="/">Thomas Bernard</a>
+  <a href="/contact">Contact</a>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" aria-label="3D view of the Oso landslide, before and after">
+  <canvas id="terrain" aria-label="Interactive 3D terrain of the Oso landslide area. Use the slider to move from the 2013 surface to the March 2014 surface."></canvas>
+  <div class="webgl-fallback" id="fallback"></div>
+  <div class="hero-text">
+    <div class="hero-inner">
+      <div>
+        <h1>Oso landslide,<br>measured from lidar</h1>
+        <p class="lede">On 22 March 2014 a hillside above the North Fork Stillaguamish River in Washington collapsed and buried the valley floor. Two airborne lidar surveys, one before and one after, show what moved and how much.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-row"><span id="lab0"><strong>2013</strong> before</span><span id="lab1">after <strong>March 2014</strong></span></div>
+        <div class="timeline-ctl">
+          <button class="play" id="play" aria-label="Play the change from 2013 to 2014"><svg viewBox="0 0 14 14"><path d="M2 1l11 6-11 6z"/></svg></button>
+          <input class="epoch" id="epoch" type="range" min="0" max="1000" value="0" aria-label="Surface: 2013 to March 2014">
+        </div>
+        <div class="hint">Drag to rotate, scroll or pinch to zoom. Colours show the elevation change.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INTRO ======================= -->
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div class="prose">
+      <h2>A sediment budget in two numbers</h2>
+      <p>The Oso (SR530) landslide is one of the best documented landslides in the United States. It killed 43 people and blocked the river and State Route 530. Because the area was surveyed by airborne lidar in 2013 and again two days after the slide, it is also a clean test case for lidar change detection.</p>
+      <p>I processed both surveys end to end with my own Python toolbox: from the raw point clouds to co-registered terrain models, a map of significant elevation change with its uncertainty, and volumes for the source and runout zones. The result: <strong>3.88 million m³</strong> left the source area and <strong>3.76 million m³</strong> was deposited on the valley floor. Both figures agree with published USGS estimates.</p>
+      <p class="small">This is a public case study using US public data, not client work.</p>
+    </div>
+    <dl class="sheet">
+      <div><dt>Event</dt><dd>SR530 landslide, Oso, Washington, USA, 22 March 2014</dd></div>
+      <div><dt>Data</dt><dd>Airborne lidar, 2013 (117 M points) and March 2014 (227 M points)</dd></div>
+      <div><dt>Area</dt><dd>2.8 × 3.5 km, 1 m grid</dd></div>
+      <div><dt>Method</dt><dd>Stable-area ICP co-registration, DEM of difference with 95 % level of detection, M3C2 point-cloud cross-check, zonal volumes</dd></div>
+      <div><dt>Tools</dt><dd>Python, PDAL, Open3D, py4dgeo, QGIS</dd></div>
+      <div><dt>Deliverables</dt><dd>DTMs, change rasters, zone volumes with uncertainty, maps, processing report</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ======================= EXPLORER ======================= -->
+<section class="explore" id="explore">
+  <div class="wrap">
+    <div class="explore-head">
+      <div class="prose">
+        <h2>Explore the change</h2>
+        <p>Drag the white handle to compare the 2013 and 2014 terrain. Hover over or tap the map to read the elevation in each survey and the measured change.</p>
+      </div>
+    </div>
+    <div class="map-shell">
+      <div id="map" aria-label="Map comparing the 2013 and 2014 lidar terrain of the Oso landslide"></div>
+      <aside class="panel">
+        <div>
+          <h3>Layers</h3>
+          <label class="toggle"><input type="checkbox" id="t-dod" checked> Elevation change (2014 side)</label>
+          <label class="toggle"><input type="checkbox" id="t-zones" checked> Source and runout zones</label>
+          <label class="toggle"><input type="checkbox" id="t-line" checked> Cross-section A–B</label>
+        </div>
+        <div class="legend-block">
+          <h3>Elevation change, 2013 to 2014</h3>
+          <canvas id="legend" width="480" height="20"></canvas>
+          <div class="legend-ticks" id="legend-ticks"></div>
+          <div class="legend-cap"><span class="e">Lowered (erosion)</span><span class="d">Raised (deposit)</span></div>
+          <p class="small" style="margin:.5rem 0 0;font-size:.8rem">Only change above the 95 % level of detection is shown.</p>
+        </div>
+        <div class="readout" aria-live="polite">
+          <h3>At the cursor</h3>
+          <div class="big num" id="r-d">–</div>
+          <dl class="num">
+            <dt>2013 ground</dt><dd id="r-z13">–</dd>
+            <dt>2014 ground</dt><dd id="r-z14">–</dd>
+          </dl>
+          <div class="note" id="r-note">Move over the map.</div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="xsec">
+      <div class="prose">
+        <h3>Cross-section A–B</h3>
+        <p class="small">From the head of the slide across the river to the south side of the valley. The upper slope dropped by up to 80 m; the debris spread over the floodplain several metres thick.</p>
+      </div>
+      <svg id="xsec" viewBox="0 0 760 300" role="img" aria-label="Elevation profile along cross-section A to B in 2013 and 2014"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WORKFLOW ======================= -->
+<section class="workflow" id="workflow">
+  <div class="wrap">
+    <div class="prose">
+      <h2>From point clouds to volumes</h2>
+      <p>The same workflow runs on any pair of lidar surveys. Each step writes its own outputs and metadata, so every number in the final report can be traced back to the data and settings that produced it.</p>
+    </div>
+    <div class="scrolly">
+      <div class="figure-sticky">
+        <div class="frames" id="frames">
+          <img src="data/tex2013.jpg" alt="Hillshade of the 2013 terrain before the landslide" data-cap="2013 terrain before the landslide (hillshade, 2 m)." class="on">
+          <img src="data/wf_stable.jpg" alt="Whole survey area with stable areas in blue and the landslide outline in red" data-cap="Whole survey area. Blue: stable areas used for registration. Red: landslide zones." loading="lazy">
+          <img src="data/wf_interp.jpg" alt="2013 terrain with interpolated cells in ochre" data-cap="2013 DTM. Ochre: cells with no ground point, filled by interpolation." loading="lazy">
+          <img src="data/wf_dtm2014.jpg" alt="Hillshade of the 2014 terrain after the landslide" data-cap="March 2014 terrain after the landslide (hillshade, 2 m)." loading="lazy">
+          <img src="data/wf_dod.jpg" alt="Map of significant elevation change, erosion in red and deposition in blue" data-cap="Significant elevation change. Red: lowered. Blue: raised." loading="lazy">
+          <img src="data/wf_zones.jpg" alt="Change map with source and runout zone outlines" data-cap="Source zone (top) and runout zone (USGS deposit outline)." loading="lazy">
+        </div>
+        <div class="frame-cap" id="frame-cap">2013 terrain before the landslide (hillshade, 2 m).</div>
+      </div>
+
+      <ol class="steps" id="steps">
+        <li class="step on" data-frame="0">
+          <h3>Check the two surveys</h3>
+          <p class="tools">PDAL, toolbox QA/QC</p>
+          <p>Point density, voids, classes and flight lines are checked for each survey, and the coordinate system is verified against the data themselves. Both surveys came in US survey feet, so they were reprojected to a metric system before any comparison.</p>
+          <ul class="facts">
+            <li><span>2013 survey</span><span>117 M points, 13 pts/m²</span></li>
+            <li><span>March 2014 survey</span><span>227 M points, 20 pts/m²</span></li>
+            <li><span>Ground points</span><span>9 % and 7 %</span></li>
+          </ul>
+        </li>
+        <li class="step" data-frame="1">
+          <h3>Align the surveys on stable ground</h3>
+          <p class="tools">First-pass M3C2, stable-area ICP (Open3D)</p>
+          <p>A first comparison flags the areas that did not change. The 2014 cloud is then aligned to 2013 using only ground points in those stable areas, so the landslide itself cannot bias the registration. A second comparison confirms that the stable areas now sit at zero.</p>
+          <ul class="facts">
+            <li><span>Stable areas</span><span>8 polygons</span></li>
+            <li><span>Correction applied (x, y, z)</span><span>3, 4, 8 cm</span></li>
+          </ul>
+        </li>
+        <li class="step" data-frame="2">
+          <h3>Build 1 m terrain models</h3>
+          <p class="tools">PDAL, toolbox DTM step</p>
+          <p>Ground points are gridded at 1 m. Each cell records whether it was measured or interpolated and how far it is from the nearest ground point. Under the dense forest of 2013 few laser pulses reached the ground, so many cells are interpolated; the map shows where.</p>
+          <ul class="facts">
+            <li><span><i class="key" style="background:var(--interp)"></i>Interpolated cells, 2013</span><span>45 %</span></li>
+            <li><span>Median distance to a ground point</span><span>1 m</span></li>
+          </ul>
+        </li>
+        <li class="step" data-frame="3">
+          <h3>Quantify the uncertainty</h3>
+          <p class="tools">Stable-area statistics, slope-dependent error model</p>
+          <p>The spread of differences on stable ground gives the survey error, split by slope and by measured or interpolated cells. It sets a level of detection for each cell: smaller changes are treated as noise.</p>
+          <ul class="facts">
+            <li><span>Survey noise (NMAD, measured cells)</span><span>0.09 m</span></li>
+            <li><span>Systematic offset</span><span>±0.03 m</span></li>
+            <li><span>Mean level of detection (95 %)</span><span>0.36 m</span></li>
+          </ul>
+        </li>
+        <li class="step" data-frame="4">
+          <h3>Map the significant change</h3>
+          <p class="tools">DEM of difference, M3C2 cross-check (py4dgeo)</p>
+          <p>The 2013 terrain is subtracted from the 2014 terrain, and only change above the level of detection is kept. A point-cloud comparison (M3C2) is run as an independent cross-check of the raster result.</p>
+          <ul class="facts">
+            <li><span><i class="key" style="background:var(--erosion)"></i>Maximum lowering</span><span>86.8 m</span></li>
+            <li><span><i class="key" style="background:var(--deposition)"></i>Maximum deposit thickness</span><span>22.4 m</span></li>
+            <li><span>Mean deposit thickness</span><span>5.2 m</span></li>
+          </ul>
+        </li>
+        <li class="step" data-frame="5">
+          <h3>Compute volumes by zone</h3>
+          <p class="tools">Zonal volumes, uncertainty propagation, report</p>
+          <p>Volumes are summed inside a source zone and a runout zone based on the USGS deposit outline. Each volume comes with its uncertainty and the share that relies on interpolated cells. The run ends with maps, tables and a processing report.</p>
+          <ul class="facts">
+            <li><span>Source zone, net loss</span><span>3.88 Mm³</span></li>
+            <li><span>Runout zone, net gain</span><span>3.76 Mm³</span></li>
+            <li><span>Balance inside the landslide</span><span>−3 %</span></li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RESULTS ======================= -->
+<section class="results" id="results">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Checked against published values</h2>
+      <p>The lidar budget agrees with two independent USGS studies, within the uncertainty of each method.</p>
+    </div>
+    <div class="res-grid">
+      <div class="prose">
+        <p><strong>Source:</strong> 3.88 ± 0.09 million m³ left the source area. Iverson et al. (2015) estimate 8.3 million m³ mobilized, of which about 4.5 million m³ stayed in the source area: about 3.8 million m³ left it.</p>
+        <p><strong>Runout:</strong> 3.76 ± 0.41 million m³ was deposited in the runout zone. Anderson et al. (2017) derive about 3.9 million m³ for the valley-floor deposit.</p>
+        <p class="small">Uncertainty combines the systematic survey error with a conservative term for interpolated cells (a 1 m bias on every interpolated cell). The zone outlines are approximate and are not included.</p>
+      </div>
+      <div>
+        <svg id="budget" viewBox="0 0 560 250" role="img" aria-label="Bar chart: this study versus published volumes for the source and the runout"></svg>
+        <div class="budget-legend">
+          <span><i style="width:14px;height:10px;background:linear-gradient(90deg,var(--erosion) 50%,var(--deposition) 50%)"></i>This study (lidar, ± uncertainty)</span>
+          <span><i style="width:2px;height:14px;background:#E5B26B"></i>Published estimate (range)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NOTES ======================= -->
+<section class="notes">
+  <div class="wrap">
+    <h2>Notes on this dataset</h2>
+    <div class="notes-grid">
+      <div>
+        <h3>Units</h3>
+        <p>The point clouds are labelled with a metric coordinate system but stored in US survey feet. They were assigned the correct units and reprojected before processing; otherwise heights and volumes would be off by a factor of 3.3 and 35.</p>
+      </div>
+      <div>
+        <h3>Point-cloud volumes</h3>
+        <p>M3C2 needs real points on both surfaces. Under the forest the 2013 ground is sparse, so the point-based erosion (3.14 Mm³ over the whole site) is a lower bound. The raster volumes are the reference result here. M3C2 must also search far enough: the source lowered by up to 87 m.</p>
+      </div>
+      <div>
+        <h3>The dammed river</h3>
+        <p>The 2014 flight shows the lake that formed behind the deposit. Its water surface appears as a rise of 0.34 Mm³ upstream. It is not sediment, so it is kept out of the landslide budget.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px">References and data</h3>
+    <ol class="refs">
+      <li>Anderson, S.W., et al., 2017, Geomorphic response of the North Fork Stillaguamish River to the State Route 530 landslide near Oso, Washington: USGS Scientific Investigations Report 2017–5055. <a href="https://doi.org/10.3133/sir20175055">doi:10.3133/sir20175055</a></li>
+      <li>Iverson, R.M., et al., 2015, Landslide mobility and hazards: implications of the 2014 Oso disaster: Earth and Planetary Science Letters, v. 412, p. 197–208. <a href="https://doi.org/10.1016/j.epsl.2014.12.020">doi:10.1016/j.epsl.2014.12.020</a></li>
+      <li>Haugerud, R.A., 2014, Preliminary interpretation of pre-2014 landslide deposits in the vicinity of Oso, Washington: USGS Open-File Report 2014–1065 (runout outline). <a href="https://doi.org/10.3133/ofr20141065">doi:10.3133/ofr20141065</a></li>
+      <!-- TODO before publishing: confirm provider, licence and credit line of the 2013 (PSLC / Tulalip) and 2014 (Quantum Spatial) lidar -->
+      <li>Lidar: 2013 Puget Sound Lidar Consortium survey; post-event 2014 survey by Quantum Spatial. Map coordinates: NAD83 / Washington North, metres; heights NAVD88.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Thomas Bernard, geospatial analysis for natural hazards and water</span>
+    <span><a href="/portfolio">Back to the portfolio</a> &nbsp; <a href="/contact">Get in touch about a project</a></span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+/* ---------- shared: DoD colour ramp (same as the prepared rasters) ---------- */
+const MID=[238,240,237], ERO=[180,83,42], ERO_D=[96,34,14], DEP=[47,102,144], DEP_D=[20,48,78];
+function lerp(a,b,t){return a.map((v,i)=>v+(b[i]-v)*t);}
+function dodColour(d){
+  if(d<0){const e=Math.sqrt(Math.min(1,-d/60)); return e<.7?lerp(MID,ERO,e/.7):lerp(ERO,ERO_D,(e-.7)/.3);}
+  const p=Math.sqrt(Math.min(1,d/15)); return p<.7?lerp(MID,DEP,p/.7):lerp(DEP,DEP_D,(p-.7)/.3);
+}
+/* legend: x position for a change value, erosion on the left half, deposits on the right half */
+function legendPos(d){ return d<0 ? .5-.5*Math.sqrt(Math.min(1,-d/60)) : .5+.5*Math.sqrt(Math.min(1,d/15)); }
+(function legend(){
+  const c=document.getElementById('legend'), g=c.getContext('2d');
+  for(let i=0;i<c.width;i++){ const f=i/(c.width-1); const d=f<.5? -60*Math.pow((.5-f)/.5,2) : 15*Math.pow((f-.5)/.5,2);
+    const col=dodColour(d); g.fillStyle=`rgb(${col.map(Math.round).join(',')})`; g.fillRect(i,0,1,c.height); }
+  const ticks=document.getElementById('legend-ticks');
+  [[-60,'−60 m'],[-20,'−20'],[-5,'−5'],[0,'0'],[2,'+2'],[15,'+15 m']].forEach(([v,l])=>{
+    const s=document.createElement('span'); s.textContent=l; s.style.left=(legendPos(v)*100)+'%'; ticks.appendChild(s);});
+})();
+
+const fmt=(v,dp=1)=>v.toLocaleString('en-GB',{minimumFractionDigits:dp,maximumFractionDigits:dp});
+const loadJSON=u=>fetch(u).then(r=>r.json());
+/* decode a uint16 grid packed in an RGB PNG (value = R*256 + G) */
+async function loadU16(url){
+  const blob=await fetch(url).then(r=>r.blob());
+  const bmp=await createImageBitmap(blob,{colorSpaceConversion:'none',premultiplyAlpha:'none'});
+  const c=document.createElement('canvas'); c.width=bmp.width; c.height=bmp.height;
+  const g=c.getContext('2d',{willReadFrequently:true}); g.drawImage(bmp,0,0);
+  const px=g.getImageData(0,0,c.width,c.height).data, out=new Uint16Array(c.width*c.height);
+  for(let i=0;i<out.length;i++) out[i]=px[4*i]*256+px[4*i+1];
+  return out;
+}
+window.loadU16=loadU16;
+
+Promise.all([loadJSON('data/meta.json'), loadJSON('data/vectors.json'), loadJSON('data/profile.json')]).then(([meta,vec,prof])=>{
+  drawProfile(prof);
+  initMap(meta,vec,prof);
+});
+
+/* ======================= SWIPE MAP ======================= */
+function initMap(meta,vec,prof){
+  const X0=meta.full.x0, Y0=meta.full.y0, W=meta.full.width_m, H=meta.full.height_m;
+  const ll=(x,y)=>[y-Y0, x-X0];            // CRS.Simple: lat = northing offset, lng = easting offset
+  const bounds=L.latLngBounds([[-H,0],[0,W]]);
+  const map=L.map('map',{crs:L.CRS.Simple, minZoom:-3, maxZoom:2, zoomSnap:.25, attributionControl:false, maxBounds:bounds.pad(.15)});
+  map.fitBounds(L.latLngBounds([ll(424000,141900),ll(426200,143800)]));
+  map.createPane('left'); map.createPane('right');
+  map.getPane('left').style.zIndex=400; map.getPane('right').style.zIndex=401;
+  L.imageOverlay('data/hs2013.jpg',bounds,{pane:'left'}).addTo(map);
+  L.imageOverlay('data/hs2014.jpg',bounds,{pane:'right'}).addTo(map);
+  const dod=L.imageOverlay('data/dod_sig.webp',bounds,{pane:'right',opacity:.85}).addTo(map);
+
+  const zoneStyle={source:{color:'#5E2A12'},runout:{color:'#17211D'}};
+  const zones=L.layerGroup(vec.zones.map(z=>L.polygon(z.rings.map(r=>r.map(([x,y])=>ll(x,y))),
+      {color:(zoneStyle[z.id]||{}).color||'#17211D',weight:2,fill:false,dashArray:z.id==='runout'?'6 5':null,interactive:false})
+      .bindTooltip(z.id==='source'?'Source zone':'Runout zone (USGS outline)',{permanent:true,direction:'center',className:'zone-tip',opacity:.85}))).addTo(map);
+  const a=ll(...prof.p0), b=ll(...prof.p1);
+  const abIcon=t=>L.divIcon({className:'ab-icon',html:t,iconSize:[24,24]});
+  const line=L.layerGroup([L.polyline([a,b],{color:'#17211D',weight:2.5,interactive:false}),
+     L.marker(a,{icon:abIcon('A'),interactive:false}), L.marker(b,{icon:abIcon('B'),interactive:false})]).addTo(map);
+  const tog=(id,layer)=>document.getElementById(id).addEventListener('change',e=>e.target.checked?layer.addTo(map):map.removeLayer(layer));
+  tog('t-dod',dod); tog('t-zones',zones); tog('t-line',line);
+
+  /* swipe control */
+  const el=map.getContainer();
+  const sw=document.createElement('div'); sw.className='swipe';
+  sw.innerHTML='<div class="swipe-handle" tabindex="0" role="slider" aria-label="Swipe between 2013 and 2014" aria-valuemin="0" aria-valuemax="100"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>';
+  el.appendChild(sw);
+  ['l','r'].forEach(s=>{const t=document.createElement('div'); t.className='swipe-tag '+s; t.textContent=s==='l'?'2013':'March 2014'; el.appendChild(t);});
+  let frac=.5;
+  function clip(){
+    const size=map.getSize(), nw=map.containerPointToLayerPoint([0,0]), se=map.containerPointToLayerPoint(size);
+    const cx=nw.x+size.x*frac;
+    map.getPane('left').style.clip=`rect(${nw.y}px, ${cx}px, ${se.y}px, ${nw.x}px)`;
+    map.getPane('right').style.clip=`rect(${nw.y}px, ${se.x}px, ${se.y}px, ${cx}px)`;
+    sw.style.left=(size.x*frac)+'px';
+    sw.firstChild.setAttribute('aria-valuenow',Math.round(frac*100));
+  }
+  map.on('move zoom resize',clip); clip();
+  const h=sw.firstChild;
+  h.addEventListener('pointerdown',e=>{e.preventDefault(); e.stopPropagation(); h.setPointerCapture(e.pointerId); map.dragging.disable();});
+  h.addEventListener('pointermove',e=>{ if(!h.hasPointerCapture(e.pointerId)) return;
+    const r=el.getBoundingClientRect(); frac=Math.min(.98,Math.max(.02,(e.clientX-r.left)/r.width)); clip(); });
+  h.addEventListener('pointerup',e=>{h.releasePointerCapture(e.pointerId); map.dragging.enable();});
+  h.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft'){frac=Math.max(.02,frac-.05);clip();} if(e.key==='ArrowRight'){frac=Math.min(.98,frac+.05);clip();} });
+  L.DomEvent.disableClickPropagation(sw);
+
+  /* readout */
+  Promise.all(meta.grid.files.map(f=>loadU16('data/'+f))).then(([dodU,z13,z14])=>{
+    const g=meta.grid, dod=Int16Array.from(dodU,v=>v-32768);
+    const inPoly=(x,y,ring)=>{let c=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const [xi,yi]=ring[i],[xj,yj]=ring[j];
+      if(((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi)) c=!c;} return c;};
+    const R={d:document.getElementById('r-d'),a:document.getElementById('r-z13'),b:document.getElementById('r-z14'),n:document.getElementById('r-note')};
+    function show(latlng){
+      const x=latlng.lng+X0, y=latlng.lat+Y0;
+      const c=Math.floor((x-X0)/g.res_m), r=Math.floor((Y0-y)/g.res_m);
+      if(c<0||r<0||c>=g.w||r>=g.h||z13[r*g.w+c]===0){R.d.textContent='–';R.a.textContent='–';R.b.textContent='–';R.n.textContent='Outside the surveyed area.';return;}
+      const i=r*g.w+c, d=dod[i]/10, a=z13[i]/10, b=z14[i]/10;
+      R.d.textContent= d===0 ? 'No significant change' : (d>0?'+':'−')+fmt(Math.abs(d))+' m';
+      R.d.style.color= d<0?'var(--erosion)': d>0?'var(--deposition)':'var(--ink-2)';
+      R.d.style.fontSize= d===0?'1.05rem':'';
+      R.a.textContent=fmt(a)+' m'; R.b.textContent=fmt(b)+' m';
+      let zone=null; vec.zones.forEach(z=>{ if(z.rings.some(rg=>inPoly(x,y,rg))) zone=z.id; });
+      R.n.textContent = zone==='source'?'Source zone: the slope that failed.' : zone==='runout'?'Runout zone: debris on the valley floor.' :
+        (d>0 && Math.abs(b-87.6)<0.8 && x>425600) ? 'Water surface of the lake dammed by the deposit, not sediment.' :
+        d===0 ? 'Change below the level of detection.' : 'Outside the landslide zones.';
+    }
+    map.on('mousemove',e=>show(e.latlng)); map.on('click',e=>show(e.latlng));
+  });
+}
+
+/* ======================= CROSS-SECTION ======================= */
+function drawProfile(p){
+  const svg=document.getElementById('xsec'), W=760, H=300, m={l:46,r:12,t:16,b:34};
+  const dmax=p.dist[p.dist.length-1];
+  const zs=p.z2013.concat(p.z2014), zmin=Math.floor(Math.min(...zs)/20)*20-10, zmax=Math.ceil(Math.max(...zs)/20)*20;
+  const X=d=>m.l+(W-m.l-m.r)*d/dmax, Y=z=>m.t+(H-m.t-m.b)*(1-(z-zmin)/(zmax-zmin));
+  const path=arr=>arr.map((z,i)=>(i?'L':'M')+X(p.dist[i]).toFixed(1)+','+Y(z).toFixed(1)).join('');
+  let s='';
+  for(let z=Math.ceil(zmin/40)*40; z<=zmax; z+=40) s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(z)}" y2="${Y(z)}" stroke="#D9DED9"/><text x="${m.l-8}" y="${Y(z)+4}" text-anchor="end">${z}</text>`;
+  for(let d=0; d<=dmax; d+=250) s+=`<text x="${X(d)}" y="${H-12}" text-anchor="middle">${d}</text>`;
+  // filled areas between surfaces
+  for(let i=0;i<p.dist.length-1;i++){
+    const a=p.z2013[i], b=p.z2014[i], a2=p.z2013[i+1], b2=p.z2014[i+1];
+    const dd=(b+b2)/2-(a+a2)/2; if(Math.abs(dd)<0.4) continue;
+    s+=`<path d="M${X(p.dist[i])},${Y(a)}L${X(p.dist[i+1])},${Y(a2)}L${X(p.dist[i+1])},${Y(b2)}L${X(p.dist[i])},${Y(b)}Z" fill="${dd<0?'#B4532A':'#2F6690'}" fill-opacity=".35" stroke="none"/>`;
+  }
+  s+=`<path d="${path(p.z2013)}" fill="none" stroke="#7C8A83" stroke-width="2" stroke-dasharray="5 4"/>`;
+  s+=`<path d="${path(p.z2014)}" fill="none" stroke="#1D2421" stroke-width="2.2"/>`;
+  s+=`<text x="${m.l}" y="${m.t-2}" style="font-weight:600;fill:#1D2421">A</text><text x="${W-m.r}" y="${m.t-2}" text-anchor="end" style="font-weight:600;fill:#1D2421">B</text>`;
+  const iLab=Math.round(p.dist.length*.04);
+  s+=`<text x="${X(p.dist[iLab])}" y="${Y(p.z2013[iLab])-12}" style="fill:#4A5550">2013 (dashed)</text>`;
+  s+=`<text x="${X(p.dist[Math.round(p.dist.length*.55)])}" y="${Y(p.z2014[Math.round(p.dist.length*.55)])-10}" style="fill:#1D2421">March 2014</text>`;
+  s+=`<text x="12" y="${m.t+6}" transform="rotate(-90 12 ${m.t+6})" text-anchor="end">Elevation (m)</text>`;
+  svg.innerHTML=s;
+  svg.insertAdjacentHTML('beforeend',`<text x="${W-m.r}" y="${H+4}" text-anchor="end">Distance from A (m)</text>`);
+}
+
+/* ======================= BUDGET CHART ======================= */
+(function budget(){
+  const svg=document.getElementById('budget'), W=560, H=250, l=110, r=20;
+  const vmax=5, X=v=>l+(W-l-r)*v/vmax;
+  const rows=[{name:'Source',sub:'volume that left',v:3.883,u:0.09,pub:3.8,lo:2.8,hi:4.7,ref:'Iverson et al. 2015',col:'#B4532A'},
+              {name:'Runout',sub:'deposit volume',v:3.763,u:0.41,pub:3.9,lo:null,hi:null,ref:'Anderson et al. 2017',col:'#2F6690'}];
+  let s='';
+  for(let v=0;v<=vmax;v++) s+=`<line x1="${X(v)}" x2="${X(v)}" y1="14" y2="${H-34}" stroke="#2F3E37"/><text x="${X(v)}" y="${H-14}" text-anchor="middle">${v}</text>`;
+  s+=`<text x="${W-r}" y="${H+4}" text-anchor="end">Million m³</text>`;
+  rows.forEach((d,i)=>{
+    const y=34+i*96;
+    s+=`<text x="0" y="${y+16}" style="font-weight:600;fill:#fff;font-size:15px">${d.name}</text><text x="0" y="${y+34}">${d.sub}</text>`;
+    s+=`<rect x="${X(0)}" y="${y}" width="${X(d.v)-X(0)}" height="40" fill="${d.col}"/>`;
+    s+=`<line x1="${X(d.v-d.u)}" x2="${X(d.v+d.u)}" y1="${y+20}" y2="${y+20}" stroke="#fff" stroke-width="2"/>`;
+    s+=`<line x1="${X(d.v-d.u)}" x2="${X(d.v-d.u)}" y1="${y+12}" y2="${y+28}" stroke="#fff" stroke-width="2"/><line x1="${X(d.v+d.u)}" x2="${X(d.v+d.u)}" y1="${y+12}" y2="${y+28}" stroke="#fff" stroke-width="2"/>`;
+    s+=`<text x="${X(0)+10}" y="${y+25}" style="fill:#fff;font-weight:600">${d.v.toFixed(2)}</text>`;
+    if(d.lo!==null) s+=`<rect x="${X(d.lo)}" y="${y+48}" width="${X(d.hi)-X(d.lo)}" height="6" fill="#E5B26B" fill-opacity=".35"/>`;
+    s+=`<line x1="${X(d.pub)}" x2="${X(d.pub)}" y1="${y-6}" y2="${y+58}" stroke="#E5B26B" stroke-width="2.5"/>`;
+    s+=`<text x="${X(d.pub)+6}" y="${y+76}" style="fill:#E5B26B">about ${d.pub}, ${d.ref}</text>`;
+  });
+  svg.innerHTML=s;
+})();
+
+/* ======================= SCROLLY ======================= */
+(function scrolly(){
+  const imgs=[...document.querySelectorAll('#frames img')], cap=document.getElementById('frame-cap');
+  const steps=[...document.querySelectorAll('.step')];
+  function activate(st){
+    steps.forEach(s=>s.classList.toggle('on',s===st));
+    const k=+st.dataset.frame; imgs.forEach((im,i)=>im.classList.toggle('on',i===k)); cap.textContent=imgs[k].dataset.cap;
+  }
+  const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting) activate(e.target); }); },{rootMargin:'-45% 0px -45% 0px'});
+  steps.forEach(s=>io.observe(s));
+})();
+</script>
+
+<!-- ======================= 3D TERRAIN (three.js) ======================= -->
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+               "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const canvas=document.getElementById('terrain');
+const slider=document.getElementById('epoch'), playBtn=document.getElementById('play');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer=new THREE.WebGLRenderer({canvas, antialias:true}); }
+catch(e){ document.getElementById('fallback').style.display='block'; canvas.style.display='none'; }
+
+if(renderer){
+  const meta=await fetch('data/meta.json').then(r=>r.json());
+  const [a13,a14]=await Promise.all(meta.terrain.files.map(f=>window.loadU16('data/'+f)));
+  const T=meta.terrain, n=T.w*T.h, EX=1.25;
+  const Wm=(T.w-1)*T.res_m, Hm=(T.h-1)*T.res_m;
+  const geo=new THREE.PlaneGeometry(Wm,Hm,T.w-1,T.h-1); geo.rotateX(-Math.PI/2);
+  const z13=new Float32Array(n), z14=new Float32Array(n);
+  for(let i=0;i<n;i++){ z13[i]=a13[i]/10*EX; z14[i]=a14[i]/10*EX; }
+  geo.setAttribute('z13',new THREE.BufferAttribute(z13,1));
+  geo.setAttribute('z14',new THREE.BufferAttribute(z14,1));
+  const loader=new THREE.TextureLoader();
+  const [t13,t14]=await Promise.all(['data/tex2013.jpg','data/tex2014.jpg'].map(u=>loader.loadAsync(u)));
+  [t13,t14].forEach(t=>{t.colorSpace=THREE.SRGBColorSpace; t.anisotropy=renderer.capabilities.getMaxAnisotropy();});
+  const mat=new THREE.ShaderMaterial({
+    uniforms:{t:{value:0},tex13:{value:t13},tex14:{value:t14},fogColor:{value:new THREE.Color(0x17211D)}},
+    vertexShader:`attribute float z13; attribute float z14; uniform float t; varying vec2 vUv; varying float vDepth;
+      void main(){ vUv=uv; vec3 p=position; p.y=mix(z13,z14,t); vec4 mv=modelViewMatrix*vec4(p,1.0); vDepth=-mv.z; gl_Position=projectionMatrix*mv; }`,
+    fragmentShader:`uniform float t; uniform sampler2D tex13; uniform sampler2D tex14; uniform vec3 fogColor; varying vec2 vUv; varying float vDepth;
+      void main(){ vec4 c=mix(texture2D(tex13,vUv),texture2D(tex14,vUv),smoothstep(0.15,0.85,t));
+        float f=smoothstep(2600.0,5200.0,vDepth); gl_FragColor=vec4(mix(c.rgb,fogColor,f),1.0);
+        #include <colorspace_fragment>
+      }`
+  });
+  const mesh=new THREE.Mesh(geo,mat);
+  const scene=new THREE.Scene(); scene.background=new THREE.Color(0x17211D); scene.add(mesh);
+  // terrain walls: a dark skirt so the block reads as a piece of ground
+  const camera=new THREE.PerspectiveCamera(38,1,10,20000);
+  camera.position.set(1150,1500,1700);
+  const controls=new OrbitControls(camera,canvas);
+  controls.target.set(0,120,-120); controls.enableDamping=true; controls.maxPolarAngle=1.35; controls.minDistance=500; controls.maxDistance=4800;
+  controls.enablePan=true; controls.screenSpacePanning=false;
+  function resize(){ const w=canvas.clientWidth,h=canvas.clientHeight; renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.setSize(w,h,false); camera.aspect=w/h;
+    camera.fov = w<700 ? 52 : 38; camera.updateProjectionMatrix(); }
+  addEventListener('resize',resize); resize();
+
+  let playing=false, last=0;
+  const setT=v=>{ mat.uniforms.t.value=v; slider.value=Math.round(v*1000); };
+  slider.addEventListener('input',()=>{ playing=false; mat.uniforms.t.value=slider.value/1000; });
+  playBtn.addEventListener('click',()=>{ if(mat.uniforms.t.value>=.999) setT(0); playing=true; last=performance.now(); });
+  function loop(now){
+    if(playing){ const v=Math.min(1,mat.uniforms.t.value+(now-last)/3200); last=now; setT(v); if(v>=1) playing=false; }
+    controls.update(); renderer.render(scene,camera); requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+  // one orchestrated moment: play the change once on load
+  if(!reduce) setTimeout(()=>{ playing=true; last=performance.now(); },900); else setT(1);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "crop": {
+    "x0": 423950,
+    "x1": 426250,
+    "y0": 141750,
+    "y1": 143950
+  },
+  "crs": "NAD83 / Washington North (m), EPSG:32148 axes in metres; NAVD88 heights (m)",
+  "full": {
+    "x0": 423597,
+    "y0": 144598,
+    "width_m": 2831,
+    "height_m": 3511
+  },
+  "grid": {
+    "files": [
+      "grid_dod.png",
+      "grid_z2013.png",
+      "grid_z2014.png"
+    ],
+    "res_m": 4,
+    "w": 707,
+    "h": 877,
+    "encoding": "RGB PNG, value = R*256 + G; dod in decimetres + 32768; z in decimetres, 0 = no data"
+  },
+  "map": {
+    "px_w": 1415,
+    "px_h": 1755,
+    "res_m": 2
+  },
+  "terrain": {
+    "files": [
+      "terrain_2013.png",
+      "terrain_2014.png"
+    ],
+    "res_m": 8,
+    "w": 287,
+    "h": 275,
+    "zmin_m": 73.4170913696289,
+    "encoding": "RGB PNG, value = R*256 + G = decimetres above zmin"
+  },
+  "workflow_px": {
+    "w": 1150,
+    "h": 1100,
+    "res_m": 2
+  }
+}

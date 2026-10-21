@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bdf71aa644529f56ec1b2c27bf536aa8",
+    "revision": "171a59cdf2f7d8e59ee673caf605e019",
     "url": "/index.html"
   },
   {
-    "revision": "29ba2bbda825c0cc3601",
-    "url": "/static/css/main.1cacdf89.chunk.css"
+    "revision": "314c9e5f94561d788ee0",
+    "url": "/static/css/main.51d0c36f.chunk.css"
   },
   {
-    "revision": "a85eb38d2cef631e1b14",
-    "url": "/static/js/2.3d5d91a3.chunk.js"
+    "revision": "179123e1ffc2cd532627",
+    "url": "/static/js/2.fd4f8948.chunk.js"
   },
   {
-    "revision": "29ba2bbda825c0cc3601",
-    "url": "/static/js/main.111db8cd.chunk.js"
+    "revision": "314c9e5f94561d788ee0",
+    "url": "/static/js/main.13fa1fca.chunk.js"
   },
   {
     "revision": "f4163cc1361175add5e6",
@@ -172,8 +172,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/experience_mountain.360c4f68.jpg"
   },
   {
-    "revision": "f0df705465fe2cd62e2b1f61e9efaa7b",
-    "url": "/static/media/experience_mountain_web.f0df7054.jpg"
+    "revision": "366befc567881e91e68116ffe53d301c",
+    "url": "/static/media/experience_mountain_web.366befc5.jpg"
   },
   {
     "revision": "e88ab26c2614421ac40b5136fdb14f09",
@@ -334,6 +334,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "95a12a2b8c3149cce2175679755c4b4d",
     "url": "/static/media/nptel_logo.95a12a2b.png"
+  },
+  {
+    "revision": "fe1510eb5bfffd7c88ba296480a118e4",
+    "url": "/static/media/oso.fe1510eb.jpg"
   },
   {
     "revision": "414dfbd98516b39255a3e22ed90b3f7d",

@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.1cacdf89.chunk.css",
-    "main.js": "/static/js/main.111db8cd.chunk.js",
-    "main.js.map": "/static/js/main.111db8cd.chunk.js.map",
+    "main.css": "/static/css/main.51d0c36f.chunk.css",
+    "main.js": "/static/js/main.13fa1fca.chunk.js",
+    "main.js.map": "/static/js/main.13fa1fca.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2781e2dc.js",
     "runtime-main.js.map": "/static/js/runtime-main.2781e2dc.js.map",
-    "static/js/2.3d5d91a3.chunk.js": "/static/js/2.3d5d91a3.chunk.js",
-    "static/js/2.3d5d91a3.chunk.js.map": "/static/js/2.3d5d91a3.chunk.js.map",
+    "static/js/2.fd4f8948.chunk.js": "/static/js/2.fd4f8948.chunk.js",
+    "static/js/2.fd4f8948.chunk.js.map": "/static/js/2.fd4f8948.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.bdb0b72890f4447e46ecb36da036632a.js": "/precache-manifest.bdb0b72890f4447e46ecb36da036632a.js",
+    "precache-manifest.95ce76828178179fd4ebe3d5d4ac080f.js": "/precache-manifest.95ce76828178179fd4ebe3d5d4ac080f.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.1cacdf89.chunk.css.map": "/static/css/main.1cacdf89.chunk.css.map",
+    "static/css/main.51d0c36f.chunk.css.map": "/static/css/main.51d0c36f.chunk.css.map",
     "static/media/3d_geoacademy_logo.png": "/static/media/3d_geoacademy_logo.fc5756cf.png",
     "static/media/index.css": "/static/media/Montserrat-Regular.ee653992.ttf",
     "static/media/Curriculum_Thomas_Bernard.pdf": "/static/media/Curriculum_Thomas_Bernard.30fba240.pdf",
@@ -42,7 +42,7 @@
     "static/media/education.svg": "/static/media/education.3bab7a9d.svg",
     "static/media/experience.svg": "/static/media/experience.a00ede3f.svg",
     "static/media/experience_mountain.jpg": "/static/media/experience_mountain.360c4f68.jpg",
-    "static/media/experience_mountain_web.jpg": "/static/media/experience_mountain_web.f0df7054.jpg",
+    "static/media/experience_mountain_web.jpg": "/static/media/experience_mountain_web.366befc5.jpg",
     "static/media/expertise_hydraulics.jpg": "/static/media/expertise_hydraulics.e88ab26c.jpg",
     "static/media/expertise_lidar_hazards.jpg": "/static/media/expertise_lidar_hazards.d4433303.jpg",
     "static/media/expertise_pointcloud.jpg": "/static/media/expertise_pointcloud.278bb167.jpg",
@@ -69,6 +69,7 @@
     "static/media/manOnTable.svg": "/static/media/manOnTable.83ac24fb.svg",
     "static/media/muffito_logo.png": "/static/media/muffito_logo.069938a8.png",
     "static/media/nptel_logo.png": "/static/media/nptel_logo.95a12a2b.png",
+    "static/media/oso.jpg": "/static/media/oso.fe1510eb.jpg",
     "static/media/portfolio.gif": "/static/media/portfolio.414dfbd9.gif",
     "static/media/profil_1.jpg": "/static/media/profil_1.8aa63b87.jpg",
     "static/media/programmer.svg": "/static/media/programmer.5faf790b.svg",
@@ -83,8 +84,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2781e2dc.js",
-    "static/js/2.3d5d91a3.chunk.js",
-    "static/css/main.1cacdf89.chunk.css",
-    "static/js/main.111db8cd.chunk.js"
+    "static/js/2.fd4f8948.chunk.js",
+    "static/css/main.51d0c36f.chunk.css",
+    "static/js/main.13fa1fca.chunk.js"
   ]
 }

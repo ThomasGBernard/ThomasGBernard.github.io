@@ -4,7 +4,7 @@ import Home from "../pages/home/HomeComponent";
 import Splash from "../pages/splash/Splash";
 import Education from "../pages/education/EducationComponent";
 import Experience from "../pages/experience/Experience";
-import Publications from "../pages/publications/Publications";
+import Portfolio from "../pages/portfolio/Portfolio";
 import Contact from "../pages/contact/ContactComponent";
 import Projects from "../pages/projects/Projects";
 import Services from "../pages/services/Services";
@@ -68,9 +68,9 @@ export default class Main extends Component {
             )}
           />
           <Route
-            path="/publications"
+            path="/portfolio"
             render={(props) => (
-              <Publications {...props} theme={this.props.theme} />
+              <Portfolio {...props} theme={this.props.theme} />
             )}
           />
 
@@ -80,8 +80,9 @@ export default class Main extends Component {
               <Opensource {...props} theme={this.props.theme} />
             )}
           />*/}
-          {/* Outreach is now part of the Publications & Outreach page */}
-          <Redirect from="/outreach" to="/publications" />
+          {/* Publications and outreach are now sections of the Portfolio page */}
+          <Redirect from="/publications" to="/portfolio" />
+          <Redirect from="/outreach" to="/portfolio" />
           <Route
             path="/contact"
             render={(props) => <Contact {...props} theme={this.props.theme} />}

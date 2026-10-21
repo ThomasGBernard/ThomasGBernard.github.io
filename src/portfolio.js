@@ -19,9 +19,9 @@ const seo = {
 
 //Home Page
 const greeting = {
-  title: "Dr. Thomas Bernard",
-  logo_name: "ThomasBernard",
-  nickname: "Geospatial Analysis for Natural Hazards & Water",
+  title: "Geospatial Analysis for Natural Hazards & Water",
+  logo_name: "Thomas Bernard, PhD",
+  nickname: "",
   subTitle:
     "Lidar and 3D terrain analysis, change detection and 2D hydraulic modelling for landslides, floods and rivers. PhD in geomorphology and remote sensing, turning survey data into quantified, decision-ready results.",
   // PDF stored in public/ so it is served at the root of the site
@@ -277,6 +277,8 @@ const experience = {
   description:
     "I started in research at the University of Rennes, where I completed a PhD on repeat airborne lidar and hydraulic simulation, then worked as a geospatial and lidar data engineer. As a post-doctoral researcher in hydromorphology at the University of Trento, I managed an applied research project on river morphodynamics. In 2026 I carried out 2D flood modelling for a hydraulic compatibility assessment with Vesta Energy. I now offer lidar processing, change detection and hydraulic modelling services for natural hazards and water.",
   header_image_path: "experience.svg",
+  heroImageAlt: "Alpine mountain panorama",
+  heroImageCaption: "", // e.g. "Dolomites, Italy" (shown in the banner corner)
   sections: [
     {
       title: "Work",
@@ -553,6 +555,47 @@ const comicProject = {
   ],
 };
 
+// Portfolio page (projects from the toolbox, research, outreach)
+const portfolioHeader = {
+  title: "Portfolio",
+  description:
+    "Case studies built with my geospatial toolbox, peer-reviewed research, and science communication.",
+};
+
+// Toolbox projects: add one entry per case study.
+// "link" points to a static page in public/<folder>/index.html (full page load, not a React route).
+const toolboxProjects = {
+  title: "Projects",
+  description:
+    "Case studies processed end to end with my own Python toolbox for lidar change detection, terrain models and hydraulic analysis.",
+  data: [
+    {
+      id: "oso-landslide",
+      title: "Oso landslide, Washington (USA)",
+      context: "Public case study | Landslide of 22 March 2014",
+      summary:
+        "Sediment budget of the SR530 landslide from airborne lidar surveyed before (2013) and two days after (March 2014) the event. The volumes agree with published USGS estimates.",
+      figures: [
+        { value: "3.88 Mm³", label: "left the source area" },
+        { value: "3.76 Mm³", label: "deposited on the valley floor" },
+        { value: "87 m", label: "maximum lowering" },
+      ],
+      methods: [
+        "Airborne lidar",
+        "Stable-area ICP",
+        "DEM of difference",
+        "M3C2",
+        "Volumes with uncertainty",
+      ],
+      image: require("./assets/images/projects/oso.jpg"),
+      imageAlt:
+        "Map of elevation change at the Oso landslide: lowering in red at the source, deposits in blue on the valley floor",
+      link: "/oso/index.html",
+      linkText: "Open the interactive case study",
+    },
+  ],
+};
+
 // Services Page
 const servicesHeader = {
   title: "Services",
@@ -748,6 +791,8 @@ export {
   outreach,
   outreachHeader,
   comicProject,
+  portfolioHeader,
+  toolboxProjects,
   servicesHeader,
   services,
   serviceHighlightsHeader,

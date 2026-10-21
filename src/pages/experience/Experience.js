@@ -6,7 +6,7 @@ import ExperienceAccordion from "../../containers/experienceAccordion/Experience
 import "./Experience.css";
 import { experience } from "../../portfolio.js";
 import { Fade } from "react-reveal";
-import ExperienceImg from "./ExperienceImg";
+const experienceBackground = require("../../assets/images/experience_mountain_web.jpg");
 
 // const experience = {
 // 	title: "Experience",
@@ -151,37 +151,29 @@ class Experience extends Component {
       <div className="experience-main">
         <Header theme={theme} />
         <div className="basic-experience">
-          <Fade bottom duration={2000} distance="40px">
-            <div className="experience-heading-div">
-              <div className="experience-heading-img-div">
-                {/* <img
-									src={require(`../../assets/images/${experience["header_image_path"]}`)}
-									alt=""
-								/> */}
-                <ExperienceImg theme={theme} />
-              </div>
+          <div
+            className="experience-hero"
+            role="img"
+            aria-label={experience.heroImageAlt}
+            style={{ "--experience-bg": `url(${experienceBackground})` }}
+          >
+            <Fade bottom duration={1000} distance="20px">
               <div className="experience-heading-text-div">
-                <h1
-                  className="experience-heading-text"
-                  style={{ color: theme.text }}
-                >
-                  {experience.title}
-                </h1>
-                <h3
-                  className="experience-heading-sub-text"
-                  style={{ color: theme.text }}
-                >
+                <h1 className="experience-heading-text">{experience.title}</h1>
+                <h3 className="experience-heading-sub-text">
                   {experience["subtitle"]}
                 </h3>
-                <p
-                  className="experience-header-detail-text subTitle"
-                  style={{ color: theme.secondaryText }}
-                >
+                <p className="experience-header-detail-text">
                   {experience["description"]}
                 </p>
               </div>
-            </div>
-          </Fade>
+            </Fade>
+            {experience.heroImageCaption && (
+              <span className="experience-hero-credit">
+                {experience.heroImageCaption}
+              </span>
+            )}
+          </div>
         </div>
         <ExperienceAccordion sections={experience["sections"]} theme={theme} />
         <Footer theme={this.props.theme} onToggle={this.props.onToggle} />

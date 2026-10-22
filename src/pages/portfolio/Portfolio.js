@@ -71,13 +71,26 @@ function ProjectCard({ project, theme }) {
           </ul>
         )}
 
-        <a
-          className="project-case-link"
-          href={project.link}
-          style={{ backgroundColor: theme.text, color: theme.body }}
-        >
-          {project.linkText}
-        </a>
+        <div className="project-case-actions">
+          <a
+            className="project-case-link"
+            href={project.link}
+            style={{ backgroundColor: theme.text, color: theme.body }}
+          >
+            {project.linkText}
+          </a>
+          {project.repo && (
+            <a
+              className="project-case-repo"
+              href={project.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: theme.text }}
+            >
+              <i className="fab fa-github"></i> Code on GitHub
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );

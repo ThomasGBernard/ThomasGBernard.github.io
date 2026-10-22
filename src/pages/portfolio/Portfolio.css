@@ -150,6 +150,25 @@
   font-weight: bold;
 }
 
+.project-case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.project-case-repo {
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-case-repo:hover {
+  text-decoration: underline;
+}
+
 .project-case-link:hover,
 .project-case-link:focus-visible {
   opacity: 0.85;

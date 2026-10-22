@@ -574,17 +574,18 @@ const toolboxProjects = {
       title: "Oso landslide, Washington (USA)",
       context: "Public case study | Landslide of 22 March 2014",
       summary:
-        "Sediment budget of the SR530 landslide from airborne lidar surveyed before (2013) and two days after (March 2014) the event. The volumes agree with published USGS estimates.",
+        "Sediment budget of the SR530 landslide from airborne lidar surveyed before (2013) and about two weeks after (April 2014) the event, with water surfaces mapped and left out. The source volume matches the published USGS estimate; part of the deposit was still under water.",
       figures: [
-        { value: "3.88 Mm³", label: "left the source area" },
-        { value: "3.76 Mm³", label: "deposited on the valley floor" },
+        { value: "3.89 Mm³", label: "left the source area" },
+        { value: "3.44 Mm³", label: "deposited on dry ground" },
         { value: "87 m", label: "maximum lowering" },
       ],
       methods: [
         "Airborne lidar",
         "Stable-area ICP",
+        "Error model",
+        "Water masks",
         "DEM of difference",
-        "M3C2",
         "Volumes with uncertainty",
       ],
       image: require("./assets/images/projects/oso.jpg"),
@@ -592,6 +593,7 @@ const toolboxProjects = {
         "Map of elevation change at the Oso landslide: lowering in red at the source, deposits in blue on the valley floor",
       link: "/oso/index.html",
       linkText: "Open the interactive case study",
+      repo: "https://github.com/ThomasGBernard/oso-landslide-lidar-change",
     },
   ],
 };

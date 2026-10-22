@@ -16,7 +16,8 @@
     "files": [
       "grid_dod.png",
       "grid_z2013.png",
-      "grid_z2014.png"
+      "grid_z2014.png",
+      "grid_water.png"
     ],
     "res_m": 4,
     "w": 707,
@@ -38,6 +39,14 @@
     "h": 275,
     "zmin_m": 73.4170913696289,
     "encoding": "RGB PNG, value = R*256 + G = decimetres above zmin"
+  },
+  "water": {
+    "file": "water.webp",
+    "legend": {
+      "1": "2014 water (left out)",
+      "2": "2013 water only (kept, flagged)",
+      "3": "water in both (left out)"
+    }
   },
   "workflow_px": {
     "w": 1150,

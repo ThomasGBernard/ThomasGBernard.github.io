@@ -576,13 +576,14 @@ const toolboxProjects = {
       summary:
         "Sediment budget of the SR530 landslide from airborne lidar surveyed before (2013) and about two weeks after (April 2014) the event, with water surfaces mapped and left out. The source volume matches the published USGS estimate; part of the deposit was still under water.",
       figures: [
-        { value: "3.89 Mm³", label: "left the source area" },
-        { value: "3.44 Mm³", label: "deposited on dry ground" },
+        { value: "3.94 Mm³", label: "left the source area" },
+        { value: "3.39 Mm³", label: "deposited on dry ground" },
         { value: "87 m", label: "maximum lowering" },
       ],
       methods: [
         "Airborne lidar",
         "Stable-area ICP",
+        "Data-driven 3 m grid",
         "Error model",
         "Water masks",
         "DEM of difference",

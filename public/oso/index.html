@@ -241,14 +241,14 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
     <div class="prose">
       <h2>A sediment budget in two numbers</h2>
       <p>The Oso (SR530) landslide is one of the best documented landslides in the United States. It killed 43 people and blocked the river and State Route 530. Because the area was surveyed by airborne lidar in 2013 and again about two weeks after the slide, it is also a clean test case for lidar change detection.</p>
-      <p>I processed both surveys end to end: from the raw point clouds to co-registered terrain models, an error model, water masks, a map of significant elevation change and volumes for the source and runout zones, each with its uncertainty. <strong>3.89 million m³</strong> left the source area, in line with the published USGS estimate. At least <strong>3.44 million m³</strong> was deposited on the valley floor: part of the deposit was still under water when the post-event survey was flown.</p>
+      <p>I processed both surveys end to end: from the raw point clouds to co-registered terrain models, an error model, water masks, a map of significant elevation change and volumes for the source and runout zones, each with its uncertainty. <strong>3.94 million m³</strong> left the source area, in line with the published USGS estimate. At least <strong>3.39 million m³</strong> was deposited on the valley floor: part of the deposit was still under water when the post-event survey was flown.</p>
       <p><a class="repo-link" href="https://github.com/ThomasGBernard/oso-landslide-lidar-change">Code, method and full results on GitHub</a></p>
       <p class="small">This is a public case study using US public data, not client work.</p>
     </div>
     <dl class="sheet">
       <div><dt>Event</dt><dd>SR530 landslide, Oso, Washington, USA, 22 March 2014</dd></div>
       <div><dt>Data</dt><dd>Airborne lidar, 2013 (117 M points) and April 2014 (227 M points)</dd></div>
-      <div><dt>Area</dt><dd>2.8 × 3.5 km, 1 m grid</dd></div>
+      <div><dt>Area</dt><dd>2.8 × 3.5 km, 3 m grid (cell size chosen from the ground point density)</dd></div>
       <div><dt>Method</dt><dd>Stable-area ICP co-registration, slope- and interpolation-dependent error model, water masks, DEM of difference with 95 % level of detection, zonal volumes</dd></div>
       <div><dt>Tools</dt><dd>Python, PDAL, GDAL, py4dgeo, rasterio, QGIS</dd></div>
       <div><dt>Code</dt><dd><a href="https://github.com/ThomasGBernard/oso-landslide-lidar-change">GitHub</a> (code MIT, text and figures CC BY 4.0)</dd></div>
@@ -318,7 +318,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
         <div class="frames" id="frames">
           <img src="data/tex2013.jpg" alt="Hillshade of the 2013 terrain before the landslide" data-cap="2013 terrain before the landslide (hillshade, 2 m)." class="on">
           <img src="data/wf_stable.jpg" alt="Whole survey area with stable areas in blue and the landslide outline in red" data-cap="Whole survey area. Blue: stable areas used for registration. Red: landslide zones." loading="lazy">
-          <img src="data/wf_interp.jpg" alt="2013 terrain with interpolated cells in ochre" data-cap="2013 DTM. Ochre: cells with no ground point, filled by interpolation." loading="lazy">
+          <img src="data/wf_interp.jpg" alt="2013 terrain with interpolated cells in ochre" data-cap="2013 terrain model, 3 m cells. Ochre: the few cells with no ground point, filled by interpolation." loading="lazy">
           <img src="data/wf_dtm2014.jpg" alt="Hillshade of the 2014 terrain after the landslide" data-cap="April 2014 terrain after the landslide (hillshade, 2 m)." loading="lazy">
           <img src="data/wf_water.jpg" alt="Water surfaces: 2014 water in slate, the buried 2013 river channel in olive" data-cap="Slate: water in 2014, left out. Olive: the 2013 river, now under the deposit, kept and flagged." loading="lazy">
           <img src="data/wf_dod.jpg" alt="Map of significant elevation change, erosion in red and deposition in blue" data-cap="Significant elevation change. Red: lowered. Blue: raised." loading="lazy">
@@ -348,12 +348,14 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
           </ul>
         </li>
         <li class="step" data-frame="2">
-          <h3>Build 1 m terrain models</h3>
+          <h3>Build terrain models at the right cell size</h3>
           <p class="tools">PDAL, GDAL</p>
-          <p>Ground points are gridded at 1 m. Each cell records whether it was measured or interpolated and how far it is from the nearest ground point. Under the dense forest of 2013 few laser pulses reached the ground, so many cells are interpolated; the map shows where.</p>
+          <p>A cell is measured when it holds a ground point; otherwise its elevation, and the change computed there, is interpolated. Under the 2013 forest about one laser pulse per m² reached the ground, so a 1 m grid leaves a third of the cells empty. The cell size is therefore taken from the data: the finest grid at which at least 90 % of the area is measured in both surveys, here 3 m.</p>
           <ul class="facts">
-            <li><span><i class="key" style="background:var(--interp)"></i>2013 cells without a ground point</span><span>36 %</span></li>
-            <li><span>Median distance to a ground point</span><span>1 m</span></li>
+            <li><span>2013 cells measured at 3 m</span><span>95 %</span></li>
+            <li><span><i class="key" style="background:var(--interp)"></i>2013 cells interpolated at 3 m</span><span>5 %</span></li>
+            <li><span>2013 cells measured at 1 m</span><span>64 %</span></li>
+            <li><span>Change in the volumes, 1 m to 3 m</span><span>about 1.4 %</span></li>
           </ul>
         </li>
         <li class="step" data-frame="3">
@@ -361,9 +363,9 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
           <p class="tools">Stable-area statistics, slope-dependent error model</p>
           <p>The spread of differences on stable ground gives the survey error, split by slope and by measured or interpolated cells. It sets a level of detection for each cell: smaller changes are treated as noise.</p>
           <ul class="facts">
-            <li><span>Survey noise (NMAD, measured cells)</span><span>0.094 m</span></li>
-            <li><span>Systematic error</span><span>±0.028 m</span></li>
-            <li><span>Median level of detection (95 %)</span><span>0.33 m</span></li>
+            <li><span>Survey noise (NMAD, measured cells)</span><span>0.098 m</span></li>
+            <li><span>Systematic error</span><span>±0.026 m</span></li>
+            <li><span>Median level of detection (95 %)</span><span>0.17 m</span></li>
           </ul>
         </li>
         <li class="step" data-frame="4">
@@ -372,8 +374,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
           <p>A ground terrain model has no ground under water: gap filling bridges the lake and the river from their banks, and the difference would count the water level as deposit. The 2014 water comes from the points the vendor classified as water. The 2013 delivery has no water class, so the river channel was drawn. Where 2014 is water, the cells leave the budget; the old channel, now under the deposit, stays in and is flagged.</p>
           <ul class="facts">
             <li><span><i class="key" style="background:#4E606A"></i>Water points, 2014</span><span>667,000</span></li>
-            <li><span>Water area, 2014</span><span>0.17 km²</span></li>
-            <li><span><i class="key" style="background:#7A8C2E"></i>River channel, 2013</span><span>0.18 km²</span></li>
+            <li><span>Water area, 2014 (river and ponds)</span><span>0.20 km²</span></li>
+            <li><span><i class="key" style="background:#7A8C2E"></i>River channel, 2013</span><span>0.17 km²</span></li>
           </ul>
         </li>
         <li class="step" data-frame="5">
@@ -382,7 +384,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
           <p>The 2013 terrain is subtracted from the 2014 terrain. A cell counts as change only where the difference exceeds its own level of detection, which grows on steep slopes and away from measured ground. Cells steeper than 45° never count.</p>
           <ul class="facts">
             <li><span><i class="key" style="background:var(--erosion)"></i>Maximum lowering</span><span>86.8 m</span></li>
-            <li><span><i class="key" style="background:var(--deposition)"></i>Maximum deposit thickness</span><span>22.4 m</span></li>
+            <li><span><i class="key" style="background:var(--deposition)"></i>Maximum deposit thickness</span><span>21.8 m</span></li>
             <li><span>Mean deposit thickness</span><span>5.7 m</span></li>
           </ul>
         </li>
@@ -391,9 +393,9 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
           <p class="tools">Zonal volumes, uncertainty propagation, report</p>
           <p>Volumes are summed inside a source zone and a runout zone based on the USGS deposit outline. Each zone is split into measured and interpolated cells, with the water cells listed apart, and each volume comes with its uncertainty.</p>
           <ul class="facts">
-            <li><span>Source zone, net loss</span><span>3.89 ± 0.08 Mm³</span></li>
-            <li><span>Runout zone, net gain</span><span>3.44 ± 0.22 Mm³</span></li>
-            <li><span>Balance inside the landslide</span><span>−10 %</span></li>
+            <li><span>Source zone, net loss</span><span>3.94 ± 0.02 Mm³</span></li>
+            <li><span>Runout zone, net gain</span><span>3.39 ± 0.04 Mm³</span></li>
+            <li><span>Balance inside the landslide</span><span>−13 %</span></li>
           </ul>
         </li>
       </ol>
@@ -410,10 +412,10 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
     </div>
     <div class="res-grid">
       <div class="prose">
-        <p><strong>Source:</strong> 3.89 ± 0.08 million m³ left the source area. Iverson et al. (2015) estimate 8.3 million m³ mobilized, of which about 4.5 million m³ stayed in the source area: about 3.8 million m³ left it.</p>
-        <p><strong>Runout:</strong> 3.44 ± 0.22 million m³ was deposited on dry ground in the runout zone. Anderson et al. (2017) derive about 3.9 million m³ for the valley-floor deposit, measured after the lake had drained. In April 2014 part of the deposit was still under the impoundment lake and the new river channel, so those cells are left out. Counted to the water surface they would add 0.19 million m³ (3.63 in total, 7 % below the published value).</p>
-        <p><strong>Balance:</strong> over the whole landslide, erosion is 4.26 and deposition 3.82 million m³ (net −10 %). 0.19 of the 0.44 million m³ gap is the deposit under the 2014 water.</p>
-        <p class="small">Uncertainty combines the systematic survey error with a conservative term for interpolated cells (a 1 m bias on every interpolated cell of change). 65 % of the source volume and 23 % of the runout volume rely on interpolated cells, under the forest. The zone outlines are approximate and are not included.</p>
+        <p><strong>Source:</strong> 3.94 ± 0.02 million m³ left the source area. Iverson et al. (2015) estimate 8.3 million m³ mobilized, of which about 4.5 million m³ stayed in the source area: about 3.8 million m³ left it.</p>
+        <p><strong>Runout:</strong> 3.39 ± 0.04 million m³ was deposited on dry ground in the runout zone. Anderson et al. (2017) derive about 3.9 million m³ for the valley-floor deposit, measured after the lake had drained. In April 2014 part of the deposit was still under the impoundment lake and the new river channel, so those cells are left out. Counted to the water surface they would add 0.24 million m³ (3.63 in total, 7 % below the published value, against 13 % on dry ground only).</p>
+        <p><strong>Balance:</strong> over the whole landslide, erosion is 4.32 and deposition 3.78 million m³ (net −13 %). 0.24 of the 0.55 million m³ gap is the deposit under the 2014 water.</p>
+        <p class="small">Uncertainty combines the systematic survey error with a conservative term for interpolated cells (a 1 m bias on every interpolated cell of change). With 3 m cells, 18 % of the source volume and 2 % of the runout volume rely on interpolated cells (65 % and 23 % at 1 m), which is why the uncertainty is four to six times smaller than at 1 m. The zone outlines are approximate and are not included.</p>
       </div>
       <div>
         <svg id="budget" viewBox="0 0 560 250" role="img" aria-label="Bar chart: this study versus published volumes for the source and the runout"></svg>
@@ -442,7 +444,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
       </div>
       <div>
         <h3>Water</h3>
-        <p>The impoundment lake gave no ground return in 2014, so it is outside the surveyed area (white on the map). Cells where 2014 is water are left out, which makes the runout volume a lower bound. Where the deposit buried the 2013 river, the deposit is underestimated by the 2013 water depth.</p>
+        <p>The impoundment lake gave no ground return in 2014; like the river, it is mapped as water. Cells where 2014 is water are left out, which makes the runout volume a lower bound. Where the deposit buried the 2013 river, the deposit is underestimated by the 2013 water depth.</p>
       </div>
     </div>
 
@@ -453,8 +455,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
       <li>Haugerud, R.A., 2014, Preliminary interpretation of pre-2014 landslide deposits in the vicinity of Oso, Washington: USGS Open-File Report 2014–1065 (runout outline). <a href="https://doi.org/10.3133/ofr20141065">doi:10.3133/ofr20141065</a></li>
       <li>Puget Sound LiDAR Consortium, 2014, 2013 Tulalip Partnership topographic lidar (Watershed Sciences Inc.), public domain.</li>
       <li>Washington State Department of Transportation, 2014, 2014 Stillaguamish lidar including Oso (Quantum Spatial), distributed by the Puget Sound LiDAR Consortium.</li>
-      <li>Bernard, T., 2026, Oso (SR530) landslide: lidar change detection and sediment budget, version 1.1.0. <a href="https://github.com/ThomasGBernard/oso-landslide-lidar-change">github.com/ThomasGBernard/oso-landslide-lidar-change</a></li>
-      <li>Maps: NAD83 / Washington North, metres; heights NAVD88. Maps from the reference run of the author's toolbox (v0.7.0); volumes from the public repository, which reproduces that run within 0.6 %.</li>
+      <li>Bernard, T., 2026, Oso (SR530) landslide: lidar change detection and sediment budget, version 1.2.0. <a href="https://github.com/ThomasGBernard/oso-landslide-lidar-change">github.com/ThomasGBernard/oso-landslide-lidar-change</a></li>
+      <li>Maps: NAD83 / Washington North, metres; heights NAVD88. Change and water maps from the 3 m reference run of the author's toolbox (v0.9.0); hillshades from 1 m terrain models; volumes from the public repository, which reproduces that run within 0.2 %.</li>
     </ol>
   </div>
 </section>
@@ -564,7 +566,7 @@ function initMap(meta,vec,prof){
       const x=latlng.lng+X0, y=latlng.lat+Y0;
       const c=Math.floor((x-X0)/g.res_m), r=Math.floor((Y0-y)/g.res_m);
       if(c<0||r<0||c>=g.w||r>=g.h||z13[r*g.w+c]===0){R.d.textContent='–';R.a.textContent='–';R.b.textContent='–';
-        R.n.textContent='No ground data here: outside the survey, or the 2014 lake (no ground return).';return;}
+        R.n.textContent='No ground data here: outside the area surveyed in both years.';return;}
       const i=r*g.w+c, d=dod[i]/10, a=z13[i]/10, b=z14[i]/10, w=wat?wat[i]:0;
       const leftOut = w===1 || w===3;
       R.d.textContent= leftOut ? 'Left out: water in 2014' : d===0 ? 'No significant change' : (d>0?'+':'−')+fmt(Math.abs(d))+' m';
@@ -613,8 +615,8 @@ function drawProfile(p){
 (function budget(){
   const svg=document.getElementById('budget'), W=560, H=250, l=110, r=20;
   const vmax=5, X=v=>l+(W-l-r)*v/vmax;
-  const rows=[{name:'Source',sub:'volume that left',v:3.886,u:0.077,pub:3.8,lo:2.8,hi:4.7,ref:'Iverson et al. 2015',col:'#B4532A'},
-              {name:'Runout',sub:'on dry ground',v:3.443,u:0.218,ext:3.629,pub:3.9,lo:null,hi:null,ref:'Anderson et al. 2017',col:'#2F6690'}];
+  const rows=[{name:'Source',sub:'volume that left',v:3.940,u:0.021,pub:3.8,lo:2.8,hi:4.7,ref:'Iverson et al. 2015',col:'#B4532A'},
+              {name:'Runout',sub:'on dry ground',v:3.394,u:0.038,ext:3.630,pub:3.9,lo:null,hi:null,ref:'Anderson et al. 2017',col:'#2F6690'}];
   let s='';
   for(let v=0;v<=vmax;v++) s+=`<line x1="${X(v)}" x2="${X(v)}" y1="14" y2="${H-34}" stroke="#2F3E37"/><text x="${X(v)}" y="${H-14}" text-anchor="middle">${v}</text>`;
   s+=`<text x="${W-r}" y="${H+4}" text-anchor="end">Million m³</text>`;

@@ -6,6 +6,7 @@
     "y1": 143950
   },
   "crs": "NAD83 / Washington North (m), EPSG:32148 axes in metres; NAVD88 heights (m)",
+  "data_res_m": 3,
   "full": {
     "x0": 423597,
     "y0": 144598,
@@ -24,6 +25,7 @@
     "h": 877,
     "encoding": "RGB PNG, value = R*256 + G; dod in decimetres + 32768; z in decimetres, 0 = no data"
   },
+  "hillshade_source": "1 m DTMs",
   "map": {
     "px_w": 1415,
     "px_h": 1755,
@@ -37,7 +39,7 @@
     "res_m": 8,
     "w": 287,
     "h": 275,
-    "zmin_m": 73.4170913696289,
+    "zmin_m": 73.41775969664256,
     "encoding": "RGB PNG, value = R*256 + G = decimetres above zmin"
   },
   "water": {

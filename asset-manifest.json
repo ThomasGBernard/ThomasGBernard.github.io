@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.9eb3797e.chunk.css",
-    "main.js": "/static/js/main.fdb56b22.chunk.js",
-    "main.js.map": "/static/js/main.fdb56b22.chunk.js.map",
+    "main.js": "/static/js/main.6d6e45b1.chunk.js",
+    "main.js.map": "/static/js/main.6d6e45b1.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2781e2dc.js",
     "runtime-main.js.map": "/static/js/runtime-main.2781e2dc.js.map",
     "static/js/2.fd4f8948.chunk.js": "/static/js/2.fd4f8948.chunk.js",
     "static/js/2.fd4f8948.chunk.js.map": "/static/js/2.fd4f8948.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.dad960273d3dc65b3217de4b77d7e07f.js": "/precache-manifest.dad960273d3dc65b3217de4b77d7e07f.js",
+    "precache-manifest.0c8b8c199b0b9bd581ac99024f35f98c.js": "/precache-manifest.0c8b8c199b0b9bd581ac99024f35f98c.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.9eb3797e.chunk.css.map": "/static/css/main.9eb3797e.chunk.css.map",
     "static/media/3d_geoacademy_logo.png": "/static/media/3d_geoacademy_logo.fc5756cf.png",
@@ -86,6 +86,6 @@
     "static/js/runtime-main.2781e2dc.js",
     "static/js/2.fd4f8948.chunk.js",
     "static/css/main.9eb3797e.chunk.css",
-    "static/js/main.fdb56b22.chunk.js"
+    "static/js/main.6d6e45b1.chunk.js"
   ]
 }

@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.9eb3797e.chunk.css",
-    "main.js": "/static/js/main.0df38a64.chunk.js",
-    "main.js.map": "/static/js/main.0df38a64.chunk.js.map",
+    "main.css": "/static/css/main.b7bb7078.chunk.css",
+    "main.js": "/static/js/main.a9f0bfc8.chunk.js",
+    "main.js.map": "/static/js/main.a9f0bfc8.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2781e2dc.js",
     "runtime-main.js.map": "/static/js/runtime-main.2781e2dc.js.map",
-    "static/js/2.fd4f8948.chunk.js": "/static/js/2.fd4f8948.chunk.js",
-    "static/js/2.fd4f8948.chunk.js.map": "/static/js/2.fd4f8948.chunk.js.map",
+    "static/js/2.69e77c77.chunk.js": "/static/js/2.69e77c77.chunk.js",
+    "static/js/2.69e77c77.chunk.js.map": "/static/js/2.69e77c77.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.5fee1739796a2924feafbadfd14d9655.js": "/precache-manifest.5fee1739796a2924feafbadfd14d9655.js",
+    "precache-manifest.e4c9673c265c516ff7cf2122ad87f3ba.js": "/precache-manifest.e4c9673c265c516ff7cf2122ad87f3ba.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.9eb3797e.chunk.css.map": "/static/css/main.9eb3797e.chunk.css.map",
+    "static/css/main.b7bb7078.chunk.css.map": "/static/css/main.b7bb7078.chunk.css.map",
     "static/media/3d_geoacademy_logo.png": "/static/media/3d_geoacademy_logo.fc5756cf.png",
     "static/media/index.css": "/static/media/Montserrat-Regular.ee653992.ttf",
     "static/media/Curriculum_Thomas_Bernard.pdf": "/static/media/Curriculum_Thomas_Bernard.30fba240.pdf",
@@ -84,8 +84,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2781e2dc.js",
-    "static/js/2.fd4f8948.chunk.js",
-    "static/css/main.9eb3797e.chunk.css",
-    "static/js/main.0df38a64.chunk.js"
+    "static/js/2.69e77c77.chunk.js",
+    "static/css/main.b7bb7078.chunk.css",
+    "static/js/main.a9f0bfc8.chunk.js"
   ]
 }

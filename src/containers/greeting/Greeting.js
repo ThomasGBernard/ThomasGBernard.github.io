@@ -24,6 +24,21 @@ export default function Greeting(props) {
               <h2 className="greeting-nickname">{greeting.nickname}</h2>
             )}
             <p className="greeting-text-p">{greeting.subTitle}</p>
+            {greeting.international && (
+              <div className="greeting-international">
+                <span className="greeting-international-text">
+                  <i className="fas fa-globe-europe"></i>{" "}
+                  {greeting.international.text}
+                </span>
+                <span className="greeting-languages">
+                  {greeting.international.languages.map((lang) => (
+                    <span className="greeting-lang" key={lang}>
+                      {lang}
+                    </span>
+                  ))}
+                </span>
+              </div>
+            )}
             <div className="button-greeting-div">
               <Link
                 to="/services"

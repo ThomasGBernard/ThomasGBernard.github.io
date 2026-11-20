@@ -103,7 +103,7 @@
 }
 
 .header .menu-btn:checked ~ .menu {
-  max-height: 370px;
+  max-height: 460px;
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -139,5 +139,67 @@
   }
   .header .menu-icon {
     display: none;
+  }
+}
+
+/* "Work with me" call-to-action button.
+   Desktop: last item of the menu. Phone/tablet: pinned next to the menu icon,
+   and hidden inside the collapsed menu. */
+.header .header-cta {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 6px;
+  font-family: "Google Sans Medium";
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.header .header-cta:hover {
+  opacity: 0.85;
+}
+
+.header .header-cta-mobile {
+  float: right;
+  margin-top: 13px;
+  padding: 9px 14px;
+  font-size: 15px;
+}
+
+.header .header-cta-item {
+  display: none;
+}
+
+@media (min-width: 69em) {
+  .header .header-cta-mobile {
+    display: none;
+  }
+  .header .header-cta-item {
+    display: list-item;
+  }
+  .header li a.header-cta {
+    padding: 11px 20px;
+    margin: 8px 0 8px 14px;
+  }
+}
+
+/* Phones: logo, button and menu icon must fit on one line */
+@media (max-width: 600px) {
+  .header {
+    max-width: 100%;
+    padding: 16px 12px;
+    box-sizing: border-box;
+  }
+  .header .logo {
+    font-size: 1.2em;
+  }
+  .header .logo-name {
+    padding: 0 4px;
+  }
+  .header .menu-icon {
+    padding: 28px 10px 28px 14px;
+  }
+  .header .header-cta-mobile {
+    padding: 8px 11px;
+    font-size: 14px;
   }
 }

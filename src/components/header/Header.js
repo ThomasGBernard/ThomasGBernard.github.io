@@ -29,6 +29,19 @@ class Header extends Component {
                 {greeting.logo_name}
               </span>
             </NavLink>
+            {/* Phone/tablet only: keeps "Work with me" visible next to the menu icon */}
+            <NavLink
+              to="/work-with-me"
+              tag={Link}
+              className="header-cta header-cta-mobile"
+              style={{
+                color: theme.body,
+                backgroundColor: theme.text,
+                border: `1px solid ${theme.text}`,
+              }}
+            >
+              Work with me
+            </NavLink>
             <input className="menu-btn" type="checkbox" id="menu-btn" />
             <label className="menu-icon" htmlFor="menu-btn">
               <span className="navicon"></span>
@@ -72,26 +85,14 @@ class Header extends Component {
               </li>
               <li>
                 <NavLink
-                  to="/education"
+                  to="/about"
                   tag={Link}
                   activeStyle={{ fontWeight: "bold" }}
                   style={{ color: theme.text }}
                   onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                   onMouseOut={(event) => onMouseOut(event)}
                 >
-                  Education
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/experience"
-                  tag={Link}
-                  activeStyle={{ fontWeight: "bold" }}
-                  style={{ color: theme.text }}
-                  onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-                  onMouseOut={(event) => onMouseOut(event)}
-                >
-                  Experience
+                  About
                 </NavLink>
               </li>
               {/*<li>
@@ -128,6 +129,20 @@ class Header extends Component {
                   onMouseOut={(event) => onMouseOut(event)}
                 >
                   Contact
+                </NavLink>
+              </li>
+              <li className="header-cta-item">
+                <NavLink
+                  to="/work-with-me"
+                  tag={Link}
+                  className="header-cta"
+                  style={{
+                    color: theme.body,
+                    backgroundColor: theme.text,
+                    border: `1px solid ${theme.text}`,
+                  }}
+                >
+                  Work with me
                 </NavLink>
               </li>
             </ul>

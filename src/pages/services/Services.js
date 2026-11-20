@@ -55,6 +55,25 @@ function ServiceCard({ service, theme }) {
         {service.problem}
       </p>
 
+      {service.diagnosis && (
+        <div
+          className="service-diagnosis"
+          style={{
+            backgroundColor: theme.body,
+            color: theme.text,
+            borderLeft: `3px solid ${theme.imageHighlight}`,
+          }}
+        >
+          <span
+            className="service-diagnosis-label"
+            style={{ color: theme.imageHighlight }}
+          >
+            The diagnosis you get
+          </span>
+          {service.diagnosis}
+        </div>
+      )}
+
       <div className="service-columns">
         <div>
           <h4 style={{ color: theme.text }}>What you receive</h4>
@@ -155,7 +174,7 @@ function Services(props) {
               {servicesHeader.ctaText}
             </p>
             <Link
-              to="/contact"
+              to="/work-with-me"
               className="main-button services-cta-button"
               style={{
                 color: theme.body,

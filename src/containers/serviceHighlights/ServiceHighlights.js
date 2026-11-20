@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ServiceHighlights.css";
-import { services, serviceHighlightsHeader } from "../../portfolio";
+import { homeServices, serviceHighlightsHeader } from "../../portfolio";
 import { Fade } from "react-reveal";
 
 export default function ServiceHighlights(props) {
@@ -18,31 +18,59 @@ export default function ServiceHighlights(props) {
         >
           {serviceHighlightsHeader.description}
         </p>
+        <div className="highlights-flow" style={{ color: theme.text }}>
+          <span className="flow-step">
+            <i className="fas fa-database"></i> Your data
+          </span>
+          <i
+            className="fas fa-arrow-right flow-arrow"
+            style={{ color: theme.imageHighlight }}
+          ></i>
+          <span className="flow-step">
+            <i className="fas fa-map"></i> Maps & numbers
+          </span>
+          <i
+            className="fas fa-arrow-right flow-arrow"
+            style={{ color: theme.imageHighlight }}
+          ></i>
+          <span
+            className="flow-step flow-step-strong"
+            style={{ backgroundColor: theme.text, color: theme.body }}
+          >
+            <i className="fas fa-stethoscope"></i> Diagnosis
+          </span>
+        </div>
       </Fade>
 
       <div className="highlights-grid">
-        {services.map((service) => (
+        {homeServices.map((service) => (
           <Fade bottom duration={1000} distance="20px" key={service.id}>
             <Link
               to="/services"
               className="highlight-card"
               style={{
                 backgroundColor: theme.compImgHighlight,
-                borderTop: `4px solid ${theme.highlight}`,
+                borderTop: `4px solid ${theme.imageHighlight}`,
               }}
             >
               <i
                 className={`${service.icon} highlight-icon`}
-                style={{ color: theme.text }}
+                style={{ color: theme.imageHighlight }}
               ></i>
               <h3 style={{ color: theme.text }}>{service.title}</h3>
               <p style={{ color: theme.secondaryText }}>{service.tagline}</p>
-              <span
-                className="highlight-status"
-                style={{ color: theme.secondaryText }}
+              <div
+                className="highlight-diagnosis"
+                style={{ backgroundColor: theme.body, color: theme.text }}
               >
-                {service.status.label}
-              </span>
+                <span
+                  className="highlight-diagnosis-label"
+                  style={{ color: theme.imageHighlight }}
+                >
+                  The diagnosis
+                </span>
+                {service.diagnosis}
+              </div>
             </Link>
           </Fade>
         ))}

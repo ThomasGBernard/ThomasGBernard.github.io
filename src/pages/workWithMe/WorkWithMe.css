@@ -1,0 +1,157 @@
+.wwm-body {
+  width: 90%;
+  max-width: 760px;
+  margin: 30px auto 0 auto;
+  font-family: "Google Sans Regular";
+}
+
+.wwm-title {
+  font-size: 44px;
+  font-family: "Google Sans Medium";
+  font-weight: 400;
+  margin: 0 0 10px 0;
+}
+
+.wwm-intro {
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 0 0 28px 0;
+}
+
+.wwm-card {
+  border-radius: 10px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wwm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.wwm-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+  font-family: "Google Sans Medium";
+}
+
+.wwm-card input[type="text"],
+.wwm-card input[type="email"],
+.wwm-card select,
+.wwm-card textarea {
+  font-family: "Google Sans Regular";
+  font-size: 16px;
+  padding: 11px 12px;
+  border: 1px solid;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.wwm-card textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.wwm-card input:focus,
+.wwm-card select:focus,
+.wwm-card textarea:focus {
+  outline: 2px solid #1e7a8c;
+  outline-offset: 1px;
+}
+
+.wwm-honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.wwm-card label.wwm-consent {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: "Google Sans Regular";
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.wwm-consent input {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.wwm-submit {
+  margin-top: 0;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.wwm-submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.wwm-error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: #fdecea;
+  color: #8a1c13;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.wwm-error a {
+  color: #8a1c13;
+}
+
+.wwm-alt {
+  margin: 0;
+  font-size: 14px;
+}
+
+.wwm-success h2 {
+  margin: 0;
+  font-size: 24px;
+  font-family: "Google Sans Medium";
+  font-weight: 400;
+}
+
+.wwm-success p {
+  margin: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .wwm-body {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .wwm-title {
+    font-size: 32px;
+  }
+  .wwm-intro {
+    font-size: 16px;
+  }
+  .wwm-card {
+    padding: 20px 16px;
+  }
+  .wwm-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wwm-error-detail {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.85;
+}

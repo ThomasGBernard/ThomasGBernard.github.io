@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import Home from "../pages/home/HomeComponent";
 import Splash from "../pages/splash/Splash";
-import Education from "../pages/education/EducationComponent";
-import Experience from "../pages/experience/Experience";
+import About from "../pages/about/About";
 import Portfolio from "../pages/portfolio/Portfolio";
 import Contact from "../pages/contact/ContactComponent";
 import Projects from "../pages/projects/Projects";
 import Services from "../pages/services/Services";
+import Legal from "../pages/legal/Legal";
+import WorkWithMe from "../pages/workWithMe/WorkWithMe";
 import { settings } from "../portfolio.js";
 import Error404 from "../pages/errors/error404/Error";
 import ResumePage from "../pages/resume/Resume.js";
@@ -55,18 +56,24 @@ export default class Main extends Component {
             render={(props) => <Services {...props} theme={this.props.theme} />}
           />
           <Route
-            path="/experience"
-            exact
+            path="/work-with-me"
             render={(props) => (
-              <Experience {...props} theme={this.props.theme} />
+              <WorkWithMe {...props} theme={this.props.theme} />
             )}
           />
           <Route
-            path="/education"
-            render={(props) => (
-              <Education {...props} theme={this.props.theme} />
-            )}
+            path="/legal"
+            render={(props) => <Legal {...props} theme={this.props.theme} />}
           />
+          <Redirect from="/terms" to="/legal" />
+          <Redirect from="/privacy" to="/legal" />
+          <Route
+            path="/about"
+            render={(props) => <About {...props} theme={this.props.theme} />}
+          />
+          {/* Experience and Education are now sections of the About page */}
+          <Redirect from="/experience" to="/about" />
+          <Redirect from="/education" to="/about" />
           <Route
             path="/portfolio"
             render={(props) => (

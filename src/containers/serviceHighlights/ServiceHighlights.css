@@ -67,9 +67,50 @@
   flex: 1;
 }
 
-.highlight-status {
-  font-size: 13px;
+.highlight-diagnosis {
+  font-size: 14.5px;
+  line-height: 1.45;
+  font-style: italic;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.highlight-diagnosis-label {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
   font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Data -> maps -> diagnosis strip under the subheader */
+.highlights-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin: -14px auto 34px auto;
+  font-size: 16px;
+  font-family: "Google Sans Medium";
+}
+
+.flow-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 20px;
+}
+
+.flow-step-strong {
+  font-weight: bold;
+}
+
+.flow-arrow {
+  font-size: 14px;
 }
 
 .highlights-more {
@@ -106,5 +147,12 @@
   }
   .highlights-grid {
     grid-template-columns: 1fr;
+  }
+  .highlights-flow {
+    font-size: 14px;
+    gap: 6px 8px;
+  }
+  .flow-step {
+    padding: 6px 10px;
   }
 }

@@ -63,6 +63,35 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.greeting-international {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 20px;
+  font-family: "Google Sans Regular";
+  color: #ffffff;
+}
+
+.greeting-international-text {
+  font-size: 16px;
+  font-family: "Google Sans Medium";
+}
+
+.greeting-languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.greeting-lang {
+  font-size: 13px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
 .button-greeting-div {
   display: flex;
   flex-wrap: wrap;
@@ -128,6 +157,10 @@
     text-align: center;
   }
   .button-greeting-div {
+    justify-content: center;
+  }
+  .greeting-international,
+  .greeting-languages {
     justify-content: center;
   }
   .greeting-text-div .social-media-div {

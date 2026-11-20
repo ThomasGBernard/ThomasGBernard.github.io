@@ -1,0 +1,135 @@
+.work-main {
+  width: 90%;
+  max-width: 1300px;
+  margin: 70px auto 0 auto;
+  padding: 20px 10px;
+  font-family: "Google Sans Regular";
+}
+
+.work-header {
+  font-size: 40px;
+  font-weight: 400;
+  font-family: "Google Sans Medium";
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+.work-subheader {
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 36px auto;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* react-reveal wraps each card in a div: make it fill the grid cell */
+.work-grid > div {
+  display: flex;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.work-image-wrap {
+  aspect-ratio: 4 / 3;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.work-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.work-card:hover .work-image-wrap img {
+  transform: scale(1.04);
+}
+
+.work-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 20px 20px 20px;
+}
+
+.work-tag {
+  font-size: 12.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.work-body h3 {
+  font-size: 19px;
+  line-height: 1.3;
+  font-family: "Google Sans Medium";
+  margin: 0 0 8px 0;
+}
+
+.work-body p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 14px 0;
+  flex: 1;
+}
+
+.work-link {
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.work-link:hover {
+  text-decoration: underline;
+}
+
+.work-more {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.work-more-link {
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 2px;
+}
+
+@media (max-width: 1000px) {
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-main {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    margin-top: 40px;
+  }
+  .work-header {
+    font-size: 28px;
+  }
+  .work-subheader {
+    font-size: 16px;
+  }
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+}

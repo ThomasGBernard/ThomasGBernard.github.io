@@ -1,3 +1,5 @@
+> Personal website of Thomas Bernard. Originally forked from [ashutosh1919/masterPortfolio](https://github.com/ashutosh1919/masterPortfolio) (MIT License) and extensively modified.
+
 <p align="center"> 
     <img src="images/masterportfolio-banner-light.png" align="center" height="150"></img>
 </p>
@@ -46,15 +48,16 @@
 To view a live example, **[click here](https://ashutosh1919.github.io/)**
 
 # Table of Contents
- - [Clone and Use](#clone-and-use)
- - [Customizing](#customize-it-to-make-your-own-portfolio)
- - [Choose Theme](#choose-theme)
- - [Deployment](#deployment)
- - [Technologies Used](#technologies-used)
- - [Illustrations](#illustrations)
- - [License](#license)
- - [Contributors](#contributors)
- - [References](#references)
+
+- [Clone and Use](#clone-and-use)
+- [Customizing](#customize-it-to-make-your-own-portfolio)
+- [Choose Theme](#choose-theme)
+- [Deployment](#deployment)
+- [Technologies Used](#technologies-used)
+- [Illustrations](#illustrations)
+- [License](#license)
+- [Contributors](#contributors)
+- [References](#references)
 
 # Clone and Use 📋
 
@@ -197,9 +200,11 @@ Therefore, this part of portfolio is not customizable. But don't worry we have a
 - Also, keep in mind that your resume must be in A4 size.
 - Now, go to <a href="/src/pages/resume/Resume.js">/src/pages/resume/Resume.js</a>.
 - In the import section, find:
+
 ```
 import myResumePdf from "../../assets/docs/Ashutosh_Hathidara_Resume_ML.pdf"
 ```
+
 - and replace **"Ashutosh_Hathidara_Resume_ML.pdf"** with your resume file name.
 - Launch the project and go to the route `/resume` to view your resume.
 

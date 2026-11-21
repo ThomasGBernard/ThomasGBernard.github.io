@@ -5,6 +5,7 @@
   "homepage": "https://ThomasGBernard.github.io",
   "scripts": {
     "build": "react-scripts --openssl-legacy-provider build",
+    "postbuild": "node scripts/static-routes.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b main -d build",
     "eject": "react-scripts eject",

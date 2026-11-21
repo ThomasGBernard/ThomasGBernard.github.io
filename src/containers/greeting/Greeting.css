@@ -30,6 +30,9 @@
   display: flex;
   align-items: center;
   padding: 60px 64px;
+  /* align the hero text with the centred 1300px content column on wide screens
+     (50% of the 94%-wide hero wrapper minus half the column) */
+  padding-left: max(64px, calc(50% - 650px));
   box-sizing: border-box;
   box-shadow: 0 10px 30px rgba(15, 42, 61, 0.18);
 }

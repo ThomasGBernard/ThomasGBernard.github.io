@@ -172,8 +172,8 @@ function Portfolio(props) {
               className="portfolio-section-intro"
               style={{ color: theme.secondaryText }}
             >
-              Peer-reviewed publications in fluvial morphodynamics, 3D lidar
-              processing and natural hazards.
+              Peer-reviewed publications in fluvial morphodynamics, lidar
+              processing and 2D hydraulics.
             </p>
             {publicationsHeader.scholarLink && (
               <div style={{ textAlign: "center", marginBottom: "30px" }}>

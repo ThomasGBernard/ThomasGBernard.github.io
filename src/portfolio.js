@@ -7,11 +7,13 @@ const settings = {
 
 //SEO Related settings
 const seo = {
-  title: "Thomas Bernard | Geospatial Analysis for Natural Hazards & Water",
+  title:
+    "Thomas Bernard | Alpine Hydromorphology, River Restoration & Flood Risk",
   description:
-    "Geospatial analysis for natural hazards and water: lidar processing, 3D change detection, sediment budgets and 2D hydraulic modelling for landslides, floods, rivers and infrastructure. Based in Trento, Italy.",
+    "Alpine hydromorphologist based in Trento, Italy. River change and sediment budgets from repeat lidar, hydromorphological trajectory diagnosis and 2D flood modelling for river restoration and flood risk projects in Italy, France and Switzerland.",
   og: {
-    title: "Thomas Bernard | Geospatial Analysis for Natural Hazards & Water",
+    title:
+      "Thomas Bernard | Alpine Hydromorphology, River Restoration & Flood Risk",
     type: "website",
     url: "https://thomasgbernard.github.io/",
   },
@@ -19,16 +21,16 @@ const seo = {
 
 //Home Page
 const greeting = {
-  title: "Geospatial Analysis for Natural Hazards & Water",
+  title: "Alpine Hydromorphology for River Restoration & Flood Risk",
   logo_name: "Thomas Bernard, PhD",
   nickname: "",
   subTitle:
-    "Lidar quality control and processing, 3D change detection and 2D hydraulic modelling for landslides, floods and rivers. I don't stop at the map: you get a clear diagnosis of what the data shows, how reliable it is, and what it means for your project.",
+    "I model how rivers and sediment move, from repeat lidar surveys and 2D hydraulics, so restoration and flood projects work with the river, not against it. You get a clear diagnosis: how the reach has changed, where it is heading, and what to do next.",
   // Shown under the hero text: makes the international scope explicit
   international: {
     text:
-      "Based in Trento, Italy · Projects in Italy, France, Switzerland and across Europe",
-    languages: ["English", "Français", "Italiano", "Deutsch (basic)"],
+      "Based in Trento, Italy · Alpine rivers in Italy, France and Switzerland (Ticino, Romandy)",
+    languages: ["English", "Français", "Italiano"],
   },
   // PDF stored in public/ so it is served at the root of the site
   resumeLink: "/Thomas_Bernard_Resume.pdf",
@@ -36,8 +38,8 @@ const greeting = {
     "https://github.com/ThomasGBernard/ThomasGBernard.github.io",
   githubProfile: "https://github.com/ThomasGBernard",
   heroBackgroundAlt:
-    "Aerial drone view of a braided sandy river with vegetated islands",
-  heroBackgroundCaption: "Loire River, France (drone survey)",
+    "The Tagliamento River at sunset, with gravel bars, pioneer vegetation and a mountain slope in the background",
+  heroBackgroundCaption: "Tagliamento River, Friuli, Italy",
 };
 
 const socialMediaLinks = [
@@ -232,7 +234,7 @@ const degrees = {
       duration: "2018 - 2022",
       descriptions: [
         "• Thesis: “Analyse haute résolution de la morphologie des paysages et des processus à partir de LiDAR aéroporté répété et simulation hydraulique” (high-resolution analysis of landscape morphology and processes from repeat airborne lidar and hydraulic simulation).",
-        "• Developed synoptic 3D landslide inventories and volume estimates from repeat lidar (Earth Surface Dynamics, 2021) and hydro-geomorphic metrics combining topography and 2D hydraulics (JGR Earth Surface, 2022, top cited article 2022–2023).",
+        "• Developed synoptic 3D landslide inventories and volume estimates from repeat lidar (Earth Surface Dynamics, 2021) and hydro-geomorphic metrics combining topography and 2D hydraulics (JGR Earth Surface, 2022, Editors' Highlight in Eos).",
         "• More than 100 hours of teaching.",
       ],
       website_link: "https://geosciences.univ-rennes.fr/en",
@@ -267,7 +269,7 @@ const certifications = {
   certifications: [
     {
       title: "3D data processing with Machine & Deep Learning",
-      subtitle: "- Dr. Florent Poux",
+      subtitle: "- Dr. Florent Poux (in progress)",
       logo_path: "3d_geoacademy_logo.png",
       certificate_link: "https://learngeodata.eu/",
       alt_name: "Dr. Florent Poux",
@@ -281,7 +283,7 @@ const experience = {
   title: "Experience",
   subtitle: "Research and professional experience",
   description:
-    "I started in research at the University of Rennes, where I completed a PhD on repeat airborne lidar and hydraulic simulation, then worked as a geospatial and lidar data specialist. As a post-doctoral researcher in hydromorphology at the University of Trento, I managed an applied research project on river morphodynamics. In 2026 I carried out 2D flood modelling for a hydraulic compatibility assessment with Vesta Energy. I now offer lidar processing, change detection and hydraulic modelling services for natural hazards and water.",
+    "I started in research at the University of Rennes, where I completed a PhD on repeat airborne lidar and hydraulic simulation, then worked as a geospatial and lidar data specialist. As a post-doctoral researcher in hydromorphology at the University of Trento, I managed an applied research project on river morphodynamics. In 2026 I carried out 2D flood modelling for a hydraulic compatibility assessment with Vesta Energy. I now bring that science to river restoration and flood risk projects across the Alps.",
   header_image_path: "experience.svg",
   heroImageAlt: "Alpine mountain panorama",
   heroImageCaption: "", // e.g. "Dolomites, Italy" (shown in the banner corner)
@@ -303,7 +305,8 @@ const experience = {
             "Key Deliverables:\n",
             "• Hydrodynamic Modeling: Two-dimensional simulation (using HEC-RAS) of 100-year flood events (TR 100 scenario) to map water levels and flow velocities.\n",
             "• Compliance and safety: Determination of the hydraulic safety elevation for the equipment.\n",
-            "• Technical documentation: Preparation of engineering reports (hydrological and hydraulic reports) to demonstrate hydraulic invariance and the absence of any increase in hydraulic hazard for neighboring areas.",
+            "• Technical documentation: Preparation of engineering reports (hydrological and hydraulic reports) to demonstrate hydraulic invariance and the absence of any increase in hydraulic hazard for neighboring areas.\n",
+            "Outcome: favourable opinion from the Eastern Alps District Basin Authority.",
           ],
           color: "#000000",
         },
@@ -316,7 +319,8 @@ const experience = {
           location: "Trento, Italy",
           description: [
             "• Management of an applied research project in river morphodynamics\n",
-            "• 1D/2D hydraulic and sediment transport modelling (numerical and physical)\n",
+            "• 1D (Python) and 2D (HEC-RAS) hydraulic and sediment transport modelling, and flume experiments\n",
+            "• Quantification of the active width of gravel-bed rivers from DEM differences (Geomorphology, 2026)\n",
             "• Preparation of technical reports and coordination with international partners\n",
             "• Organization of a technical workshop on the management of Alpine rivers (planning, funding, coordination)",
           ],
@@ -360,11 +364,11 @@ const experience = {
 // About page (merges the former Experience and Education pages)
 const about = {
   title: "About",
-  subtitle: "Geomorphologist and geospatial analyst, PhD",
+  subtitle: "Alpine hydromorphologist, PhD",
   description:
-    "I started in research at the University of Rennes, where I completed a PhD on repeat airborne lidar and hydraulic simulation, then worked as a geospatial and lidar data specialist. As a post-doctoral researcher in hydromorphology at the University of Trento, I managed an applied research project on river morphodynamics, and in 2026 I carried out 2D flood modelling for a hydraulic compatibility assessment with Vesta Energy. Today I help engineers, authorities and researchers turn lidar and terrain data into a clear diagnosis.",
+    "Rivers move. On the Po, the riverbed has dropped by more than 6 metres in places, leaving bridge foundations exposed, because sediment was left out of the picture. I spent eight years studying how rivers move: a PhD in Rennes on repeat lidar and 2D hydraulics, lidar processing at Géosciences Rennes, then a post-doc in Trento on the morphodynamics of gravel-bed rivers. In 2026 my first hydraulic compatibility study received a favourable opinion from the Eastern Alps District Basin Authority. Today I help basin authorities, river managers and engineering firms understand how their river works before they act on it.",
   languagesText:
-    "Based in Trento, working in English, French and Italian (basic German) for clients in Italy, France, Switzerland and across Europe.",
+    "Based in Trento, working in English, French and Italian for river projects in Italy, France and Switzerland.",
   experienceTitle: "Experience",
   educationTitle: "Education",
 };
@@ -422,7 +426,7 @@ const publications = {
         "From point cloud to digital elevation model: Airborne topo-bathymetric LiDAR processing over the 28 km Ardèche River Gorges",
       createdAt: "2026",
       description:
-        "Nativ, R., Lague, D., Leroy, P., Guerit, L., Bernard, T., Letard, M., ... & Steer, P. (EGUsphere preprint, in review).",
+        "Nativ, R., Lague, D., Leroy, P., Guerit, L., Bernard, T., Letard, M., ... & Steer, P. (Earth Observation, EGU, accepted for publication).",
       url:
         "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-724/",
     },
@@ -451,7 +455,7 @@ const publications = {
         "Hydro-geomorphic metrics for high resolution fluvial landscape analysis",
       createdAt: "2022",
       description:
-        "Bernard, T. G., Davy, P., & Lague, D. (Journal of Geophysical Research: Earth Surface - Top cited article 2022-2023).",
+        "Bernard, T. G., Davy, P., & Lague, D. (Journal of Geophysical Research: Earth Surface, Editors' Highlight in Eos).",
       url:
         "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021JF006535",
     },
@@ -470,7 +474,7 @@ const publications = {
 const publicationsHeader = {
   title: "Publications & Outreach",
   description:
-    "Peer-reviewed articles, conference presentations and science communication in fluvial morphodynamics, 3D lidar processing and natural hazards.",
+    "Peer-reviewed articles, conference presentations and science communication in fluvial morphodynamics, lidar processing and 2D hydraulics.",
   avatar_image_path: "projects_image.svg",
   scholarLink:
     "https://scholar.google.com/citations?user=wTgB0K0AAAAJ&hl=fr&oi=ao",
@@ -586,39 +590,40 @@ const toolboxProjects = {
 const selectedWork = {
   title: "Selected work",
   description:
-    "A few examples of what the data can tell you, from landslide volumes to river landscapes.",
+    "A few examples of what repeat surveys and 2D hydraulics can tell you about a river.",
   moreLink: { text: "See the full portfolio →", to: "/portfolio" },
   data: [
+    {
+      id: "active-width",
+      image: require("./assets/images/projects/tagliamento_braided.jpg"),
+      imageAlt:
+        "Braided channels and gravel bars of the Tagliamento River seen from Monte di Ragogna",
+      tag: "Research · Geomorphology, 2026",
+      title: "Active width of gravel-bed rivers from repeat surveys",
+      text:
+        "How much of a gravel-bed river actually carries sediment, measured from DEM differences and flume experiments, and how the answer depends on morphology, flood magnitude and survey frequency.",
+      link:
+        "https://www.sciencedirect.com/science/article/pii/S0169555X26000723",
+      linkText: "Read the article",
+    },
     {
       id: "oso",
       image: require("./assets/images/projects/oso.jpg"),
       imageAlt:
         "Map of elevation change at the Oso landslide: lowering in red at the source, deposits in blue on the valley floor",
-      tag: "Case study · USA",
-      title: "Oso landslide: sediment budget from repeat lidar",
+      tag: "Case study · Method demo, USA",
+      title: "Sediment budget from repeat lidar, with uncertainty",
       text:
-        "3.94 Mm³ left the source area, consistent with the published USGS estimate, with water surfaces mapped and excluded.",
+        "The workflow behind my river monitoring service, tested on the 2014 Oso landslide: 3.94 Mm³ left the source area, consistent with the USGS estimate.",
       link: "/oso/index.html",
       linkText: "Open the interactive case study",
-    },
-    {
-      id: "landslides-3d",
-      image: require("./assets/images/home/hero_landslide_change.jpg"),
-      imageAlt:
-        "Map of erosion and deposition from earthquake-triggered landslides, detected by comparing repeat airborne lidar surveys",
-      tag: "Research · Earth Surface Dynamics, 2021",
-      title: "Earthquake-triggered landslides: 3D inventory and volumes",
-      text:
-        "Erosion and deposition measured landslide by landslide from repeat airborne lidar, separating real change from survey noise.",
-      link: "https://esurf.copernicus.org/articles/9/1013/2021/",
-      linkText: "Read the article",
     },
     {
       id: "hydro-geomorphic",
       image: require("./assets/images/home/expertise_hydraulics.jpg"),
       imageAlt:
         "Map of a river catchment classified into hillslopes, channels and floodplains",
-      tag: "Research · JGR Earth Surface, 2022 (top cited)",
+      tag: "Research · JGR Earth Surface, 2022 · Editors' Highlight",
       title: "River landscapes mapped with lidar and 2D hydraulics",
       text:
         "Hillslopes, channels and floodplains classified across a whole catchment by combining high-resolution topography with 2D flow simulation.",
@@ -633,8 +638,8 @@ const selectedWork = {
 const servicesHeader = {
   title: "Services",
   description:
-    "I turn lidar surveys and terrain data into quantified, uncertainty-aware answers, and I don't stop at the map: every project ends with a written diagnosis of what is happening on your site, how confident we can be, and what to do next. I work in English, French and Italian, for clients in Italy, France, Switzerland and on EU-funded projects.",
-  ctaTitle: "Have a site, a river reach or a dataset in mind?",
+    "Rivers move, and projects that ignore it often fail: beds incise, banks erode, restored reaches fill in. I turn repeat surveys, historical records and 2D hydraulics into a diagnosis of how your river works: how it has changed, where it is heading, and what to do next. For restoration and flood risk projects in Italy, France and Switzerland, in English, French or Italian.",
+  ctaTitle: "Have a river reach, a project or a dataset in mind?",
   ctaText:
     "Send me a short description and what data you have. I will reply within two working days with a first assessment.",
   ctaButton: "Discuss your project",
@@ -642,159 +647,158 @@ const servicesHeader = {
 
 const services = [
   {
-    id: "lidar-qc",
-    icon: "fas fa-clipboard-check",
-    title: "Lidar (Point Cloud) Quality Check",
-    tagline:
-      "An independent audit of a lidar or UAV delivery before you accept it.",
-    diagnosis:
-      "Is the delivery fit for purpose, and what must the provider fix?",
-    status: { label: "Available now", available: true },
-    problem:
-      "A lidar or UAV survey has been delivered and you need to know whether it meets the specification before you accept and pay for it. I audit the data independently against the contract requirements and tell you clearly what is acceptable, what is not, and what the provider should correct.",
-    deliverables: [
-      "Acceptance report with a clear pass / fail / to-fix verdict per requirement",
-      "Point density and coverage maps, data gaps and voids",
-      "Classification check (ground, vegetation, buildings, noise) against ASPRS classes",
-      "Flight-line overlap and vertical consistency, with accuracy against control points if available",
-    ],
-    inputs: [
-      "Point clouds (LAS/LAZ) and the survey specification or contract requirements",
-      "Survey report and control points, if available",
-    ],
-    clients:
-      "Contracting authorities receiving lidar surveys, surveying companies, engineering firms, GIS teams.",
-    methods:
-      "Automated QA/QC pipeline, strip-alignment analysis, density and classification statistics (Python, PDAL, LAStools, CloudCompare).",
-  },
-  {
-    id: "lidar-processing",
-    icon: "fas fa-mountain",
-    title: "Lidar Processing",
-    tagline:
-      "From raw point clouds to analysis-ready terrain and surface models.",
-    diagnosis:
-      "Which surface can you trust for your analysis, and where are its limits?",
-    status: { label: "Available now", available: true },
-    problem:
-      "You have raw or partly processed point clouds and need clean, reliable terrain models for design, mapping or modelling. I classify the data, build the surfaces you need and document where they are reliable and where they are not.",
-    deliverables: [
-      "Ground classification and noise filtering, including machine-learning classification",
-      "DTM, DSM and canopy height model at the resolution you need",
-      "Merging of dry lidar with bathymetry or cross-sections for river corridors",
-      "Quality mask showing data source and reliability across the area",
-      "Tiled, reprojected, cloud-optimized outputs (GeoTIFF, LAZ) for GIS use",
-    ],
-    inputs: [
-      "Point clouds (LAS/LAZ) from airborne, UAV, topo-bathymetric or photogrammetric surveys",
-      "Target coordinate system, resolution and intended use",
-    ],
-    clients:
-      "Engineering and geology firms, surveying companies, public authorities, forestry and hydropower operators, research projects.",
-    methods:
-      "Cloth-simulation and progressive ground filtering, machine-learning point classification, PDAL / LAStools / CloudCompare, Python pipelines.",
-  },
-  {
-    id: "change-detection",
+    id: "river-monitoring",
     icon: "fas fa-layer-group",
-    title: "Change Detection & Sediment Budget",
+    title: "River Change Monitoring from Repeat Lidar",
     tagline:
-      "Erosion, deposition and landslide volumes from repeat surveys, with their uncertainty.",
+      "How your river reach is changing: active width, bed mobility, erosion and deposition, with their uncertainty.",
     diagnosis:
-      "What really moved, how much, and is it real change or survey noise?",
+      "Is the reach eroding, aggrading or stable, where, and how fast? Is it real change or survey noise?",
     status: { label: "Available now", available: true },
     problem:
-      "You have two or more lidar, UAV or photogrammetric surveys of the same area and need to know what changed, where, and by how much. I co-register the surveys, separate real change from survey error, and deliver volumes you can defend in a report or a monitoring plan.",
+      "Restoration works, gravel extraction, a flood or a change in dam operation: you need to know how the river responds. I compare repeat lidar, drone or photogrammetric surveys of the same reach, separate real change from survey error, and translate it into indicators river managers use. On surveys you already own, or with a lidar acquisition partner for a monitoring programme.",
     deliverables: [
-      "Co-registered DTMs on a common grid (Cloud-Optimized GeoTIFF)",
-      "Elevation-change maps (DoD and/or M3C2) with a level of detection",
-      "Erosion, deposition and net volumes per zone or river segment, with uncertainty (CSV + GeoPackage)",
-      "Technical report interpreting the changes: active processes, hotspots and what to monitor next",
-      "Metadata for every output, so the analysis can be repeated with the next survey",
+      "Co-registered terrain models and elevation-change maps with a level of detection",
+      "Erosion, deposition and net volumes per river segment, with uncertainty",
+      "Hydromorphological indicators: active width and bed mobility",
+      "Sediment budget of the reach where the survey dates allow it",
+      "Report on active processes, hotspots and what to monitor next, with metadata so the next survey is analysed the same way",
     ],
     inputs: [
-      "Point clouds (LAS/LAZ) or DTMs for each survey date",
+      "Two or more surveys of the reach (LAS/LAZ point clouds or DTMs)",
       "Survey reports or control-point accuracy, if available",
-      "Zones of interest (polygons) or the river reach to analyse",
+      "The reach to analyse and the floods or works between surveys, if known",
     ],
     clients:
-      "Engineering and geology firms, river basin authorities, public works and forestry services, hydropower and infrastructure operators, research projects.",
+      "River basin authorities, river syndicates and cantonal services, parks, restoration project leaders, engineering firms and lidar survey companies.",
     methods:
-      "Stable-area ICP co-registration, DEM of Difference, M3C2 / M3C2-EP, spatially variable error and level of detection, 4D change analysis for time series (Python, PDAL, py4dgeo, CloudCompare, QGIS).",
+      "Stable-area ICP co-registration, DEM of Difference and M3C2 with spatially variable error, active width from DEM differences (Bernard et al., Geomorphology, 2026). Python, PDAL, py4dgeo, CloudCompare, QGIS.",
   },
   {
-    id: "hydraulic-support",
-    icon: "fas fa-water",
-    title: "2D Hydraulic & Sediment Transport Modelling Support",
+    id: "trajectory-diagnosis",
+    icon: "fas fa-route",
+    title: "Hydromorphological Trajectory Diagnosis",
     tagline:
-      "Hydraulic-grade terrain, 2D flood and morphodynamic simulations for engineers and planners.",
+      "How the reach got where it is today, where it is heading, and where restoration will pay off.",
     diagnosis:
-      "Where does the water go, how deep and fast, and how will the riverbed respond?",
+      "What drives the evolution of the reach, and which actions will give the river room to recover?",
     status: { label: "Available now", available: true },
     problem:
-      "A 2D model is only as good as its terrain and set-up. I prepare the topography (including merging lidar with bathymetry or cross-sections), build and run the hydraulic or sediment transport model, and turn the results into clear maps and a written interpretation. I can deliver the complete study, or work alongside the engineer or geologist who signs it where a licensed signature is required.",
+      "Before deciding where to restore, you need to understand the river's past: narrowing, incision, loss of braiding, disconnected floodplains. I reconstruct the trajectory of the reach from lidar, historical aerial photographs, long profiles and historical maps, identify the causes (sediment deficit, embankments, extraction, dams) and map the sectors with restoration potential, ranked by priority.",
     deliverables: [
-      "Hydraulic-grade DTM with channel bathymetry and a data-source/quality mask",
-      "2D model set-up in HEC-RAS 2D or BASEMENT, ready for review",
-      "Flood extent, depth, velocity and hazard maps for the scenarios requested (e.g. 100-year event)",
-      "Bed evolution, erosion and deposition patterns from sediment transport simulations",
-      "Technical note on terrain, boundary conditions, sensitivity and what the results mean for the site",
-      "Complete flood or sediment study report, e.g. flood studies, input to flood-risk plans (PPRi) and water-law files (dossiers loi sur l'eau) in France, or cantonal hazard maps in Switzerland",
+      "Trajectory of the reach over decades: planform, active width and bed elevation",
+      "Causes of change and current trend (incision, narrowing, recovery)",
+      "Map of sectors with restoration potential and a prioritised list of actions",
+      "Optional sediment budget, from existing measurements or a field campaign",
+      "Report written for decision makers and for the project team",
     ],
     inputs: [
-      "Lidar or DTM of the area, and any bathymetric surveys or cross-sections",
-      "Design discharges or hydrographs, sediment data if available, and the scenarios to simulate",
+      "The reach and its management context",
+      "Any lidar, historical photographs or maps, long profiles and past studies you hold",
+      "Known works, gravel extraction and dams upstream",
     ],
     clients:
-      "In Italy: engineering firms and registered professionals preparing hydraulic compatibility studies. In France, Switzerland and EU projects: complete flood and sediment studies for public authorities, river restoration projects, hydropower operators and engineering consultancies.",
+      "River basin authorities, river syndicates, cantons, river contracts and parks, leaders of Nature Restoration Law and LIFE projects, and engineering firms that subcontract the geomorphological analysis.",
     methods:
-      "Terrain conditioning and wet/dry fusion, HEC-RAS 2D, BASEMENT (hydrodynamics and morphodynamics), GraphFlood for rapid screening.",
+      "Diachronic analysis of aerial photographs and historical maps, lidar and long-profile analysis, sediment connectivity and sediment budgets. Python, QGIS.",
+  },
+  {
+    id: "hydraulic-compatibility",
+    icon: "fas fa-water",
+    title: "Hydraulic Compatibility Studies (Italy)",
+    tagline:
+      "2D flood modelling for the hydraulic compatibility study (VCI) your project needs under the flood risk management plan (PGRA).",
+    diagnosis:
+      "Is your project compatible with the flood hazard, and what must change to make it so?",
+    status: { label: "Available now", available: true },
+    problem:
+      "A project in a flood-prone area needs a hydraulic compatibility study before the basin authority approves it. I run the 2D flood modelling, check hydraulic invariance and safety elevations, and write the hydraulic and hydrological reports, working with the registered engineer who signs the study. My first study, a 25-hectare solar park, received a favourable opinion from the Eastern Alps District Basin Authority.",
+    deliverables: [
+      "Hydraulic-grade terrain model from lidar, with channels and structures",
+      "2D model of the flood scenarios required (e.g. 100-year event)",
+      "Flood extent, depth, velocity and hazard maps, before and after the project",
+      "Hydraulic safety elevation and check that hazard does not increase for neighbouring areas",
+      "Hydrological and hydraulic reports, ready for the signing engineer",
+    ],
+    inputs: [
+      "Project layout and location",
+      "Available lidar or DTM, cross-sections and hydraulic structures",
+      "Design discharges or hydrographs, if already defined",
+    ],
+    clients:
+      "Engineering firms and registered professionals preparing permit files, and project developers (renewable energy, infrastructure).",
+    methods:
+      "HEC-RAS 1D and 2D, terrain conditioning from lidar, PGRA requirements of the Eastern Alps District, Python automation from terrain to report.",
+  },
+  {
+    id: "restoration-scenarios",
+    icon: "fas fa-diagram-project",
+    title: "Restoration Scenarios & Flood Risk Modelling",
+    tagline:
+      "Two or three restoration scenarios compared with 2D hydro-morphodynamic modelling.",
+    diagnosis:
+      "Which scenario gives the river room to recover while keeping flood risk under control?",
+    status: { label: "From 2028", available: false },
+    problem:
+      "Once the diagnosis is done, the question becomes which option to build. I will compare two or three restoration scenarios (embankment setback, floodplain reconnection, sediment reintroduction) with 2D hydraulic and morphodynamic modelling, and recommend the one that best balances river recovery and flood safety. This service opens in 2028, after the morphodynamic case study I am preparing in 2027.",
+    deliverables: [
+      "Water depth and velocity maps for each scenario",
+      "Bed evolution, erosion and deposition for each scenario",
+      "Comparison of the scenarios and recommendations",
+    ],
+    inputs: [
+      "A diagnosis of the reach or existing studies",
+      "Terrain, bathymetry, design discharges and sediment data",
+      "The scenarios under discussion",
+    ],
+    clients:
+      "Restoration project leaders, river basin authorities and engineering firms.",
+    methods:
+      "2D hydro-morphodynamic modelling (HEC-RAS sediment module, BASEMENT), with calibration and uncertainty.",
   },
 ];
+
+// Services page: short line on stand-alone work, shown under the service cards
+const servicesStandalone = {
+  title: "Also available as stand-alone work",
+  text:
+    "Lidar processing and terrain models (ground classification, DTM, merging with bathymetry) and 2D flood modelling, for projects outside the services above.",
+};
 
 const serviceHighlightsHeader = {
   title: "How I can help",
   description:
-    "Maps are only half of the answer. Each service ends with a written diagnosis: what is happening on your site, how confident we can be, and what to do next.",
+    "Maps are only half of the answer. Each service ends with a written diagnosis: how your river works, how confident we can be, and what to do next.",
 };
 
 // Home page "How I can help" cards (separate from the Services page list)
 const homeServices = [
   {
-    id: "lidar-qc",
-    icon: "fas fa-clipboard-check",
-    title: "Lidar (Point Cloud) Quality Check",
-    tagline:
-      "An independent audit of a lidar or UAV delivery before you accept it: density, coverage, classification, flight-line alignment and gaps.",
-    diagnosis:
-      "Is the delivery fit for purpose, and what must the provider fix?",
-  },
-  {
-    id: "lidar-processing",
-    icon: "fas fa-mountain",
-    title: "Lidar Processing",
-    tagline:
-      "From raw point clouds to analysis-ready terrain: ground classification, DTM, DSM, canopy height and merging with bathymetry.",
-    diagnosis:
-      "Which surface can you trust for your analysis, and where are its limits?",
-  },
-  {
-    id: "change-detection",
+    id: "river-monitoring",
     icon: "fas fa-layer-group",
-    title: "Change Detection & Sediment Budget",
+    title: "River Change Monitoring from Repeat Lidar",
     tagline:
-      "Erosion, deposition and landslide volumes from repeat surveys, with a level of detection and uncertainty for every number.",
+      "Active width, bed mobility, erosion and deposition from repeat surveys, with a level of detection and uncertainty for every number.",
     diagnosis:
-      "What really moved, how much, and is it real change or survey noise?",
+      "Is the reach eroding, aggrading or stable, where, and how fast?",
   },
   {
-    id: "hydraulic-support",
-    icon: "fas fa-water",
-    title: "2D Hydraulic & Sediment Transport Modelling Support",
+    id: "trajectory-diagnosis",
+    icon: "fas fa-route",
+    title: "Hydromorphological Trajectory Diagnosis",
     tagline:
-      "Hydraulic-grade terrain and 2D flood and morphodynamic simulations: complete studies, or modelling support for the engineer or geologist who signs a permit study.",
+      "The trajectory of the reach from lidar, historical photographs and maps, with the sectors where restoration will pay off.",
     diagnosis:
-      "Where does the water go, how deep and fast, and how will the riverbed respond?",
+      "What drives the reach, and which actions will give the river room to recover?",
+  },
+  {
+    id: "hydraulic-compatibility",
+    icon: "fas fa-water",
+    title: "Hydraulic Compatibility Studies (Italy)",
+    tagline:
+      "2D flood modelling and reports for the VCI under the PGRA, with the registered engineer who signs the study.",
+    diagnosis:
+      "Is your project compatible with the flood hazard, and what must change?",
   },
 ];
 
@@ -802,29 +806,31 @@ const homeServices = [
 const whyMe = {
   title: "Why work with me",
   description:
-    "Research-grade methods, delivered with the clarity and deadlines of a consultancy.",
+    "Research-grade river science, delivered with the clarity and deadlines of a consultancy.",
   stats: [
     {
       value: "8+",
-      label: "years of lidar processing and river modelling",
+      label:
+        "years of research in fluvial geomorphology: lidar processing, sediment and 2D hydraulics",
     },
     {
       value: "5",
       label:
-        "scientific articles, including a top-cited paper in JGR Earth Surface (2022–2023)",
+        "peer-reviewed articles, including an Editors' Highlight in JGR Earth Surface (Eos, 2022)",
     },
     {
       value: "25 ha",
       label:
-        "solar park assessed with 2D modelling of a 100-year flood (PGRA compliance)",
+        "solar park assessed with 2D modelling of a 100-year flood, with a favourable opinion from the Eastern Alps District Basin Authority",
     },
     {
       value: "4",
       label: "countries of study sites: France, Italy, New Zealand, USA",
     },
     {
-      value: "4",
-      label: "working languages: English, French, Italian, German (basic)",
+      value: "3",
+      label:
+        "working languages, English, French and Italian, for Alpine rivers in Italy, France and Switzerland",
     },
     {
       value: "100%",
@@ -833,14 +839,14 @@ const whyMe = {
     },
   ],
   credentials:
-    "PhD in Environmental Sciences (University of Rennes) · Post-doc in river morphodynamics (University of Trento) · Industry experience in lidar data processing and hydraulic compatibility studies",
+    "PhD in Environmental Sciences (University of Rennes) · Post-doc in river morphodynamics (University of Trento) · Lidar data specialist (Géosciences Rennes) · Hydraulic compatibility study approved by the Eastern Alps District Basin Authority",
 };
 
 // Footer (all pages)
 const footerData = {
   name: "Dr. Thomas Bernard",
-  tagline: "From geospatial data to diagnosis",
-  location: "Trento, Italy · Projects in Italy, France, Switzerland and the EU",
+  tagline: "Model the river before you touch it",
+  location: "Trento, Italy · Alpine rivers in Italy, France and Switzerland",
   links: [
     { label: "Services", to: "/services" },
     { label: "Terms & Privacy", to: "/legal" },
@@ -856,14 +862,14 @@ const footerData = {
 // Terms and Privacy pages — DRAFT, review before publishing
 const legalPages = {
   title: "Terms & Privacy",
-  updated: "October 2026",
+  updated: "November 2026",
   terms: {
     title: "Terms of use",
     sections: [
       {
         heading: "About this website",
         text:
-          "This website presents the services and work of Thomas Bernard, geospatial and hydraulic analyst based in Trento, Italy. Its content is provided for general information only and does not constitute professional advice for a specific site or project.",
+          "This website presents the services and work of Thomas Bernard, hydromorphologist based in Trento, Italy. Its content is provided for general information only and does not constitute professional advice for a specific site or project.",
       },
       {
         heading: "Services and engagements",
@@ -946,7 +952,7 @@ const servicesProcess = {
 };
 
 const servicesScopeNote =
-  "I deliver and sign my own technical studies: lidar analyses, change detection, and flood and sediment transport modelling. Where national rules require a licensed professional to sign a permit document (in Italy an engineer or geologist registered with the Ordine, in Austria a Ziviltechniker, in some Swiss cantons a REG-registered engineer), I work alongside that professional, who signs it.";
+  "I deliver my own technical analyses: river monitoring, trajectory diagnoses and 2D flood modelling. Where national rules require a licensed professional to sign a permit document (in Italy, an engineer or geologist registered with the Ordine; in Ticino, a professional registered with OTIA), I work alongside that professional, who signs it.";
 
 // "Work with me" page: enquiry form sent to my inbox through FormSubmit
 // (formsubmit.co). The first message sent triggers an activation email to
@@ -1018,6 +1024,7 @@ export {
   serviceHighlightsHeader,
   servicesProcess,
   servicesScopeNote,
+  servicesStandalone,
   contactPageData,
   homeServices,
   whyMe,

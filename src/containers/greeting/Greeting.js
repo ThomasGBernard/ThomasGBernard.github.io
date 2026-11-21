@@ -5,7 +5,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
 
-const heroBackground = require("../../assets/images/home/hero_background_river.jpg");
+const heroBackground = require("../../assets/images/home/hero_tagliamento_mountains.jpg");
 
 export default function Greeting(props) {
   const theme = props.theme;

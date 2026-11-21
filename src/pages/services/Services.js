@@ -6,6 +6,7 @@ import {
   services,
   servicesProcess,
   servicesScopeNote,
+  servicesStandalone,
 } from "../../portfolio";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -134,6 +135,24 @@ function Services(props) {
             </Fade>
           ))}
         </div>
+
+        {/* ================= STAND-ALONE WORK ================= */}
+        {servicesStandalone && (
+          <Fade bottom duration={1000} distance="20px">
+            <p
+              className="services-standalone"
+              style={{
+                color: theme.secondaryText,
+                borderLeft: `3px solid ${theme.imageHighlight}`,
+              }}
+            >
+              <strong style={{ color: theme.text }}>
+                {servicesStandalone.title}:{" "}
+              </strong>
+              {servicesStandalone.text}
+            </p>
+          </Fade>
+        )}
 
         {/* ================= HOW I WORK ================= */}
         <Fade bottom duration={1000} distance="20px">

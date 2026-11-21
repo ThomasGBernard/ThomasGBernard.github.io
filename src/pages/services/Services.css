@@ -244,3 +244,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+.services-standalone {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 30px auto 10px auto;
+  padding: 10px 16px;
+}

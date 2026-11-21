@@ -9,16 +9,16 @@
   overflow: visible;
 }
 
-.services-main > div:first-child,
-.services-main .header {
+.services-main > div:first-child {
   width: 100% !important;
   max-width: 100% !important;
 }
 
 .services-body-div {
-  width: 100%;
-  max-width: 1100px;
-  padding: 30px;
+  width: 94%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 30px 0;
   box-sizing: border-box;
   font-family: "Google Sans Regular";
 }
@@ -222,7 +222,7 @@
 
 @media (max-width: 768px) {
   .services-body-div {
-    padding: 16px;
+    padding: 16px 0;
   }
   .services-title {
     font-size: 32px;

@@ -1,8 +1,13 @@
+/* full-width wrapper: keeps the header as wide as the page in flex layouts */
+.header-wrapper {
+  width: 100%;
+}
+
 /* header */
 
 .header {
   display: block;
-  max-width: 90%;
+  max-width: 94%;
   padding: 20px 10px;
   margin: 0px auto;
 }

@@ -1,6 +1,6 @@
 /* Portfolio page: projects (toolbox case studies), research, outreach */
 .portfolio-body-div {
-  max-width: 1100px;
+  max-width: none;
 }
 
 .portfolio-title {

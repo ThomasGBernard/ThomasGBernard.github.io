@@ -22,8 +22,8 @@
 }
 
 .about-section {
-  width: 90%;
-  max-width: 1300px;
+  width: 94%;
+  max-width: none;
   margin: 50px auto 0 auto;
 }
 

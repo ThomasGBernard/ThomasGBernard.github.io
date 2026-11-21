@@ -6,8 +6,8 @@
 }
 
 .greet-main {
-  width: 90%;
-  max-width: 1300px;
+  width: 94%;
+  max-width: none;
   margin: 0px auto;
   margin-top: 1.5rem;
 }

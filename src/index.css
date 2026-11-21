@@ -49,6 +49,10 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+/* body is a centred flex container (global.js): make the app root use the full page width */
+#root {
+  width: 100%;
+}
 body {
   margin: 0;
   font: 19px / 23px Montserrat, "Montserrat", sans-serif;

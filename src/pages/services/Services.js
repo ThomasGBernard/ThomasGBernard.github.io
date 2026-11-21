@@ -93,15 +93,6 @@ function ServiceCard({ service, theme }) {
           </ul>
         </div>
       </div>
-
-      <p className="service-meta" style={{ color: theme.secondaryText }}>
-        <strong style={{ color: theme.text }}>Typical clients: </strong>
-        {service.clients}
-      </p>
-      <p className="service-meta" style={{ color: theme.secondaryText }}>
-        <strong style={{ color: theme.text }}>Methods & tools: </strong>
-        {service.methods}
-      </p>
     </div>
   );
 }
@@ -139,18 +130,49 @@ function Services(props) {
         {/* ================= STAND-ALONE WORK ================= */}
         {servicesStandalone && (
           <Fade bottom duration={1000} distance="20px">
-            <p
-              className="services-standalone"
+            <h2
+              className="services-section-title"
               style={{
-                color: theme.secondaryText,
-                borderLeft: `3px solid ${theme.imageHighlight}`,
+                color: theme.text,
+                borderTop: `2px solid ${theme.highlight}`,
               }}
             >
-              <strong style={{ color: theme.text }}>
-                {servicesStandalone.title}:{" "}
-              </strong>
+              {servicesStandalone.title}
+            </h2>
+            <p
+              className="services-standalone-intro"
+              style={{ color: theme.secondaryText }}
+            >
               {servicesStandalone.text}
             </p>
+            <div className="services-standalone-grid">
+              {servicesStandalone.items.map((item) => (
+                <div
+                  className="standalone-card"
+                  key={item.title}
+                  style={{
+                    backgroundColor: theme.compImgHighlight,
+                    borderTop: `4px solid ${theme.highlight}`,
+                  }}
+                >
+                  <i
+                    className={`${item.icon} standalone-icon`}
+                    style={{ color: theme.text }}
+                  ></i>
+                  <h3 style={{ color: theme.text }}>{item.title}</h3>
+                  <p style={{ color: theme.secondaryText }}>{item.text}</p>
+                  <p
+                    className="standalone-applications"
+                    style={{ color: theme.secondaryText }}
+                  >
+                    <strong style={{ color: theme.text }}>
+                      Applications:{" "}
+                    </strong>
+                    {item.applications}
+                  </p>
+                </div>
+              ))}
+            </div>
           </Fade>
         )}
 

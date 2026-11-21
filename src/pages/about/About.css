@@ -1,7 +1,30 @@
+/* text spans the full width of the hero, with the same margin on both sides */
+.about-hero {
+  padding-right: max(64px, calc(50% - 650px));
+  /* darker on the right too, so the full-width text stays readable */
+  background-image: linear-gradient(
+      90deg,
+      rgba(11, 31, 46, 0.88) 0%,
+      rgba(11, 31, 46, 0.75) 50%,
+      rgba(11, 31, 46, 0.6) 100%
+    ),
+    var(--experience-bg);
+}
+
+.about-hero > * {
+  flex: 1;
+  min-width: 0;
+}
+
 .about-hero-content {
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+.about-hero .experience-heading-text-div {
+  flex: 1;
+  max-width: none;
 }
 
 .about-photo {
@@ -44,6 +67,14 @@
 }
 
 @media (max-width: 768px) {
+  .about-hero {
+    padding-right: 22px;
+    background-image: linear-gradient(
+        rgba(11, 31, 46, 0.78),
+        rgba(11, 31, 46, 0.78)
+      ),
+      var(--experience-bg);
+  }
   .about-hero-content {
     flex-direction: column;
     gap: 20px;

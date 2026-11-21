@@ -32,7 +32,7 @@ export default function About(props) {
       {/* ================= INTRO ================= */}
       <div className="basic-experience">
         <div
-          className="experience-hero"
+          className="experience-hero about-hero"
           role="img"
           aria-label={experience.heroImageAlt}
           style={{ "--experience-bg": `url(${aboutBackground})` }}

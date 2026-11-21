@@ -658,7 +658,7 @@ const services = [
     problem:
       "Restoration works, gravel extraction, a flood or a change in dam operation: you need to know how the river responds. I compare repeat lidar, drone or photogrammetric surveys of the same reach, separate real change from survey error, and translate it into indicators river managers use. On surveys you already own, or with a lidar acquisition partner for a monitoring programme.",
     deliverables: [
-      "Co-registered terrain models and elevation-change maps with a level of detection",
+      "Terrain models co-registered on stable areas, and elevation-change maps with a level of detection, so survey noise is not mistaken for real change",
       "Erosion, deposition and net volumes per river segment, with uncertainty",
       "Hydromorphological indicators: active width and bed mobility",
       "Sediment budget of the reach where the survey dates allow it",
@@ -669,10 +669,6 @@ const services = [
       "Survey reports or control-point accuracy, if available",
       "The reach to analyse and the floods or works between surveys, if known",
     ],
-    clients:
-      "River basin authorities, river syndicates and cantonal services, parks, restoration project leaders, engineering firms and lidar survey companies.",
-    methods:
-      "Stable-area ICP co-registration, DEM of Difference and M3C2 with spatially variable error, active width from DEM differences (Bernard et al., Geomorphology, 2026). Python, PDAL, py4dgeo, CloudCompare, QGIS.",
   },
   {
     id: "trajectory-diagnosis",
@@ -697,10 +693,6 @@ const services = [
       "Any lidar, historical photographs or maps, long profiles and past studies you hold",
       "Known works, gravel extraction and dams upstream",
     ],
-    clients:
-      "River basin authorities, river syndicates, cantons, river contracts and parks, leaders of Nature Restoration Law and LIFE projects, and engineering firms that subcontract the geomorphological analysis.",
-    methods:
-      "Diachronic analysis of aerial photographs and historical maps, lidar and long-profile analysis, sediment connectivity and sediment budgets. Python, QGIS.",
   },
   {
     id: "hydraulic-compatibility",
@@ -715,20 +707,16 @@ const services = [
       "A project in a flood-prone area needs a hydraulic compatibility study before the basin authority approves it. I run the 2D flood modelling, check hydraulic invariance and safety elevations, and write the hydraulic and hydrological reports, working with the registered engineer who signs the study. My first study, a 25-hectare solar park, received a favourable opinion from the Eastern Alps District Basin Authority.",
     deliverables: [
       "Hydraulic-grade terrain model from lidar, with channels and structures",
-      "2D model of the flood scenarios required (e.g. 100-year event)",
+      "2D HEC-RAS model of the flood scenarios required (e.g. 100-year event)",
       "Flood extent, depth, velocity and hazard maps, before and after the project",
       "Hydraulic safety elevation and check that hazard does not increase for neighbouring areas",
       "Hydrological and hydraulic reports, ready for the signing engineer",
     ],
     inputs: [
-      "Project layout and location",
-      "Available lidar or DTM, cross-sections and hydraulic structures",
-      "Design discharges or hydrographs, if already defined",
+      "Project location and layout (site plan)",
+      "Project description: what will be built, such as structures, earthworks, fences and drainage",
+      "GIS files of the proposed layout (shapefiles or similar), at its current design stage",
     ],
-    clients:
-      "Engineering firms and registered professionals preparing permit files, and project developers (renewable energy, infrastructure).",
-    methods:
-      "HEC-RAS 1D and 2D, terrain conditioning from lidar, PGRA requirements of the Eastern Alps District, Python automation from terrain to report.",
   },
   {
     id: "restoration-scenarios",
@@ -744,25 +732,47 @@ const services = [
     deliverables: [
       "Water depth and velocity maps for each scenario",
       "Bed evolution, erosion and deposition for each scenario",
-      "Comparison of the scenarios and recommendations",
+      "Comparison of the scenarios, with calibration and uncertainty, and recommendations",
     ],
     inputs: [
       "A diagnosis of the reach or existing studies",
       "Terrain, bathymetry, design discharges and sediment data",
       "The scenarios under discussion",
     ],
-    clients:
-      "Restoration project leaders, river basin authorities and engineering firms.",
-    methods:
-      "2D hydro-morphodynamic modelling (HEC-RAS sediment module, BASEMENT), with calibration and uncertainty.",
   },
 ];
 
-// Services page: short line on stand-alone work, shown under the service cards
+// Services page: stand-alone work, shown as a section of three cards under the service cards
 const servicesStandalone = {
   title: "Also available as stand-alone work",
   text:
-    "Lidar processing and terrain models (ground classification, DTM, merging with bathymetry) and 2D flood modelling, for projects outside the services above.",
+    "The modelling and lidar methods behind these services also apply beyond rivers. I can run them as a stand-alone task for your project, on your data or with a survey partner.",
+  items: [
+    {
+      icon: "fas fa-house-flood-water",
+      title: "2D Flood Modelling",
+      text:
+        "2D hydraulic modelling (HEC-RAS) of flood scenarios for a site, a road or a town, with depth, velocity and hazard maps.",
+      applications:
+        "Flood hazard maps for sites and land-use plans, flood checks for infrastructure (roads, bridges, culverts), before-and-after comparisons for any project.",
+    },
+    {
+      icon: "fas fa-mountain",
+      title: "Change Detection from Repeat Surveys",
+      text:
+        "What changed between two lidar, drone or photogrammetric surveys, with a level of detection so survey noise is not mistaken for real change.",
+      applications:
+        "Landslide and rockfall monitoring, eroding coasts, cliffs and dunes, deforming dikes and embankments, volumes for quarries, stockpiles and earthworks.",
+    },
+    {
+      icon: "fas fa-cube",
+      title: "Lidar Processing & Terrain Models",
+      text:
+        "From raw point clouds to terrain models ready for analysis or modelling.",
+      applications:
+        "Ground classification (including machine learning), DTM and DSM production, merging topography with bathymetry, conditioning terrain for hydraulic models.",
+    },
+  ],
 };
 
 const serviceHighlightsHeader = {

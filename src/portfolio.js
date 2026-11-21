@@ -597,7 +597,7 @@ const selectedWork = {
       id: "active-width",
       image: require("./assets/images/projects/tagliamento_braided.jpg"),
       imageAlt:
-        "Braided channels and gravel bars of the Tagliamento River seen from Monte di Ragogna",
+        "Braided channels and wide gravel bars of the Tagliamento River, with mountains in the background",
       tag: "Research · Geomorphology, 2026",
       title: "Active width of gravel-bed rivers from repeat surveys",
       text:

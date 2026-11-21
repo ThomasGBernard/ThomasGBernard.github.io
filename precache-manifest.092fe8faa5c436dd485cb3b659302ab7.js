@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eb4402f0241fa53b4dcf229dfd6d2218",
+    "revision": "94a8f7254ffb950d08a37695ebd741a0",
     "url": "/index.html"
   },
   {
-    "revision": "a0140cbb53d738c23eb6",
-    "url": "/static/css/main.3671c873.chunk.css"
+    "revision": "6f0282c3d28d7662e91c",
+    "url": "/static/css/main.e50d1763.chunk.css"
   },
   {
-    "revision": "a28c7eb26d99edb123db",
-    "url": "/static/js/2.b0969d9b.chunk.js"
+    "revision": "1f10bcfee46fefd61cde",
+    "url": "/static/js/2.5f766b31.chunk.js"
   },
   {
-    "revision": "a0140cbb53d738c23eb6",
-    "url": "/static/js/main.bf3d5e45.chunk.js"
+    "revision": "6f0282c3d28d7662e91c",
+    "url": "/static/js/main.aeb1d5ce.chunk.js"
   },
   {
     "revision": "f4163cc1361175add5e6",
@@ -280,6 +280,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/hero_landslide_change.959d9a0d.jpg"
   },
   {
+    "revision": "cf1d742ed21b82fef31e7c084b0f8158",
+    "url": "/static/media/hero_tagliamento_mountains.cf1d742e.jpg"
+  },
+  {
     "revision": "d3fccbe1db76b96f4f320d9c0f7da30c",
     "url": "/static/media/ibm_logo.d3fccbe1.png"
   },
@@ -362,6 +366,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "2c497738be3831492aeb6bdc43f19154",
     "url": "/static/media/stanford_logo.2c497738.png"
+  },
+  {
+    "revision": "27095804efaca4a443e5cf69eb87521c",
+    "url": "/static/media/tagliamento_braided.27095804.jpg"
   },
   {
     "revision": "6ac91b161c2c9934a44f72d75d18142d",

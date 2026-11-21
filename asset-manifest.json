@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.e50d1763.chunk.css",
-    "main.js": "/static/js/main.ae4b41f0.chunk.js",
-    "main.js.map": "/static/js/main.ae4b41f0.chunk.js.map",
+    "main.js": "/static/js/main.95eb3716.chunk.js",
+    "main.js.map": "/static/js/main.95eb3716.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2781e2dc.js",
     "runtime-main.js.map": "/static/js/runtime-main.2781e2dc.js.map",
     "static/js/2.5f766b31.chunk.js": "/static/js/2.5f766b31.chunk.js",
     "static/js/2.5f766b31.chunk.js.map": "/static/js/2.5f766b31.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.af657cc7a67e0d6f4f7c709bcdedc7b5.js": "/precache-manifest.af657cc7a67e0d6f4f7c709bcdedc7b5.js",
+    "precache-manifest.fe5d1ed7f646de357a721491294c671f.js": "/precache-manifest.fe5d1ed7f646de357a721491294c671f.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.e50d1763.chunk.css.map": "/static/css/main.e50d1763.chunk.css.map",
     "static/media/3d_geoacademy_logo.png": "/static/media/3d_geoacademy_logo.fc5756cf.png",
@@ -77,7 +77,7 @@
     "static/media/projects_image.svg": "/static/media/projects_image.b8ba9487.svg",
     "static/media/pwa.png": "/static/media/pwa.71408db7.png",
     "static/media/stanford_logo.png": "/static/media/stanford_logo.2c497738.png",
-    "static/media/tagliamento_braided.jpg": "/static/media/tagliamento_braided.27095804.jpg",
+    "static/media/tagliamento_braided.jpg": "/static/media/tagliamento_braided.c5af7c7f.jpg",
     "static/media/talksCardBack.svg": "/static/media/talksCardBack.6ac91b16.svg",
     "static/media/talksCardBackAlt.svg": "/static/media/talksCardBackAlt.3fa54242.svg",
     "static/media/tiktok_logo.png": "/static/media/tiktok_logo.0993e324.png",
@@ -88,6 +88,6 @@
     "static/js/runtime-main.2781e2dc.js",
     "static/js/2.5f766b31.chunk.js",
     "static/css/main.e50d1763.chunk.css",
-    "static/js/main.ae4b41f0.chunk.js"
+    "static/js/main.95eb3716.chunk.js"
   ]
 }

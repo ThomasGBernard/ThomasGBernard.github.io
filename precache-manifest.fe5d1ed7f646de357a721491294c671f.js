@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "650171d9d0d92b112ecc5a51c37ba0bf",
+    "revision": "a902d288ed7846db4d478df5125d87a9",
     "url": "/index.html"
   },
   {
-    "revision": "757cc05df42a617a085d",
+    "revision": "4164321bd7496cfd6db6",
     "url": "/static/css/main.e50d1763.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.5f766b31.chunk.js"
   },
   {
-    "revision": "757cc05df42a617a085d",
-    "url": "/static/js/main.ae4b41f0.chunk.js"
+    "revision": "4164321bd7496cfd6db6",
+    "url": "/static/js/main.95eb3716.chunk.js"
   },
   {
     "revision": "f4163cc1361175add5e6",
@@ -368,8 +368,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/stanford_logo.2c497738.png"
   },
   {
-    "revision": "27095804efaca4a443e5cf69eb87521c",
-    "url": "/static/media/tagliamento_braided.27095804.jpg"
+    "revision": "c5af7c7f84094abab544c46344ba2aff",
+    "url": "/static/media/tagliamento_braided.c5af7c7f.jpg"
   },
   {
     "revision": "6ac91b161c2c9934a44f72d75d18142d",

@@ -38,7 +38,7 @@ const greeting = {
     "https://github.com/ThomasGBernard/ThomasGBernard.github.io",
   githubProfile: "https://github.com/ThomasGBernard",
   heroBackgroundAlt:
-    "The Tagliamento River at sunset, with gravel bars, pioneer vegetation and a mountain slope in the background",
+    "Panorama of the braided Tagliamento River, with wide gravel bars, turquoise channels and the Alps in the background",
   heroBackgroundCaption: "Tagliamento River, Friuli, Italy",
 };
 

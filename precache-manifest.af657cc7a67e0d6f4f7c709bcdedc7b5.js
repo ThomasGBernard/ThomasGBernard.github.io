@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "94a8f7254ffb950d08a37695ebd741a0",
+    "revision": "650171d9d0d92b112ecc5a51c37ba0bf",
     "url": "/index.html"
   },
   {
-    "revision": "6f0282c3d28d7662e91c",
+    "revision": "757cc05df42a617a085d",
     "url": "/static/css/main.e50d1763.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.5f766b31.chunk.js"
   },
   {
-    "revision": "6f0282c3d28d7662e91c",
-    "url": "/static/js/main.aeb1d5ce.chunk.js"
+    "revision": "757cc05df42a617a085d",
+    "url": "/static/js/main.ae4b41f0.chunk.js"
   },
   {
     "revision": "f4163cc1361175add5e6",
@@ -280,8 +280,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/hero_landslide_change.959d9a0d.jpg"
   },
   {
-    "revision": "cf1d742ed21b82fef31e7c084b0f8158",
-    "url": "/static/media/hero_tagliamento_mountains.cf1d742e.jpg"
+    "revision": "737a492e3cbf628adba523ed30bdc217",
+    "url": "/static/media/hero_tagliamento_panorama.737a492e.jpg"
   },
   {
     "revision": "d3fccbe1db76b96f4f320d9c0f7da30c",

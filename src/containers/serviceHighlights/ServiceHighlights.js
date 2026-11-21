@@ -24,14 +24,14 @@ export default function ServiceHighlights(props) {
         </p>
         <div className="highlights-flow" style={{ color: theme.text }}>
           <span className="flow-step">
-            <i className="fas fa-database"></i> Your data
+            <i className="fas fa-circle-question"></i> Your question
           </span>
           <i
             className="fas fa-arrow-right flow-arrow"
             style={{ color: theme.imageHighlight }}
           ></i>
           <span className="flow-step">
-            <i className="fas fa-map"></i> Maps & numbers
+            <i className="fas fa-database"></i> Data & models
           </span>
           <i
             className="fas fa-arrow-right flow-arrow"
@@ -41,7 +41,7 @@ export default function ServiceHighlights(props) {
             className="flow-step flow-step-strong"
             style={{ backgroundColor: theme.text, color: theme.body }}
           >
-            <i className="fas fa-stethoscope"></i> Diagnosis
+            <i className="fas fa-circle-check"></i> Clear answer
           </span>
         </div>
       </Fade>
@@ -71,7 +71,7 @@ export default function ServiceHighlights(props) {
                   className="highlight-diagnosis-label"
                   style={{ color: theme.imageHighlight }}
                 >
-                  The diagnosis
+                  The question I answer
                 </span>
                 {service.diagnosis}
               </div>

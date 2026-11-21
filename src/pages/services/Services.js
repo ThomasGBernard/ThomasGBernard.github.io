@@ -69,7 +69,7 @@ function ServiceCard({ service, theme }) {
             className="service-diagnosis-label"
             style={{ color: theme.imageHighlight }}
           >
-            The diagnosis you get
+            The question I answer
           </span>
           {service.diagnosis}
         </div>

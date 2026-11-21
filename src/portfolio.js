@@ -778,7 +778,7 @@ const servicesStandalone = {
 const serviceHighlightsHeader = {
   title: "How I can help",
   description:
-    "Maps are only half of the answer. Each service ends with a written diagnosis: how your river works, how confident we can be, and what to do next.",
+    "Maps are only half of the answer. Every project ends with a clear answer you can act on, whether a diagnosis of your river, a study for your permit or a stand-alone analysis, always with how confident we can be.",
 };
 
 // Home page "How I can help" cards (separate from the Services page list)

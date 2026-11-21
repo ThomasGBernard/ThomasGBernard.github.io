@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ServiceHighlights.css";
-import { homeServices, serviceHighlightsHeader } from "../../portfolio";
+import {
+  homeServices,
+  serviceHighlightsHeader,
+  servicesStandalone,
+} from "../../portfolio";
 import { Fade } from "react-reveal";
 
 export default function ServiceHighlights(props) {
@@ -75,6 +79,41 @@ export default function ServiceHighlights(props) {
           </Fade>
         ))}
       </div>
+
+      {servicesStandalone && (
+        <Fade bottom duration={1000} distance="20px">
+          <div
+            className="highlights-standalone"
+            style={{ backgroundColor: theme.compImgHighlight }}
+          >
+            <span
+              className="highlights-standalone-label"
+              style={{ color: theme.text }}
+            >
+              {servicesStandalone.title}, beyond rivers:
+            </span>
+            <span className="highlights-standalone-items">
+              {servicesStandalone.items.map((item) => (
+                <Link
+                  to="/services"
+                  className="highlights-standalone-item"
+                  key={item.title}
+                  style={{
+                    color: theme.text,
+                    border: `1px solid ${theme.imageHighlight}`,
+                  }}
+                >
+                  <i
+                    className={item.icon}
+                    style={{ color: theme.imageHighlight }}
+                  ></i>{" "}
+                  {item.title}
+                </Link>
+              ))}
+            </span>
+          </div>
+        </Fade>
+      )}
 
       <div className="highlights-more">
         <Link

@@ -113,6 +113,45 @@
   font-size: 14px;
 }
 
+/* Stand-alone work strip under the service cards */
+.highlights-standalone {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: 8px;
+}
+
+.highlights-standalone-label {
+  font-size: 16px;
+  font-family: "Google Sans Medium";
+}
+
+.highlights-standalone-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.highlights-standalone-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.highlights-standalone-item:hover {
+  transform: translateY(-2px);
+}
+
 .highlights-more {
   text-align: center;
   margin-top: 28px;

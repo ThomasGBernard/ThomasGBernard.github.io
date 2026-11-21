@@ -18,11 +18,12 @@
   min-height: 540px;
   border-radius: 12px;
   overflow: hidden;
+  /* darker on the right too, so the full-width text stays readable */
   background-image: linear-gradient(
       90deg,
       rgba(11, 31, 46, 0.88) 0%,
-      rgba(11, 31, 46, 0.7) 45%,
-      rgba(11, 31, 46, 0.2) 100%
+      rgba(11, 31, 46, 0.75) 50%,
+      rgba(11, 31, 46, 0.6) 100%
     ),
     var(--hero-bg);
   background-size: cover;
@@ -31,14 +32,22 @@
   align-items: center;
   padding: 60px 64px;
   /* align the hero text with the centred 1300px content column on wide screens
-     (50% of the 94%-wide hero wrapper minus half the column) */
+     (50% of the 94%-wide hero wrapper minus half the column), same margin on
+     both sides so the text spans the full column */
   padding-left: max(64px, calc(50% - 650px));
+  padding-right: max(64px, calc(50% - 650px));
   box-sizing: border-box;
   box-shadow: 0 10px 30px rgba(15, 42, 61, 0.18);
 }
 
+/* react-reveal wraps the text in a div: make it fill the hero width */
+.greeting-hero > * {
+  flex: 1;
+  min-width: 0;
+}
+
 .greeting-text-div {
-  max-width: 640px;
+  max-width: none;
 }
 
 .greeting-text {

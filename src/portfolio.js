@@ -680,11 +680,12 @@ const services = [
       "What drives the evolution of the reach, and which actions will give the river room to recover?",
     status: { label: "Available now", available: true },
     problem:
-      "Before deciding where to restore, you need to understand the river's past: narrowing, incision, loss of braiding, disconnected floodplains. I reconstruct the trajectory of the reach from lidar, historical aerial photographs, long profiles and historical maps, identify the causes (sediment deficit, embankments, extraction, dams) and map the sectors with restoration potential, ranked by priority.",
+      "Before deciding where to restore, you need to understand the river's past: narrowing, incision, loss of braiding, disconnected floodplains. I reconstruct the trajectory of the reach from lidar, historical aerial photographs, long profiles and historical maps, identify the causes (sediment deficit, embankments, extraction, dams) and map the sectors with restoration potential, ranked by priority. Under the EU Nature Restoration Regulation, national plans must reconnect rivers and restore the natural functions of their floodplains: this diagnosis shows where such measures will work.",
     deliverables: [
       "Trajectory of the reach over decades: planform, active width and bed elevation",
       "Causes of change and current trend (incision, narrowing, recovery)",
       "Map of sectors with restoration potential and a prioritised list of actions",
+      "For Italian reaches, an assessment structured on the ISPRA IDRAIM method, the national framework used for river management plans and the national nature restoration plan",
       "Optional sediment budget, from existing measurements or a field campaign",
       "Report written for decision makers and for the project team",
     ],
